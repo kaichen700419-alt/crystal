@@ -1,0 +1,85 @@
+/* ============================================================
+   Hearth Studio — CORE · Base elements & utilities
+   Pure consumers of semantic tokens, so every surface inherits
+   the active theme automatically.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-body);
+  color: var(--c-text);
+  background: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, .u-heading {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-heading);
+  color: var(--c-text);
+  margin: 0 0 0.5em;
+}
+h1 { font-size: var(--text-h1); }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); letter-spacing: var(--tracking-body); }
+h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  line-height: var(--leading-snug);
+  color: var(--c-text);
+  margin: 0 0 0.5em;
+}
+p { margin: 0 0 1em; text-wrap: pretty; }
+a { color: var(--c-accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+strong { font-weight: var(--fw-semibold); }
+hr { border: 0; border-top: 1px solid var(--c-border); margin: var(--space-5) 0; }
+::selection { background: var(--c-accent); color: var(--c-on-accent); }
+
+img { max-width: 100%; display: block; }
+
+/* Visible, theme-aware focus for accessibility */
+:focus-visible {
+  outline: 2px solid var(--c-ring);
+  outline-offset: 2px;
+}
+
+/* ---- Utilities ---- */
+.u-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-accent);
+}
+.u-heading-font { font-family: var(--font-heading); }
+.u-body-font    { font-family: var(--font-body); }
+.u-muted   { color: var(--c-text-muted); }
+.u-subtle  { color: var(--c-text-subtle); }
+.u-lead    { font-size: var(--text-lead); line-height: var(--leading-relaxed); color: var(--c-text-muted); }
+.u-container { max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.u-narrow    { max-width: var(--container-narrow); margin-inline: auto; }
+
+/* Imagery picks up the theme's photo tone */
+.u-photo { filter: var(--photo-filter); background: var(--photo-bg); }
+
+/* The house "rule" motif — a hairline kicker under eyebrows */
+.u-rule { width: 40px; height: 1px; background: var(--c-text); border: 0; margin: var(--space-4) 0; opacity: 0.5; }
+
+/* Screen-reader only */
+.u-sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}

@@ -1,0 +1,86 @@
+/* ============================================================
+   Hearth Studio — CORE · Invariant Scale
+   These tokens are the SAME across every brand. They define the
+   skeleton (rhythm, type ramp, motion, layout). The skinnable
+   values (color/font/radius/density/photo) live in theme files.
+   ============================================================ */
+
+:root {
+  /* ---- Spacing · 4px grid (invariant) ---- */
+  --space-0:  0;
+  --space-1:  0.25rem;  /*  4 */
+  --space-2:  0.5rem;   /*  8 */
+  --space-3:  0.75rem;  /* 12 */
+  --space-4:  1rem;     /* 16 */
+  --space-5:  1.5rem;   /* 24 */
+  --space-6:  2rem;     /* 32 */
+  --space-7:  3rem;     /* 48 */
+  --space-8:  4rem;     /* 64 */
+  --space-9:  6rem;     /* 96 */
+  --space-10: 8rem;     /* 128 */
+  --space-11: 11rem;    /* 176 */
+
+  /* ---- Type ramp (invariant sizes; families/colors are themed) ---- */
+  --text-display: clamp(2.75rem, 1.4rem + 5.6vw, 5.25rem); /* @kind spacing */
+  --text-h1:      clamp(2.15rem, 1.5rem + 2.7vw, 3.25rem); /* @kind spacing */
+  --text-h2:      clamp(1.65rem, 1.25rem + 1.7vw, 2.4rem); /* @kind spacing */
+  --text-h3:      1.5rem;
+  --text-h4:      1.2rem;
+  --text-lead:    1.225rem;
+  --text-body:    1rem;
+  --text-sm:      0.875rem;
+  --text-xs:      0.75rem;
+  --text-label:   0.72rem;
+
+  /* ---- Line height & tracking (invariant) ---- */
+  --leading-tight:   1.04;
+  --leading-snug:    1.18;
+  --leading-normal:  1.55;
+  --leading-relaxed: 1.78;   /* long CJK reading */
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:  0.1em;
+  --tracking-wider: 0.22em;  /* eyebrows / small caps */
+
+  /* ---- Weights (invariant) ---- */
+  --fw-regular:  400; /* @kind other */
+  --fw-medium:   500; /* @kind other */
+  --fw-semibold: 600; /* @kind other */
+  --fw-bold:     700; /* @kind other */
+
+  /* ---- Layout (invariant) ---- */
+  --container:        1240px;
+  --container-narrow: 720px;
+  --gutter: clamp(1.25rem, 5vw, 5rem); /* @kind spacing */
+
+  /* ---- Responsive breakpoints (reference values; use in @media) ----
+     sm 480 · md 768 · lg 1024 · xl 1280 */
+  --bp-sm: 480px;  /* @kind spacing */
+  --bp-md: 768px;  /* @kind spacing */
+  --bp-lg: 1024px; /* @kind spacing */
+  --bp-xl: 1280px; /* @kind spacing */
+
+  /* ---- Motion · slow & elegant house default (invariant) ---- */
+  --ease-out:  cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);      /* @kind other */
+  --dur-1: 180ms; /* @kind other */
+  --dur-2: 320ms; /* @kind other */
+  --dur-3: 520ms; /* @kind other */
+
+  /* ---- Elevation · house keeps shadows almost absent (invariant scale) ---- */
+  --shadow-none: none;
+  --shadow-hair: 0 0 0 1px var(--c-border);
+  --shadow-sm: 0 1px 2px rgba(28, 24, 20, 0.05); /* @kind other */
+  --shadow-md: 0 10px 30px -14px rgba(28, 24, 20, 0.18); /* @kind other */
+  --shadow-lg: 0 26px 60px -28px rgba(28, 24, 20, 0.26); /* @kind other */
+
+  /* ---- Z-index (invariant) ---- */
+  --z-header: 50; /* @kind other */
+  --z-overlay: 90; /* @kind other */
+  --z-modal: 100; /* @kind other */
+  --z-toast: 120; /* @kind other */
+
+  /* ---- Invariant radii helpers (pill stays round for dots/avatars) ---- */
+  --radius-pill: 999px;
+}

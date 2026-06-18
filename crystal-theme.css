@@ -1,0 +1,66 @@
+/* ============================================================
+   THEME · 晶澤 The Crystal Sun Moon Lake
+   日月潭伊達邵碼頭湖畔精品度假飯店 — Between Light & Water
+   光與水之間：冷霧湖光底 × 深松墨字 × 微光金銅點綴
+
+   A new brand skin for the Sui / Hearth system. Overrides only
+   the skinnable semantic tokens inside [data-theme="crystal"].
+   Cool, misty lake light (not warm dough paper); a deep pine
+   ink for type/primary; a single warm brass accent — lamplight
+   on water at dusk — used sparingly for luxury warmth.
+   ============================================================ */
+
+[data-theme="crystal"] {
+  /* ── COLOR ── */
+  /* 湖光霧白 — cool misty lake light */
+  --c-bg:        #E9EEED;
+  --c-surface:   #F5F8F7;   /* 霧白卡面 */
+  --c-surface-2: #DAE3E1;   /* sunken / hover, cool */
+
+  /* 深湖墨 — deep lake ink, blue-green-black */
+  --c-text:        #1B2A2C;
+  --c-text-muted:  #4E605D;
+  --c-text-subtle: #84938E;
+
+  /* primary — 深松墨 deep pine ink (buttons read near-black) */
+  --c-primary:       #1F2E2E;
+  --c-primary-hover: #11201F;
+  --c-on-primary:    #F5F8F7;
+
+  /* secondary — 湖綠灰 lake green-grey */
+  --c-secondary:    #5A6F6A;
+  --c-on-secondary: #F5F8F7;
+
+  /* accent — 微光金銅 lamplight brass (warm; sparing) */
+  --c-accent:       #9A7638;
+  --c-accent-hover: #7E5F2C;
+  --c-on-accent:    #F8F5EE;
+
+  /* lines & focus — cool, soft */
+  --c-border:        #CDD7D4;
+  --c-border-strong: #B1BDB8;
+  --c-ring:          #9A7638;
+
+  /* status — cohesive cool greens + brass warning + lake-stone danger */
+  --c-success:    #4F6B57;  --c-success-bg: #DDE7DD;
+  --c-warning:    #97772F;  --c-warning-bg: #EDE4CE;
+  --c-danger:     #9A4A3C;  --c-danger-bg:  #ECDED9;
+  --c-info:       #466069;  --c-info-bg:    #DBE6E7;
+
+  /* ── FONT ── elegant serif display + humanist sans, TC chained ── */
+  --font-heading: "Cormorant Garamond", "Noto Serif TC", Georgia, serif;
+  --font-body:    "Hanken Grotesk", "Noto Sans TC", -apple-system, "Segoe UI", sans-serif;
+  --font-heading-scale: 1.06;
+
+  /* ── TRACKING ── a little air, lake-calm but still editorial ── */
+  --tracking-heading: 0.012em;
+  --tracking-body:    0.012em;
+  --tracking-eyebrow: 0.32em;
+
+  /* ── RADIUS ── 2px 極小 (refined, near-square editorial) ── */
+  --radius: 2px;
+
+  /* ── PHOTO TONE ── natural lake light, a touch cool & crisp ── */
+  --photo-filter: saturate(0.96) contrast(1.03) brightness(1.01); /* @kind other */
+  --photo-bg: #C3CFCB;
+}

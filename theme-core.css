@@ -1,0 +1,93 @@
+/* ============================================================
+   Hearth Studio — SKINNABLE LAYER · House defaults
+   Every value here is a SEMANTIC TOKEN that components consume.
+   The :root values below are the studio's house theme
+   (爐光設計室 預設膚) — restrained, warm, artisanal.
+
+   A brand theme overrides ONLY these names inside a single
+   [data-theme="…"] scope (see themes/<brand>/theme.css).
+   Components never reference raw hex — only these tokens — so a
+   new brand = a new token set, no component changes.
+
+   Skinnable axes:  color · font · radius · density · photo-tone
+   ============================================================ */
+
+:root {
+  /* ───────── COLOR ─────────
+     primary · secondary · accent · background · text · warning  */
+
+  /* Surfaces — 暖白 / 未漂白棉布感 (unbleached cotton) */
+  --c-bg:        #F4EFE6;   /* page */
+  --c-surface:   #FBF8F1;   /* card / raised */
+  --c-surface-2: #ECE5D7;   /* sunken / hover fill */
+
+  /* Text — 深炭, never pure black */
+  --c-text:        #2A2521;
+  --c-text-muted:  #6A6055;
+  --c-text-subtle: #948876;
+
+  /* Primary — restrained dark (buttons read as deep charcoal) */
+  --c-primary:      #2A2521;
+  --c-primary-hover:#171311;
+  --c-on-primary:   #F4EFE6;
+
+  /* Secondary — stone */
+  --c-secondary:    #7C7363;
+  --c-on-secondary: #FBF8F1;
+
+  /* Accent — 爐光 ember/amber (use sparingly) */
+  --c-accent:       #B0732F;
+  --c-accent-hover: #935E22;
+  --c-on-accent:    #FBF8F1;
+
+  /* Lines & focus */
+  --c-border:        #E0D7C6;
+  --c-border-strong: #CBBFA8;
+  --c-ring:          #B0732F;
+
+  /* Status (semantic; themeable) */
+  --c-success:    #5E7152;  --c-success-bg: #E7ECDD;
+  --c-warning:    #9A6B1F;  --c-warning-bg: #F3E8D2;
+  --c-danger:     #9A4530;  --c-danger-bg:  #F1E1DA;
+  --c-info:       #4F6173;  --c-info-bg:    #E4EAEF;
+
+  /* ───────── FONT ─────────
+     heading (serif, French hand) · body (humanist sans) · CJK chained */
+  --font-heading: "Cormorant Garamond", "Noto Serif TC", Georgia, serif;
+  --font-body:    "Hanken Grotesk", "Noto Sans TC", -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    ui-monospace, "SFMono-Regular", Menlo, monospace;
+  /* Optical scale for serif headings (themes may bump for chunkier serifs) */
+  --font-heading-scale: 1;
+
+  /* ───────── TRACKING (skinnable) ─────────
+     Brands control "breathing room". House = tight editorial serif.
+     A calmer brand (e.g. a ryokan) widens these for more air. */
+  --tracking-heading: var(--tracking-tight);   /* applied to h1/h2/.u-heading */
+  --tracking-body:    var(--tracking-normal);  /* applied to body copy */
+  --tracking-eyebrow: var(--tracking-wider);   /* applied to eyebrows/labels */
+
+  /* ───────── RADIUS ─────────
+     0 = 職人感 · 4px = 現代 · 8px = 親切. House = near-square. */
+  --radius: 2px;
+  --radius-control: var(--radius);
+  --radius-card:    var(--radius);
+
+  /* ───────── PHOTO TONE ─────────
+     applied to imagery via .u-photo / <img> in cards.
+     House baseline = honest, lightly warm. */
+  --photo-filter: saturate(0.98) contrast(1.01); /* @kind other */
+  --photo-bg: #E6DDCC; /* placeholder plate tone */
+}
+
+/* ───────── DENSITY ─────────
+   Sets control padding, card padding, section rhythm & control height.
+   Default = comfortable. Override with [data-density="compact|loose"]. */
+:root,
+[data-density="comfortable"] {
+  --pad-control-x: var(--space-5);  /* 24 */
+  --pad-control-y: 0.75rem;
+  --control-h: 46px;
+  --pad-card: var(--space-6);       /* 32 */
+  --gap-section: var(--space-9);    /* 96 */
+  --gap-stack: var(--space-5);      /* 24 */
+}

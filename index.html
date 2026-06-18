@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="scale.css">
+<link rel="stylesheet" href="theme-core.css">
+<link rel="stylesheet" href="density.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="atelier-ling.css">
+<link rel="stylesheet" href="hoshi-onsen.css">
+<link rel="stylesheet" href="crystal-theme.css">
+<script src="ds-bundle.js"></script>
+<style>
+  body { margin: 0; }
+  @keyframes crystalKen { from { transform: scale(1.09); } to { transform: scale(1); } }
+  @keyframes crystalReveal { from { transform: translateY(34px); } to { transform: translateY(0); } }
+  @keyframes crystalRevealSlow { from { transform: translateY(50px); } to { transform: translateY(0); } }
+  @keyframes crystalFadeUp { from { transform: translateY(26px); } to { transform: none; } }
+  @keyframes crystalFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes crystalScrollCue { 0% { transform: translateY(0); opacity: 0.2; } 50% { opacity: 1; } 100% { transform: translateY(13px); opacity: 0.2; } }
+  @keyframes crystalImgReveal { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+  @keyframes crystalLineGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes crystalCurtain { 0%, 42% { clip-path: inset(0 0 0 0); } 100% { clip-path: inset(0 0 100% 0); } }
+  @keyframes crystalCurtainText { 0% { opacity: 0; transform: translateY(12px); } 26% { opacity: 1; transform: none; } 52% { opacity: 1; } 72%, 100% { opacity: 0; transform: translateY(-8px); } }
+  @media (prefers-reduced-motion: reduce) {
+    [style*="crystalReveal"], [style*="crystalRevealSlow"] { animation: none !important; opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#14201F"/><text x="50" y="58" font-family="Georgia,serif" font-size="34" fill="#9A7638" text-anchor="middle">晶</text><line x1="34" y1="70" x2="66" y2="70" stroke="#9A7638" stroke-width="1"/></svg></template>
+<div data-theme="crystal" data-density="comfortable" style="min-height:100vh;background:var(--c-bg);color:var(--c-text);font-family:var(--font-body);overflow-x:hidden">
+
+  <div aria-hidden="true" style="position:fixed;inset:13px;border:1px solid rgba(160,160,160,0.9);mix-blend-mode:difference;pointer-events:none;z-index:120"></div>
+
+  <header style="{{ headerStyle }}">
+    <div style="max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,72px);height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <button onClick="{{ goHome }}" style="display:flex;align-items:baseline;gap:12px;background:none;border:0;cursor:pointer;padding:0">
+        <span style="font-family:var(--font-heading);font-size:30px;font-weight:500;letter-spacing:0.06em;line-height:1;transition:color .45s ease;color:{{ brandMain }}">晶澤</span>
+        <span style="font-family:var(--font-body);font-size:9.5px;letter-spacing:0.36em;text-transform:uppercase;transition:color .45s ease;color:{{ brandSub }}">The Crystal</span>
+      </button>
+
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:34px">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="6">
+          <button onClick="{{ item.onClick }}" style="{{ item.navStyle }}" style-hover="color:var(--c-accent)">{{ item.label }}</button>
+        </sc-for>
+      </nav>
+      <div style="display:flex;align-items:center;gap:20px">
+        <a href="tel:+886497008188" style="{{ phoneStyle }}" style-hover="color:var(--c-accent)">049-7008188</a>
+        <button onClick="{{ openBooking }}" style="{{ ctaStyle }}" style-hover="opacity:0.82">線上訂房</button>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ isMobile }}">
+        <button onClick="{{ toggleMenu }}" aria-label="選單" style="background:none;border:0;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px;color:{{ brandMain }}">
+          <span style="display:block;width:26px;height:1.5px;background:currentColor"></span>
+          <span style="display:block;width:26px;height:1.5px;background:currentColor"></span>
+          <span style="display:block;width:19px;height:1.5px;background:currentColor"></span>
+        </button>
+      </sc-if>
+    </div>
+  </header>
+
+  <sc-if value="{{ menuOpen }}">
+    <div style="position:fixed;inset:0;z-index:80;background:#14201F;color:#F5F8F7;animation:crystalFade .4s var(--ease-out);display:flex;flex-direction:column;padding:24px clamp(22px,7vw,42px) 40px">
+      <div style="display:flex;justify-content:space-between;align-items:center;height:60px">
+        <span style="font-family:var(--font-heading);font-size:28px;letter-spacing:0.05em">晶澤</span>
+        <button onClick="{{ toggleMenu }}" aria-label="關閉" style="background:none;border:0;color:inherit;font-size:32px;cursor:pointer;line-height:1">×</button>
+      </div>
+      <nav style="display:flex;flex-direction:column;margin-top:18px">
+        <sc-for list="{{ menuItems }}" as="item" hint-placeholder-count="8">
+          <button onClick="{{ item.onClick }}" style="background:none;border:0;border-top:1px solid rgba(255,255,255,0.1);text-align:left;padding:20px 2px;color:#F5F8F7;font-family:var(--font-heading);font-weight:500;font-size:27px;letter-spacing:0.02em;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline">
+            <span>{{ item.label }}</span><span style="font-family:var(--font-body);font-size:10px;letter-spacing:0.24em;text-transform:uppercase;opacity:0.45">{{ item.en }}</span>
+          </button>
+        </sc-for>
+      </nav>
+      <div style="margin-top:auto;display:flex;flex-direction:column;gap:16px;padding-top:30px">
+        <button onClick="{{ openBooking }}" style="background:var(--c-accent);border:0;color:var(--c-on-accent);font-family:var(--font-body);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;padding:17px;cursor:pointer">線上訂房 · Book Now</button>
+        <a href="tel:+886497008188" style="text-align:center;color:rgba(245,248,247,0.66);text-decoration:none;letter-spacing:0.1em;font-size:14px">049-7008188</a>
+      </div>
+    </div>
+  </sc-if>
+
+  <main>
+    <!-- ============ HOME ============ -->
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div data-screen-label="首頁 Home">
+
+      <!-- HERO — asymmetric split -->
+      <section style="position:relative;display:grid;grid-template-columns:{{ heroCols }};min-height:calc(100vh - 84px)">
+        <!-- text panel -->
+        <div style="position:relative;background:var(--c-bg);display:flex;flex-direction:column;justify-content:center;padding:clamp(48px,6vw,96px) clamp(28px,5vw,84px);order:{{ heroTextOrder }};z-index:2">
+          <div style="display:flex;align-items:center;gap:18px;margin-bottom:clamp(30px,4vw,46px);animation:crystalFadeUp .9s var(--ease-out) .1s both">
+            <span style="font-size:10px;letter-spacing:0.36em;text-transform:uppercase;color:var(--c-accent)">壹 — Sun Moon Lake</span>
+            <span style="height:1px;width:clamp(28px,6vw,80px);background:var(--c-border-strong);transform-origin:left;animation:crystalLineGrow 1.1s var(--ease-out) .5s both"></span>
+          </div>
+          <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.9rem,1.2rem+6.4vw,6.6rem);line-height:0.96;letter-spacing:0.02em;margin:0;color:var(--c-text);animation:crystalFadeUp 1s var(--ease-out) .2s both">光 與 水<br><span style="font-style:italic;font-weight:400;color:var(--c-accent)">之　間</span></h1>
+          <p style="font-size:clamp(1rem,0.9rem+0.4vw,1.18rem);font-weight:300;line-height:1.85;max-width:32ch;color:var(--c-text-muted);margin:clamp(28px,4vw,42px) 0 0;animation:crystalFadeUp 1s var(--ease-out) .32s both">住進日月潭的光與水之間。湖畔的精品時光——從正湖景到步行可達伊達邵碼頭，先選一片風景，再選你的房。</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(34px,4vw,48px);animation:crystalFadeUp 1s var(--ease-out) .44s both">
+            <button onClick="{{ openBooking }}" style="background:var(--c-accent);color:var(--c-on-accent);border:0;font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:16px 34px;cursor:pointer;transition:opacity .3s" style-hover="opacity:0.85">立即訂房 · Reserve</button>
+            <button onClick="{{ goRooms }}" style="background:none;color:var(--c-text);border:1px solid var(--c-border-strong);font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:16px 34px;cursor:pointer;transition:border-color .3s" style-hover="border-color:var(--c-text)">探索房型</button>
+          </div>
+        </div>
+        <!-- image panel -->
+        <div style="position:relative;overflow:hidden;min-height:46vh;background:var(--photo-bg);order:{{ heroImgOrder }}">
+          <div id="crystal-hero-sentinel" aria-hidden="true" style="position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none"></div>
+          <img src="https://www.thecrystal.com.tw/upload/product/1709221029140000003.jpg" alt="日月潭晶澤湖景客房" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:var(--photo-filter);animation:crystalImgReveal 1.5s var(--ease-out) both,crystalKen 13s var(--ease-out) both">
+          <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(13,22,23,0.28),transparent 42%)"></div>
+          <div aria-hidden="true" style="position:absolute;right:clamp(16px,1.6vw,26px);bottom:clamp(20px,3vw,38px);writing-mode:vertical-rl;font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:rgba(245,248,247,0.82)">23.86°N 120.91°E · 伊達邵碼頭</div>
+        </div>
+      </section>
+
+      <!-- ENQUIRY STRIP -->
+      <section style="background:var(--c-primary);color:var(--c-on-primary)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(20px,2vw,26px) clamp(20px,5vw,72px);display:flex;flex-wrap:wrap;align-items:flex-end;gap:clamp(16px,3vw,44px)">
+          <div style="font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--c-accent);align-self:center;white-space:nowrap">查詢空房<br>Check Availability</div>
+          <div style="display:flex;flex-direction:column;gap:7px;flex:1;min-width:120px">
+            <label style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,248,247,0.55)">入住 Check-in</label>
+            <input type="date" style="border:0;border-bottom:1px solid rgba(245,248,247,0.3);background:transparent;font-family:var(--font-body);font-size:15px;color:#F5F8F7;padding:4px 0;outline:none;color-scheme:dark">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px;flex:1;min-width:120px">
+            <label style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,248,247,0.55)">退房 Check-out</label>
+            <input type="date" style="border:0;border-bottom:1px solid rgba(245,248,247,0.3);background:transparent;font-family:var(--font-body);font-size:15px;color:#F5F8F7;padding:4px 0;outline:none;color-scheme:dark">
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px;flex:0.7;min-width:96px">
+            <label style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,248,247,0.55)">人數 Guests</label>
+            <select style="border:0;border-bottom:1px solid rgba(245,248,247,0.3);background:transparent;font-family:var(--font-body);font-size:15px;color:#F5F8F7;padding:4px 0;outline:none">
+              <option style="color:#14201F">2 位</option><option style="color:#14201F">1 位</option><option style="color:#14201F">3 位</option><option style="color:#14201F">4 位</option>
+            </select>
+          </div>
+          <button onClick="{{ openBooking }}" style="background:var(--c-accent);color:var(--c-on-accent);border:0;font-family:var(--font-body);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding:14px 34px;cursor:pointer;transition:opacity .3s;white-space:nowrap" style-hover="opacity:0.85">查詢</button>
+        </div>
+      </section>
+
+      <!-- THREE BRANDS — equal family triptych -->
+      <section style="background:var(--c-bg);border-top:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(96px,13vh,168px) clamp(20px,5vw,72px)">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(52px,7vw,88px);animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 18%">
+            <div style="max-width:30ch">
+              <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:24px">晶澤家族 · One Lake, Three Houses</div>
+              <h2 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2rem,1.3rem+2.8vw,3.7rem);line-height:1.05;letter-spacing:0.01em;margin:0">同一座湖，<span style="font-style:italic">三個品牌</span></h2>
+            </div>
+            <p style="max-width:32ch;color:var(--c-text-muted);font-size:15px;font-weight:300;line-height:1.85;margin:0 0 8px">日月潭晶澤、亞覓餐酒館、小艸茶堂——分屬日月潭的不同角落，以住宿、料理與茶湯，串起同一座湖的一日生活。</p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border-top:1px solid var(--c-border-strong)">
+            <sc-for list="{{ brands }}" as="b" hint-placeholder-count="3">
+              <button onClick="{{ b.onClick }}" style="text-align:left;background:none;border:0;cursor:pointer;display:flex;flex-direction:column;padding:clamp(28px,2.4vw,40px) clamp(20px,1.8vw,30px) clamp(32px,3vw,44px);border-right:1px solid var(--c-border);animation:crystalRevealSlow both;animation-timeline:view();animation-range:entry 0% cover 16%" style-hover="background:var(--c-surface)">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:26px">
+                  <span style="font-family:var(--font-heading);font-weight:300;font-size:1.5rem;color:var(--c-accent);line-height:1">{{ b.idx }}</span>
+                  <span style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-text-subtle)">{{ b.role }}</span>
+                </div>
+                <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--photo-bg);margin-bottom:26px">
+                  <sc-if value="{{ b.hasImg }}" hint-placeholder-val="{{ true }}">{{ b.imgEl }}</sc-if>
+                  <sc-if value="{{ b.noImg }}">
+                    <div style="position:absolute;inset:0;background:linear-gradient(155deg,#243530 0%,#14201f 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px">
+                      <span style="font-family:var(--font-heading);font-weight:300;font-size:5.5rem;color:var(--c-accent);line-height:0.9">茶</span>
+                      <div style="display:flex;flex-direction:column;gap:7px;align-items:center">
+                        <sc-for list="{{ b.teaList }}" as="t" hint-placeholder-count="3">
+                          <span style="font-size:11px;letter-spacing:0.1em;color:rgba(245,248,247,0.6)">{{ t }}</span>
+                        </sc-for>
+                      </div>
+                    </div>
+                  </sc-if>
+                </div>
+                <h3 style="font-family:var(--font-heading);font-weight:500;font-size:1.7rem;margin:0 0 6px;letter-spacing:0.02em">{{ b.name }}</h3>
+                <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:16px">{{ b.en }}</div>
+                <p style="color:var(--c-text-muted);font-size:14px;font-weight:300;line-height:1.8;margin:0 0 22px">{{ b.desc }}</p>
+                <span style="margin-top:auto;font-size:12px;letter-spacing:0.08em;color:var(--c-accent)">{{ b.cta }} →</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <!-- MANIFESTO — asymmetric -->
+      <section style="background:var(--c-bg);border-top:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(96px,15vh,180px) clamp(20px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(32px,6vw,90px);align-items:start">
+          <div style="animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 16%">
+            <div style="font-size:11px;letter-spacing:0.36em;text-transform:uppercase;color:var(--c-accent);margin-bottom:22px">貳 — A Stay Remembered</div>
+            <div style="height:1px;width:64px;background:var(--c-border-strong)"></div>
+          </div>
+          <div style="grid-column:span 2;min-width:0;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 24%">
+            <p style="font-family:var(--font-heading);font-weight:300;font-size:clamp(1.7rem,1rem+2.8vw,3.4rem);line-height:1.3;letter-spacing:0.01em;color:var(--c-text);margin:0;text-wrap:balance">每一段美好的旅程，始於被<span style="font-style:italic;color:var(--c-accent)">用心對待</span>的感受。</p>
+            <p style="font-size:clamp(1rem,0.92rem+0.3vw,1.12rem);font-weight:300;line-height:1.9;color:var(--c-text-muted);margin:clamp(28px,4vw,40px) 0 0;max-width:52ch">我們相信，最動人的旅程不來自昂貴的物件，而是來自被照顧、被理解、被等待的瞬間——晶澤把日月潭的水光與台灣的溫暖，揉進每一次微小的服務裡。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROOMS — magazine index -->
+      <section style="background:var(--c-surface);border-top:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(96px,13vh,170px) clamp(20px,5vw,72px)">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(48px,7vw,80px);animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 18%">
+            <div style="max-width:26ch">
+              <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:22px">叁 — Rooms &amp; Suites</div>
+              <h2 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2rem,1.3rem+2.8vw,3.7rem);line-height:1.05;letter-spacing:0.01em;margin:0">先選一片<span style="font-style:italic">風景</span></h2>
+            </div>
+            <p style="max-width:32ch;color:var(--c-text-muted);font-size:15px;font-weight:300;line-height:1.85;margin:0 0 6px">主館四房型，從全湖景到街景；每一間都把日月潭的光，留在床畔與窗前。</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:{{ heroCols }};gap:clamp(28px,5vw,72px);align-items:start">
+            <!-- sticky feature image -->
+            <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--photo-bg);order:{{ heroImgOrder }};position:sticky;top:108px;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 14%">
+              <img id="crystal-room-feature" src="https://www.thecrystal.com.tw/upload/product/1708161752350000003.jpg" alt="晶澤主館房型" style="width:100%;height:100%;object-fit:cover;filter:var(--photo-filter);transition:opacity .5s var(--ease-out)">
+              <div aria-hidden="true" style="position:absolute;left:18px;bottom:16px;writing-mode:vertical-rl;font-size:10px;letter-spacing:0.34em;text-transform:uppercase;color:rgba(245,248,247,0.85)">Main Building · 主館</div>
+            </div>
+            <!-- numbered index -->
+            <div style="order:{{ heroTextOrder }};border-top:1px solid var(--c-border-strong)">
+              <sc-for list="{{ mainRooms }}" as="r" hint-placeholder-count="4">
+                <button onClick="{{ r.open }}" onMouseEnter="{{ r.onHover }}" style="width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--c-border);cursor:pointer;padding:clamp(22px,2.4vw,32px) 0;display:flex;align-items:baseline;gap:clamp(14px,2vw,28px);animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 10%" style-hover="padding-left:12px">
+                  <span style="font-family:var(--font-heading);font-weight:300;font-size:1rem;color:var(--c-accent);min-width:26px;font-variant-numeric:tabular-nums">{{ r.num }}</span>
+                  <div style="flex:1;min-width:0">
+                    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
+                      <h3 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(1.6rem,1.1rem+1.4vw,2.5rem);margin:0;letter-spacing:0.02em;line-height:1.05">{{ r.name }}</h3>
+                      <span style="font-family:var(--font-heading);font-size:1.2rem;color:var(--c-text);white-space:nowrap">{{ r.priceValue }}</span>
+                    </div>
+                    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:8px">
+                      <span style="font-size:12px;letter-spacing:0.06em;color:var(--c-text-muted)">{{ r.view }} · {{ r.metaLine }}</span>
+                      <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-accent);white-space:nowrap">查看 →</span>
+                    </div>
+                  </div>
+                </button>
+              </sc-for>
+              <div style="margin-top:clamp(32px,4vw,48px)">
+                <button onClick="{{ goRooms }}" style="background:none;border:0;border-bottom:1px solid var(--c-accent);cursor:pointer;color:var(--c-text);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding:0 0 7px" style-hover="color:var(--c-accent)">所有房型 · 含分館 →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SENSE OF PLACE — cinematic -->
+      <section style="position:relative;overflow:hidden">
+        <img src="https://www.thecrystal.com.tw/upload/product/1708161752350000004.jpg" alt="日月潭湖光" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:var(--photo-filter)">
+        <div style="position:absolute;inset:0;background:linear-gradient(115deg,rgba(13,22,23,0.8) 0%,rgba(13,22,23,0.45) 50%,rgba(13,22,23,0.2) 100%)"></div>
+        <div style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(120px,20vh,240px) clamp(24px,6vw,72px);color:#F5F8F7">
+          <div style="max-width:40ch;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 24%">
+            <div style="font-size:11px;letter-spacing:0.38em;text-transform:uppercase;color:rgba(245,248,247,0.78);margin-bottom:28px">A Sense of Place · 日月潭</div>
+            <p style="font-family:var(--font-heading);font-weight:300;font-size:clamp(1.6rem,1.1rem+2.2vw,2.9rem);line-height:1.4;margin:0;color:#F5F8F7">晨霧、湖光與夜星，<br>在同一扇窗裡<span style="font-style:italic">輪番上演</span>。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DINING & EXPERIENCES — image-led alternating -->
+      <section style="background:var(--c-bg)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(96px,13vh,170px) clamp(20px,5vw,72px)">
+          <div style="text-align:center;margin-bottom:clamp(48px,7vw,84px);animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 18%">
+            <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:24px">餐飲與體驗 · Dining &amp; Experiences</div>
+            <h2 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2rem,1.3rem+2.8vw,3.7rem);line-height:1.05;margin:0">在湖畔，<span style="font-style:italic">慢下來</span></h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:clamp(40px,7vw,110px)">
+            <sc-for list="{{ homeFacilities }}" as="f" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:{{ f.cols }};gap:clamp(28px,5vw,72px);align-items:center;animation:crystalRevealSlow both;animation-timeline:view();animation-range:entry 0% cover 20%">
+                <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--photo-bg);order:{{ f.imgOrder }}">
+                  {{ f.mediaEl }}
+                </div>
+                <div style="order:{{ f.textOrder }}">
+                  <div style="font-size:10px;letter-spacing:0.26em;text-transform:uppercase;color:var(--c-accent);margin-bottom:16px">{{ f.tag }}</div>
+                  <h3 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(1.7rem,1.2rem+1.6vw,2.5rem);margin:0 0 18px;letter-spacing:0.01em">{{ f.name }}</h3>
+                  <p style="color:var(--c-text-muted);font-size:15.5px;font-weight:300;line-height:1.9;margin:0 0 26px;max-width:42ch">{{ f.long }}</p>
+                  <button onClick="{{ goFacilities }}" style="background:none;border:0;border-bottom:1px solid var(--c-accent);cursor:pointer;color:var(--c-text);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:0 0 6px" style-hover="color:var(--c-accent)">了解更多</button>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <!-- OFFERS -->
+      <section style="background:#14201F;color:#F5F8F7">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(96px,13vh,170px) clamp(20px,5vw,72px)">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(44px,6vw,72px);animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 18%">
+            <div><div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:24px">推薦優惠 · Offers</div>
+            <h2 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2rem,1.3rem+2.8vw,3.7rem);line-height:1.05;margin:0;color:#F5F8F7">湖畔<span style="font-style:italic">禮遇</span></h2></div>
+            <button onClick="{{ goPromotions }}" style="background:none;border:0;border-bottom:1px solid var(--c-accent);cursor:pointer;color:#F5F8F7;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:0 0 6px;white-space:nowrap" style-hover="color:var(--c-accent)">所有優惠</button>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:clamp(20px,2.6vw,40px)">
+            <sc-for list="{{ promotions }}" as="p" hint-placeholder-count="3">
+              <button onClick="{{ goPromotions }}" style="text-align:left;background:none;border:0;border-top:1px solid rgba(255,255,255,0.18);cursor:pointer;padding:30px 0 0;display:flex;flex-direction:column;min-height:230px;color:#F5F8F7;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 14%" style-hover="opacity:0.78">
+                <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--c-accent);margin-bottom:auto">{{ p.tag }}</div>
+                <h3 style="font-family:var(--font-heading);font-weight:400;font-size:1.55rem;margin:26px 0 12px;color:#F5F8F7;letter-spacing:0.02em">{{ p.name }}</h3>
+                <p style="color:rgba(245,248,247,0.66);font-size:14px;font-weight:300;line-height:1.75;margin:0 0 16px">{{ p.desc }}</p>
+                <span style="font-size:12px;color:rgba(245,248,247,0.5)">{{ p.foot }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <!-- JOURNAL -->
+      <section style="background:var(--c-bg)">
+        <div style="max-width:1040px;margin:0 auto;padding:clamp(96px,13vh,170px) clamp(20px,5vw,72px)">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(24px,3vw,40px);animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 18%">
+            <div><div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:20px">最新消息 · Journal</div>
+            <h2 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(1.9rem,1.3rem+2.4vw,3.2rem);line-height:1.05;margin:0">晶澤動態</h2></div>
+            <button onClick="{{ goNews }}" style="background:none;border:0;border-bottom:1px solid var(--c-accent);cursor:pointer;color:var(--c-text);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:0 0 6px;white-space:nowrap" style-hover="color:var(--c-accent)">所有消息</button>
+          </div>
+          <sc-for list="{{ homeNews }}" as="n" hint-placeholder-count="3">
+            <button onClick="{{ goNews }}" style="width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--c-border);cursor:pointer;padding:28px 0;display:flex;align-items:baseline;gap:clamp(16px,3vw,40px);animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 12%" style-hover="opacity:0.65">
+              <span style="font-size:12px;letter-spacing:0.04em;color:var(--c-text-subtle);font-variant-numeric:tabular-nums;white-space:nowrap;min-width:84px">{{ n.date }}</span>
+              <h3 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(1.15rem,1rem+0.6vw,1.5rem);line-height:1.35;margin:0;flex:1;letter-spacing:0.01em">{{ n.title }}</h3>
+              <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-accent);white-space:nowrap">{{ n.tag }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </section>
+
+      <!-- STORY / CTA -->
+      <section style="background:var(--c-surface);border-top:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(96px,13vh,170px) clamp(20px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(44px,7vw,110px);align-items:center">
+          <div style="animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 22%">
+            <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:24px">Stay With Us · 聯絡晶澤</div>
+            <h2 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.1rem,1.4rem+2.8vw,3.8rem);line-height:1.04;margin:0 0 28px">我們在日月潭<span style="font-style:italic">等你</span></h2>
+            <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px">
+              <button onClick="{{ openBooking }}" style="background:var(--c-accent);color:var(--c-on-accent);border:0;font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:16px 32px;cursor:pointer;transition:opacity .3s" style-hover="opacity:0.85">立即訂房 · Reserve</button>
+              <button onClick="{{ goContact }}" style="background:none;color:var(--c-text);border:1px solid var(--c-border-strong);font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:16px 32px;cursor:pointer;transition:all .3s" style-hover="border-color:var(--c-text)">聯絡我們</button>
+            </div>
+            <div style="display:flex;align-items:center;gap:18px;padding-top:26px;border-top:1px solid var(--c-border)">
+              <div style="font-family:var(--font-heading);font-size:2.8rem;line-height:1;color:var(--c-accent);font-weight:400">4.1</div>
+              <div><div style="color:var(--c-accent);letter-spacing:0.12em;font-size:14px">★★★★☆</div><div style="font-size:13px;color:var(--c-text-muted);margin-top:3px">Google 評分 · 來自 797 則評論</div></div>
+            </div>
+          </div>
+          <div style="animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 22%">
+            <div style="font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:10px">官網直訂的理由</div>
+            <sc-for list="{{ advantages }}" as="a" hint-placeholder-count="3">
+              <div style="display:flex;gap:20px;padding:24px 0;border-top:1px solid var(--c-border)">
+                <span style="font-family:var(--font-heading);font-size:1.2rem;color:var(--c-accent);min-width:26px">{{ a.no }}</span>
+                <div><div style="font-weight:500;font-size:15.5px;margin-bottom:5px">{{ a.title }}</div><div style="font-size:13.5px;color:var(--c-text-muted);font-weight:300;line-height:1.65">{{ a.desc }}</div></div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    </sc-if>
+    <!-- ============ ROOMS ============ -->
+    <sc-if value="{{ isRooms }}">
+    <div data-screen-label="房型 Rooms" style="animation:crystalFade .5s var(--ease-out)">
+      <section style="border-bottom:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(124px,17vh,184px) clamp(20px,5vw,72px) clamp(52px,6vw,76px)">
+          <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:26px">客房 · Rooms &amp; Suites</div>
+          <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.3rem,1.4rem+3.4vw,4.4rem);line-height:1.02;letter-spacing:0.01em;margin:0 0 24px">先選一片<span style="font-style:italic">風景</span>，再選你的房</h1>
+          <p style="max-width:50ch;color:var(--c-text-muted);font-size:clamp(1rem,0.92rem+0.3vw,1.18rem);font-weight:300;line-height:1.85;margin:0">主館四房型，從全湖景到街景；分館三房型，步行可達碼頭、實用而溫馨。每一間都把日月潭的光，留在床畔與窗前。</p>
+        </div>
+      </section>
+
+      <section style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(20px,5vw,72px) clamp(36px,4vw,56px)">
+        <div style="display:flex;align-items:baseline;gap:18px;margin-bottom:clamp(34px,4vw,52px)">
+          <h2 style="font-family:var(--font-heading);font-weight:400;font-size:1.9rem;margin:0;letter-spacing:0.03em">主館</h2>
+          <span style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-text-subtle)">Main Building · 4 Suites</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:clamp(20px,2.6vw,40px)">
+          <sc-for list="{{ mainRooms }}" as="r" hint-placeholder-count="4">
+            <button onClick="{{ r.open }}" style="text-align:left;background:none;border:0;cursor:pointer;padding:0;display:flex;flex-direction:column;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 16%">
+              <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--photo-bg);margin-bottom:20px">
+                {{ r.heroEl }}
+                <div style="position:absolute;top:14px;left:14px"><x-import component-from-global-scope="SuiDesignSystem_840c19.StatusBadge" status="{{ r.status }}" hint-size="auto,24px"></x-import></div>
+              </div>
+              <div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:10px">{{ r.view }}</div>
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+                <h3 style="font-family:var(--font-heading);font-weight:500;font-size:1.55rem;margin:0;letter-spacing:0.02em">{{ r.name }}</h3>
+                <span style="font-family:var(--font-heading);font-size:1.15rem;color:var(--c-accent)">{{ r.priceValue }}</span>
+              </div>
+              <div style="font-size:13px;color:var(--c-text-muted);margin-top:8px;padding-top:14px;border-top:1px solid var(--c-border)">{{ r.metaLine }}</div>
+            </button>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="max-width:1360px;margin:0 auto;padding:clamp(28px,3vw,44px) clamp(20px,5vw,72px) clamp(80px,10vw,130px)">
+        <div style="display:flex;align-items:baseline;gap:18px;margin-bottom:clamp(34px,4vw,52px)">
+          <h2 style="font-family:var(--font-heading);font-weight:400;font-size:1.9rem;margin:0;letter-spacing:0.03em">分館</h2>
+          <span style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-text-subtle)">Annex · 文化街 · 3 Rooms</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:clamp(20px,2.6vw,40px)">
+          <sc-for list="{{ annexRooms }}" as="r" hint-placeholder-count="3">
+            <div style="display:flex;flex-direction:column;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 14%">
+              <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(150deg,#cdd8d4,#a9b4af);margin-bottom:20px;display:flex;align-items:flex-end;padding:20px">
+                <span style="font-family:var(--font-heading);font-weight:300;font-size:2.6rem;color:rgba(31,46,46,0.2);line-height:1">{{ r.name }}</span>
+                <div style="position:absolute;top:14px;left:14px"><x-import component-from-global-scope="SuiDesignSystem_840c19.StatusBadge" status="{{ r.status }}" hint-size="auto,24px"></x-import></div>
+              </div>
+              <div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:10px">{{ r.view }}</div>
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+                <h3 style="font-family:var(--font-heading);font-weight:500;font-size:1.45rem;margin:0;letter-spacing:0.02em">{{ r.name }}</h3>
+                <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-text-subtle)">{{ r.en }}</span>
+              </div>
+              <p style="font-size:13.5px;color:var(--c-text-muted);font-weight:300;line-height:1.7;margin:12px 0 0">{{ r.note }}</p>
+              <div style="font-size:13px;color:var(--c-text-muted);margin-top:14px;padding-top:14px;border-top:1px solid var(--c-border);display:flex;justify-content:space-between;align-items:center;gap:10px">
+                <span>{{ r.meta }}</span>
+                <button onClick="{{ r.open }}" style="background:none;border:0;cursor:pointer;font-size:12px;color:var(--c-accent);white-space:nowrap;padding:0;letter-spacing:0.06em">洽詢 →</button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+
+    <!-- ============ ROOM DETAIL ============ -->
+    <sc-if value="{{ isRoomDetail }}">
+    <div data-screen-label="房型細節" style="animation:crystalFade .5s var(--ease-out);max-width:1360px;margin:0 auto;padding:clamp(108px,14vh,150px) clamp(20px,5vw,72px) clamp(80px,10vw,130px)">
+      <button onClick="{{ goRooms }}" style="background:none;border:0;cursor:pointer;color:var(--c-text-muted);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:0;margin-bottom:clamp(28px,3vw,40px)" style-hover="color:var(--c-text)">← 返回所有房型</button>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:clamp(36px,5vw,80px);align-items:start">
+        <div style="animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 10%">
+          <x-import component-from-global-scope="SuiDesignSystem_840c19.Gallery" images="{{ currentRoom.galleryImages }}" ratio="4 / 3" hint-size="100%,460px"></x-import>
+        </div>
+        <div style="position:sticky;top:108px">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+            <x-import component-from-global-scope="SuiDesignSystem_840c19.StatusBadge" status="{{ currentRoom.status }}" hint-size="auto,24px"></x-import>
+            <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-text-subtle)">{{ currentRoom.view }}</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:22px">
+            <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.4rem,1.6rem+2.4vw,3.6rem);line-height:1;margin:0">{{ currentRoom.name }}</h1>
+            <span style="font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-text-subtle)">{{ currentRoom.en }}</span>
+          </div>
+          <p style="font-size:clamp(1rem,0.92rem+0.3vw,1.14rem);font-weight:300;line-height:1.85;color:var(--c-text-muted);margin:0 0 30px">{{ currentRoom.desc }}</p>
+          <div style="display:flex;gap:36px;padding:24px 0;border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);margin-bottom:30px">
+            <div><div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:9px">坪數</div><div style="font-family:var(--font-heading);font-size:1.55rem;font-weight:400">{{ currentRoom.size }}</div></div>
+            <div><div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:9px">床型</div><div style="font-family:var(--font-heading);font-size:1.55rem;font-weight:400">{{ currentRoom.bed }}</div></div>
+            <div><div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:9px">每晚</div><div style="font-family:var(--font-heading);font-size:1.55rem;font-weight:400;color:var(--c-accent)">{{ currentRoom.priceValue }}</div></div>
+          </div>
+          <div style="margin-bottom:34px">
+            <div style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:16px">房型特色</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 28px">
+              <sc-for list="{{ currentRoom.feats }}" as="ft" hint-placeholder-count="6">
+                <div style="display:flex;align-items:center;gap:11px;font-size:14px;color:var(--c-text-muted)"><span style="width:4px;height:4px;background:var(--c-accent);border-radius:50%;flex:none"></span>{{ ft }}</div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <button onClick="{{ openBooking }}" style="background:var(--c-accent);color:var(--c-on-accent);border:0;font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:16px 32px;cursor:pointer;transition:opacity .3s" style-hover="opacity:0.85">立即訂房 · Reserve</button>
+            <button onClick="{{ goContact }}" style="background:none;color:var(--c-text);border:1px solid var(--c-border-strong);font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:16px 32px;cursor:pointer;transition:all .3s" style-hover="border-color:var(--c-text)">聯絡客服</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+    <!-- ============ FACILITIES ============ -->
+    <sc-if value="{{ isFacilities }}">
+    <div data-screen-label="設施 Facilities" style="animation:crystalFade .5s var(--ease-out)">
+      <section style="border-bottom:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(124px,17vh,184px) clamp(20px,5vw,72px) clamp(52px,6vw,76px)">
+          <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:26px">設施服務 · Facilities &amp; Services</div>
+          <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.3rem,1.4rem+3.4vw,4.4rem);line-height:1.02;letter-spacing:0.01em;margin:0 0 24px">從早餐、酒吧到<span style="font-style:italic">星空</span></h1>
+          <p style="max-width:54ch;color:var(--c-text-muted);font-size:clamp(1rem,0.92rem+0.3vw,1.18rem);font-weight:300;line-height:1.85;margin:0">亞覓餐酒館、月光酒吧、星空屋景觀台、多功能會議室，以及健身與禮賓服務，為你排好在日月潭的每一刻。</p>
+        </div>
+      </section>
+      <section style="max-width:1360px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,5vw,72px)">
+        <div style="display:flex;flex-direction:column;gap:clamp(48px,8vw,120px)">
+          <sc-for list="{{ facilities }}" as="f" hint-placeholder-count="6">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,5vw,72px);align-items:center;animation:crystalRevealSlow both;animation-timeline:view();animation-range:entry 0% cover 20%">
+              <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--photo-bg)">{{ f.mediaEl }}</div>
+              <div>
+                <div style="font-size:10px;letter-spacing:0.26em;text-transform:uppercase;color:var(--c-accent);margin-bottom:16px">{{ f.tag }}</div>
+                <h3 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(1.7rem,1.2rem+1.6vw,2.5rem);margin:0 0 18px;letter-spacing:0.01em">{{ f.name }}</h3>
+                <p style="color:var(--c-text-muted);font-size:15.5px;font-weight:300;line-height:1.9;margin:0 0 24px;max-width:44ch">{{ f.long }}</p>
+                <div style="display:flex;flex-wrap:wrap;gap:10px 26px">
+                  <sc-for list="{{ f.meta }}" as="m" hint-placeholder-count="3">
+                    <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--c-text-muted)"><span style="width:4px;height:4px;background:var(--c-accent);border-radius:50%;flex:none"></span>{{ m }}</div>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+
+    <!-- ============ PROMOTIONS ============ -->
+    <sc-if value="{{ isPromotions }}">
+    <div data-screen-label="優惠 Offers" style="animation:crystalFade .5s var(--ease-out)">
+      <section style="border-bottom:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(124px,17vh,184px) clamp(20px,5vw,72px) clamp(52px,6vw,76px)">
+          <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:26px">推薦優惠 · Offers &amp; Packages</div>
+          <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.3rem,1.4rem+3.4vw,4.4rem);line-height:1.02;letter-spacing:0.01em;margin:0 0 24px">湖畔住客的<span style="font-style:italic">禮遇</span></h1>
+          <p style="max-width:50ch;color:var(--c-text-muted);font-size:clamp(1rem,0.92rem+0.3vw,1.18rem);font-weight:300;line-height:1.85;margin:0">連住優惠、水陸空套票與家庭方案——讓這趟日月潭，不只是住一晚。</p>
+        </div>
+      </section>
+      <section style="max-width:1360px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,5vw,72px)">
+        <div style="background:#14201F;color:#F5F8F7;padding:clamp(40px,5vw,72px);margin-bottom:clamp(24px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(32px,5vw,64px);align-items:center;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 20%">
+          <div>
+            <div style="display:inline-block;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-accent);border:1px solid rgba(154,118,56,0.5);padding:6px 14px;margin-bottom:26px;white-space:nowrap">限時特惠 · Limited</div>
+            <h2 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2rem,1.3rem+2vw,3rem);line-height:1.1;margin:0 0 18px;color:#F5F8F7">晶澤平日<span style="font-style:italic">住二折一</span></h2>
+            <p style="color:rgba(245,248,247,0.74);font-size:15px;font-weight:300;line-height:1.85;margin:0 0 30px;max-width:42ch">主館平日（週日至週四）連續入住兩晚，第二晚享半價。適合能彈性安排假期、想悠閒看湖的旅人。優惠不得與其他專案併用。</p>
+            <button onClick="{{ openBooking }}" style="background:var(--c-accent);color:var(--c-on-accent);border:0;font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:15px 30px;cursor:pointer;transition:opacity .3s" style-hover="opacity:0.85">立即預訂此方案</button>
+          </div>
+          <div style="text-align:center">
+            <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(245,248,247,0.55);margin-bottom:18px">優惠倒數 · 至 2026-06-30</div>
+            <div style="display:inline-block;padding:20px 28px;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.04)">
+              <x-import component-from-global-scope="SuiDesignSystem_840c19.Countdown" to="2026-06-30T23:59:59" hint-size="auto,56px"></x-import>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(20px,2.6vw,40px)">
+          <sc-for list="{{ otherPromos }}" as="p" hint-placeholder-count="2">
+            <article style="border-top:1px solid var(--c-border-strong);padding:30px 0 0;display:flex;flex-direction:column;min-height:230px;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 14%">
+              <div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-accent);margin-bottom:auto">{{ p.tag }}</div>
+              <h3 style="font-family:var(--font-heading);font-weight:400;font-size:1.6rem;margin:26px 0 14px;letter-spacing:0.02em">{{ p.name }}</h3>
+              <p style="color:var(--c-text-muted);font-size:14px;font-weight:300;line-height:1.8;margin:0 0 18px">{{ p.detail }}</p>
+              <span style="font-size:12px;color:var(--c-text-subtle)">{{ p.foot }}</span>
+            </article>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+
+    <!-- ============ SIGHTSEEING ============ -->
+    <sc-if value="{{ isSightseeing }}">
+    <div data-screen-label="周邊 Around" style="animation:crystalFade .5s var(--ease-out)">
+      <section style="border-bottom:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(124px,17vh,184px) clamp(20px,5vw,72px) clamp(52px,6vw,76px)">
+          <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:26px">周邊景點 · Around the Lake</div>
+          <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.3rem,1.4rem+3.4vw,4.4rem);line-height:1.02;letter-spacing:0.01em;margin:0 0 24px">從碼頭，走進整座<span style="font-style:italic">日月潭</span></h1>
+          <p style="max-width:54ch;color:var(--c-text-muted);font-size:clamp(1rem,0.92rem+0.3vw,1.18rem);font-weight:300;line-height:1.85;margin:0">伊達邵碼頭就在門口，纜車、自行車道、廟宇與島嶼都在不遠處。以下是我們最常推薦給旅人的去處。</p>
+        </div>
+      </section>
+      <section style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,72px) clamp(80px,10vw,130px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0">
+          <sc-for list="{{ sights }}" as="s" hint-placeholder-count="8">
+            <article style="padding:clamp(28px,2.6vw,38px) clamp(20px,2vw,32px);border-top:1px solid var(--c-border-strong);display:flex;flex-direction:column;min-height:210px;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 12%">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:auto">
+                <span style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-text-subtle)">{{ s.en }}</span>
+                <span style="font-size:11px;letter-spacing:0.04em;color:var(--c-accent);white-space:nowrap">{{ s.dist }}</span>
+              </div>
+              <h3 style="font-family:var(--font-heading);font-weight:500;font-size:1.5rem;margin:24px 0 12px;letter-spacing:0.02em">{{ s.name }}</h3>
+              <p style="color:var(--c-text-muted);font-size:14px;font-weight:300;line-height:1.75;margin:0">{{ s.desc }}</p>
+            </article>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+    <!-- ============ TRANSPORTATION ============ -->
+    <sc-if value="{{ isTransport }}">
+    <div data-screen-label="交通 Access" style="animation:crystalFade .5s var(--ease-out)">
+      <section style="border-bottom:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(124px,17vh,184px) clamp(20px,5vw,72px) clamp(52px,6vw,76px)">
+          <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:26px">交通指引 · Getting Here</div>
+          <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.3rem,1.4rem+3.4vw,4.4rem);line-height:1.02;letter-spacing:0.01em;margin:0 0 24px">抵達<span style="font-style:italic">晶澤</span></h1>
+          <p style="max-width:48ch;color:var(--c-text-muted);font-size:clamp(1rem,0.92rem+0.3vw,1.18rem);font-weight:300;line-height:1.85;margin:0">南投縣魚池鄉日月村水沙連街 3 號 · 伊達邵碼頭步行約 3 分鐘。</p>
+        </div>
+      </section>
+      <section style="max-width:1360px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,5vw,72px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(40px,5vw,80px);align-items:start">
+          <div style="animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 16%">
+            <sc-for list="{{ transport }}" as="t" hint-placeholder-count="3">
+              <div style="display:flex;gap:24px;padding:28px 0;border-top:1px solid var(--c-border)">
+                <span style="font-family:var(--font-heading);font-weight:300;font-size:1.7rem;color:var(--c-accent);min-width:38px;line-height:1">{{ t.no }}</span>
+                <div><h3 style="font-family:var(--font-heading);font-weight:500;font-size:1.4rem;margin:0 0 10px;letter-spacing:0.02em">{{ t.title }}</h3><p style="color:var(--c-text-muted);font-size:14.5px;font-weight:300;line-height:1.85;margin:0">{{ t.desc }}</p></div>
+              </div>
+            </sc-for>
+            <div style="padding:28px 0 0;border-top:1px solid var(--c-border);display:flex;flex-wrap:wrap;gap:28px;margin-top:6px">
+              <div><div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:8px">電話</div><a href="tel:+886497008188" style="font-family:var(--font-heading);font-size:1.35rem;color:var(--c-text);text-decoration:none">049-7008188</a></div>
+              <div><div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:8px">地址</div><div style="font-size:15px;color:var(--c-text)">南投縣魚池鄉日月村水沙連街 3 號</div></div>
+            </div>
+          </div>
+          <div style="animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 16%">
+            <x-import component-from-global-scope="SuiDesignSystem_840c19.MapEmbed" address="南投縣魚池鄉日月村水沙連街 3 號" address-en="No. 3, Shuishalian St., Yuchi Township, Nantou" note="伊達邵碼頭步行 3 分鐘 · 設有收費停車場" maps-url="https://www.google.com/maps/search/?api=1&query=日月潭晶澤會館" height="{{ 460 }}" hint-size="100%,460px"></x-import>
+          </div>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+
+    <!-- ============ CONTACT ============ -->
+    <sc-if value="{{ isContact }}">
+    <div data-screen-label="聯絡 Contact" style="animation:crystalFade .5s var(--ease-out)">
+      <section style="border-bottom:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(124px,17vh,184px) clamp(20px,5vw,72px) clamp(52px,6vw,76px)">
+          <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:26px">聯絡我們 · Contact &amp; Booking</div>
+          <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.3rem,1.4rem+3.4vw,4.4rem);line-height:1.02;letter-spacing:0.01em;margin:0 0 24px">我們在日月潭<span style="font-style:italic">等你</span></h1>
+          <p style="max-width:50ch;color:var(--c-text-muted);font-size:clamp(1rem,0.92rem+0.3vw,1.18rem);font-weight:300;line-height:1.85;margin:0">查詢空房與房價，或直接來電；官網直訂享最優惠房價與即時確認。</p>
+        </div>
+      </section>
+      <section style="max-width:1360px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,5vw,72px)">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(40px,5vw,72px);align-items:start">
+          <div style="animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 14%">
+            <div style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:10px">查詢空房 · Check Availability</div>
+            <h2 style="font-family:var(--font-heading);font-weight:300;font-size:2rem;margin:0 0 26px">選擇日期與房型</h2>
+            <x-import component-from-global-scope="SuiDesignSystem_840c19.BookingForm" rooms="{{ bookingRooms }}" max-guests="{{ 4 }}" on-submit="{{ onBookingSubmit }}" hint-size="100%,620px"></x-import>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:28px;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 14%">
+            <div style="border:1px solid var(--c-border);padding:clamp(28px,3vw,38px)">
+              <div style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:22px">聯絡資訊</div>
+              <div style="display:flex;flex-direction:column;gap:20px">
+                <div><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">電話訂房・客服</div><a href="tel:+886497008188" style="font-family:var(--font-heading);font-size:1.6rem;color:var(--c-text);text-decoration:none">049-7008188</a></div>
+                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">傳真</div><div style="font-size:15px;color:var(--c-text)">049-2850310</div></div>
+                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">地址</div><div style="font-size:15px;color:var(--c-text);line-height:1.6">南投縣魚池鄉日月村水沙連街 3 號（主館）<br>文化街 110 號（分館）</div></div>
+              </div>
+            </div>
+            <div style="background:#14201F;color:#F5F8F7;padding:clamp(28px,3vw,38px)">
+              <div style="display:flex;align-items:center;gap:18px;margin-bottom:24px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,0.14)">
+                <div style="font-family:var(--font-heading);font-size:2.8rem;line-height:1;color:var(--c-accent);font-weight:400">4.1</div>
+                <div><div style="color:var(--c-accent);letter-spacing:0.12em">★★★★☆</div><div style="font-size:13px;color:rgba(245,248,247,0.66);margin-top:3px">Google · 來自 797 則評論</div></div>
+              </div>
+              <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(245,248,247,0.55);margin-bottom:14px">官網直訂的理由</div>
+              <sc-for list="{{ advantages }}" as="a" hint-placeholder-count="3">
+                <div style="display:flex;gap:16px;padding:12px 0"><span style="font-family:var(--font-heading);color:var(--c-accent);min-width:24px">{{ a.no }}</span><div><div style="font-weight:500;font-size:14px;margin-bottom:3px;color:#F5F8F7">{{ a.title }}</div><div style="font-size:13px;color:rgba(245,248,247,0.62);font-weight:300;line-height:1.55">{{ a.desc }}</div></div></div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+
+    <!-- ============ ABOUT ============ -->
+    <sc-if value="{{ isAbout }}">
+    <div data-screen-label="關於 About" style="animation:crystalFade .5s var(--ease-out)">
+      <section style="position:relative;overflow:hidden;min-height:clamp(420px,62vh,620px);display:flex;align-items:flex-end;margin-top:-84px">
+        <img src="https://www.thecrystal.com.tw/upload/product/1709221029140000003.jpg" alt="日月潭湖光" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:var(--photo-filter);animation:crystalKen 11s var(--ease-out) both">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(13,22,23,0.82),rgba(13,22,23,0.2) 70%,rgba(13,22,23,0.4))"></div>
+        <div style="position:relative;max-width:1360px;width:100%;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(56px,8vw,96px);color:#F5F8F7">
+          <div style="font-size:11px;letter-spacing:0.36em;text-transform:uppercase;color:rgba(245,248,247,0.8);margin-bottom:24px">關於晶澤 · Our Story</div>
+          <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.3rem,1.4rem+3.4vw,4.6rem);line-height:1.06;margin:0;color:#F5F8F7;max-width:18ch">每一段美好的旅程，始於被<span style="font-style:italic">用心對待</span>的感受</h1>
+        </div>
+      </section>
+      <section style="max-width:760px;margin:0 auto;padding:clamp(64px,10vw,130px) clamp(24px,5vw,72px)">
+        <p style="font-family:var(--font-heading);font-weight:300;font-size:clamp(1.3rem,1rem+1vw,1.7rem);line-height:1.7;color:var(--c-text);margin:0 0 32px;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 24%">我們相信，最動人的旅程不來自昂貴的物件，而是來自被照顧、被理解、被等待的瞬間。</p>
+        <p style="font-size:1.08rem;font-weight:300;line-height:1.95;color:var(--c-text-muted);margin:0;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 24%">晶澤把日月潭的水光與台灣的溫暖，揉進每一次微小的服務裡。從伊達邵碼頭旁的湖景客房，到亞覓餐酒館的一桌晚宴、小艸茶堂的一盞高山紅茶——我們希望你記得的，不只是風景，而是被好好對待的感受。</p>
+      </section>
+      <section style="background:var(--c-surface);border-top:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,5vw,72px)">
+          <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:24px">晶澤家族 · One Lake, Three Houses</div>
+          <h2 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(1.9rem,1.3rem+1.8vw,2.8rem);margin:0 0 clamp(36px,4vw,52px)">同一座湖，<span style="font-style:italic">三個品牌</span></h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(20px,2.6vw,40px)">
+            <sc-for list="{{ brands }}" as="b" hint-placeholder-count="3">
+              <button onClick="{{ b.onClick }}" style="text-align:left;display:flex;flex-direction:column;background:none;border:0;border-top:1px solid var(--c-border-strong);cursor:pointer;padding:30px 0 0;min-height:200px;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 14%" style-hover="opacity:0.7">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:auto">
+                  <span style="font-family:var(--font-heading);font-weight:300;font-size:1.3rem;color:var(--c-accent);line-height:1">{{ b.idx }}</span>
+                  <span style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-text-subtle)">{{ b.role }}</span>
+                </div>
+                <h3 style="font-family:var(--font-heading);font-weight:500;font-size:1.6rem;margin:26px 0 4px">{{ b.name }}</h3>
+                <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:14px">{{ b.en }}</div>
+                <p style="color:var(--c-text-muted);font-size:14px;font-weight:300;line-height:1.7;margin:0 0 16px">{{ b.desc }}</p>
+                <span style="font-size:12px;color:var(--c-accent)">{{ b.cta }} →</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+
+    <!-- ============ NEWS ============ -->
+    <sc-if value="{{ isNews }}">
+    <div data-screen-label="消息 Journal" style="animation:crystalFade .5s var(--ease-out)">
+      <section style="border-bottom:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(124px,17vh,184px) clamp(20px,5vw,72px) clamp(52px,6vw,76px)">
+          <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:26px">最新消息 · Journal</div>
+          <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.3rem,1.4rem+3.4vw,4.4rem);line-height:1.02;letter-spacing:0.01em;margin:0 0 24px">晶澤<span style="font-style:italic">動態</span></h1>
+          <p style="max-width:48ch;color:var(--c-text-muted);font-size:clamp(1rem,0.92rem+0.3vw,1.18rem);font-weight:300;line-height:1.85;margin:0">優惠方案、住宿資訊與套票專案——晶澤這陣子發生的事。</p>
+        </div>
+      </section>
+      <section style="max-width:920px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,72px) clamp(80px,10vw,130px)">
+        <sc-for list="{{ news }}" as="n" hint-placeholder-count="5">
+          <article style="padding:clamp(32px,4vw,48px) 0;border-bottom:1px solid var(--c-border);animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 12%">
+            <div style="display:flex;gap:16px;align-items:center;margin-bottom:18px">
+              <span style="font-size:13px;letter-spacing:0.04em;color:var(--c-text-subtle);font-variant-numeric:tabular-nums">{{ n.date }}</span>
+              <span style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-accent)">{{ n.tag }}</span>
+            </div>
+            <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(1.4rem,1.1rem+1vw,2rem);line-height:1.3;margin:0 0 16px;letter-spacing:0.01em">{{ n.title }}</h2>
+            <p style="color:var(--c-text-muted);font-size:15px;font-weight:300;line-height:1.85;margin:0;max-width:62ch">{{ n.body }}</p>
+          </article>
+        </sc-for>
+      </section>
+    </div>
+    </sc-if>
+    <!--OTHER_ROUTES-->
+  </main>
+
+  <footer style="background:#14201F;color:rgba(245,248,247,0.66)">
+    <div style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,100px) clamp(20px,5vw,72px) 44px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(32px,4vw,56px)">
+      <div style="grid-column:1/-1;display:flex;flex-direction:column;gap:16px;padding-bottom:clamp(40px,5vw,56px);border-bottom:1px solid rgba(255,255,255,0.1)">
+        <div style="display:flex;align-items:baseline;gap:13px">
+          <span style="font-family:var(--font-heading);font-size:2.2rem;color:#F5F8F7;letter-spacing:0.05em">晶澤</span>
+          <span style="font-size:10px;letter-spacing:0.36em;text-transform:uppercase;color:rgba(245,248,247,0.45)">The Crystal · Sun Moon Lake</span>
+        </div>
+        <p style="margin:0;font-family:var(--font-heading);font-weight:300;font-style:italic;font-size:1.25rem;color:rgba(245,248,247,0.78);max-width:36ch;line-height:1.6">Between light &amp; water — 每一段美好的旅程，始於被用心對待的感受。</p>
+      </div>
+      <div style="grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.1);margin-bottom:clamp(8px,2vw,20px)">
+        <sc-for list="{{ brands }}" as="b" hint-placeholder-count="3">
+          <button onClick="{{ b.onClick }}" style="text-align:left;background:#14201F;border:0;cursor:pointer;padding:clamp(22px,2vw,30px) clamp(20px,2vw,28px);display:flex;flex-direction:column;gap:8px;transition:background .3s" style-hover="background:#1a2a28">
+            <div style="display:flex;align-items:baseline;gap:10px"><span style="font-family:var(--font-heading);font-weight:300;font-size:1.05rem;color:var(--c-accent)">{{ b.idx }}</span><span style="font-family:var(--font-heading);font-size:1.4rem;color:#F5F8F7;letter-spacing:0.02em">{{ b.name }}</span></div>
+            <span style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,248,247,0.45)">{{ b.en }} · {{ b.role }}</span>
+            <span style="font-size:12px;letter-spacing:0.06em;color:var(--c-accent);margin-top:6px">{{ b.cta }} →</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="2">
+        <div>
+          <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(245,248,247,0.4);margin-bottom:20px">{{ col.title }}</div>
+          <div style="display:flex;flex-direction:column;gap:13px">
+            <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="4">
+              <button onClick="{{ l.onClick }}" style="background:none;border:0;text-align:left;padding:0;cursor:pointer;color:rgba(245,248,247,0.66);font-size:14px;font-weight:300;letter-spacing:0.03em" style-hover="color:#F5F8F7">{{ l.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+      <div>
+        <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(245,248,247,0.4);margin-bottom:20px">聯絡</div>
+        <div style="display:flex;flex-direction:column;gap:13px;font-size:14px;font-weight:300;line-height:1.6">
+          <a href="tel:+886497008188" style="color:rgba(245,248,247,0.66);text-decoration:none" style-hover="color:#F5F8F7">049-7008188</a>
+          <span style="color:rgba(245,248,247,0.66)">傳真 049-2850310</span>
+          <span style="color:rgba(245,248,247,0.66)">南投縣魚池鄉日月村<br>水沙連街 3 號（主館）</span>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1360px;margin:0 auto;padding:24px clamp(20px,5vw,72px) 50px;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.07)">
+      <span style="font-size:11.5px;color:rgba(245,248,247,0.4);letter-spacing:0.04em">© 2026 The Crystal Sun Moon Lake · 晶澤育樂事業有限公司 · 統一編號 24288046</span>
+      <div style="display:flex;gap:22px;font-size:11.5px;color:rgba(245,248,247,0.4)"><span>隱私權政策</span><span>服務條款</span><span>網站地圖</span></div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SITE = "https://www.thecrystal.com.tw/";
+const P = (f) => SITE + "upload/product/" + f + ".jpg";
+const G = (h) => SITE + "includes/timthumb.php?src=upload/product_pic/" + h + ".jpg&w=600&h=401&zc=1";
+const BOOKING_URL = "https://res.windsurfercrs.com/ibe/index.aspx?propertyID=16608&utm_source=official_website&utm_medium=referral&utm_campaign=direct_booking";
+
+const MAIN_ROOMS = [
+  { id:"lake", name:"御水房", en:"Lake", view:"全湖景 · Full Lake View", size:"22 坪", bed:"1 大床 / 2 小床", price:13200, status:"available",
+    desc:"22 坪無阻礙空間，坐臥俯仰皆與湖水為依；陽台小酌，輕風捎來明潭的呢喃，美景醉人，品味極致生活。",
+    feats:["全湖景觀", "可加人 +NT$1,500", "按摩浴缸", "Dyson 吹風機", "43 吋液晶電視", "免費光纖上網"],
+    gallery:[P("1708161752350000003"),P("1708161752350000004"),G("394ca6571e9894f0a9ea15ad4fc81032-YF4D"),G("86eefee2466fb5cb711d4a92ce5b5e89-kk2s"),G("2526d9d87da680d3a0452451da58c05f-yFA5"),G("ea57c1373d1ec45bd5f9867f0c4a5119-gXis"),G("061d3c654bccecbac44a0055aca7cacc-jEbm"),G("bf4092584dd083773bc43981fe0306bc-alyz"),G("7936f3647c987738e43b7d7325b7cf38-tONM"),G("f7a365efc953a31ec89222addf44d39c-nz5u")] },
+  { id:"moon", name:"讚月房", en:"Moon", view:"正湖景 · Lake View", size:"12 坪", bed:"1 大床 / 2 小床", price:11200, status:"available",
+    desc:"正對湖心的方正格局，攜手同望明月高掛、笑談雙人時光；俯仰間，置身水月美景之中。",
+    feats:["正面湖景", "按摩浴缸", "43 吋液晶電視", "TOTO 免治馬桶", "Mini Bar 茶飲", "免費光纖上網"],
+    gallery:[P("1709221029140000003"),P("1711221400400000004"),G("f8e9ef661912c437e08ebdb42df486cc-i6Un"),G("de4bc99350dfa1fc668a0cb8e955e4c1-AVjq"),G("9887dd9ac1013d7d936e116fb165ddc2-8TW9"),G("cffb7f29f9e8a38185c47b7b589437c8-VEur"),G("05ca15ed7625865c1e7cf900f22c622e-dNSz"),G("f31c7e9c986b4953929fc1599f3904db-D2vS"),G("cb09dbc64a99d96cc5c8f03b4242297e-jdrc")] },
+  { id:"sun", name:"頌日房", en:"Sun", view:"街景 · Town View", size:"15 坪", bed:"2 中床", price:9800, status:"limited",
+    desc:"15 坪寬敞舒適，光影閃耀、青山懷抱；日月潭纜車來回穿梭，典藏古典與時尚景象。",
+    feats:["寬敞 15 坪", "可加人 +NT$1,500", "保險箱", "43 吋液晶電視", "Mini Bar 冰箱", "免費光纖上網"],
+    gallery:[P("1710091506410000003"),P("1710091506410000004"),G("088eb768f7c08ba3ffb1a740a810c171-EGJG"),G("685abfb1a599d79f81e9603740fcce5b-BgNG"),G("2fe804b1d31d7e881fbd903980b5ddc8-Ld5H"),G("5e4bb52692bfb57b737f62a752ed8966-hxp9"),G("0efb6b02527664257fce37666a8ffadd-gmou"),G("379a03b2b6f71734aee8dc4f142cec23-zH6S"),G("42d4f98479f06e87606b861e6886caea-SoTa")] },
+  { id:"dawn", name:"迎曦房", en:"Dawn", view:"無湖景 · Garden View", size:"10 坪", bed:"1 大床 / 2 小床", price:8800, status:"available",
+    desc:"內斂而熱情，在晨曦的輕撫中迎來嶄新的一天；群山環繞、日月交融，在此重返身心舒緩時光。",
+    feats:["精巧 10 坪", "限住兩位", "按摩浴缸", "43 吋液晶電視", "Mini Bar 茶飲", "免費光纖上網"],
+    gallery:[P("1709221025330000003"),P("1709221026000000004"),G("94f8739ad886daa6103ac957e8910be7-fk5K"),G("262fc442824d9aef8f8e8009e1c28f15-PPlR"),G("2c149369821e8a95d293dcbcdf195ca1-ZEh0"),G("71a4812320c45fad2ec4b123833c56e3-bRrW"),G("3ed74604691546119d8ff82f9c2ec500-1txn"),G("1837e1270fc33653c036cf2256b8a3f6-vP6a")] },
+];
+
+const ANNEX_ROOMS = [
+  { id:"annex-a", name:"晶緻二人房", en:"Bright Double Room", view:"分館 · 文化街", meta:"適合 2 人 · 1 大床", note:"分館精巧雙人房，鄰近伊達邵商圈，實用而溫馨。", status:"available" },
+  { id:"annex-b", name:"和澤四人房", en:"Luster Quad Room", view:"分館 · 寬敞實用", meta:"適合 4 人 · 2 床", note:"寬敞四人房，家庭與三五好友出遊的好選擇。", status:"available" },
+  { id:"annex-c", name:"耀亮四人房", en:"Shine Quad Room", view:"分館 · 明亮舒適", meta:"適合 4 人 · 2 床", note:"明亮舒適的四人房，空間方正好運用。", status:"limited" },
+];
+
+const FACILITIES = [
+  { id:"yummy", name:"亞覓餐酒館", en:"Yummy Restaurant", tag:"餐飲 · Dining", img:"https://yummyrestaurant.tw/assets/images/hero-home.webp",
+    short:"伊達邵碼頭湖畔第一排，龍眼木柴燒、21 天乾式熟成的湖景餐酒。",
+    meta:["伊達邵碼頭・湖畔第一排","週三–六 18:00–21:00（週日一二公休）","龍眼木柴燒 × 乾式熟成","訂位 049-7008188"],
+    long:"龍眼木的煙、熟成的時間、土地的記憶——招牌乾式熟成 21 天肋眼，佐台灣原生馬告海鹽與威士忌奶油醬。以馬告、刺蔥等部落食材，在現代技法中寫下日月潭的風土故事。" },
+  { id:"sky", name:"星空屋", en:"Skylight", tag:"體驗 · Under the Stars", img:"https://yummyrestaurant.tw/assets/images/skylight-main.webp",
+    short:"星空為頂、湖景為伴，270 度環湖視野的私密用餐空間。",
+    meta:["270° 環湖視野","星空下用餐","日月潭唯一","建議提前預約"],
+    long:"星空為頂，湖景為伴，270 度環湖視野——日月潭唯一能在星空下用餐的私密空間。亞覓在這裡，為你留一頓與日月潭獨處的晚餐。" },
+  { id:"bar", name:"月光酒吧", en:"Moonlight Bar", tag:"餐飲 · Bar", noimg:true, glyph:"酒",
+    short:"副館 1F 的放鬆酒吧，入夜後與湖光一起慢下來。",
+    meta:["副館 1F","每日 12:00–23:00","可容 15–20 位","10% 服務費另計"],
+    long:"副館 1F 的放鬆酒吧，每日 12:00–23:00 營業，約可容納 15–20 位，適合晚餐後小酌一杯，與湖光一起慢下來。" },
+  { id:"meeting", name:"多功能會議室", en:"Meeting Room", tag:"服務 · Service", noimg:true, glyph:"會",
+    short:"可容 16–20 位的多功能空間，需提前預約。",
+    meta:["主館 2F","可容 16–20 位","需提前預約","上午時段限住客租借（另收費）"],
+    long:"第二樓層的多功能空間，可容納 16–20 位賓客，上午時段僅限入住旅客租借，並需另收費用。" },
+  { id:"gym", name:"健身房", en:"Fitness", tag:"設施 · Facility", noimg:true, glyph:"健",
+    short:"房客專屬健身空間，旅途中也能保持節奏。",
+    meta:["主館","房客專屬","基本有氧與重訓器材"],
+    long:"房客專屬的健身空間，配置基本有氧與重量訓練器材，讓旅途中也能維持運動習慣。" },
+  { id:"concierge", name:"禮賓服務", en:"Concierge", tag:"服務 · Service", noimg:true, glyph:"禮",
+    short:"行程安排、在地推薦與接送協助，讓住宿之外的時間也被照顧。",
+    meta:["行程規劃建議","在地餐飲與景點推薦","接送與交通協助"],
+    long:"從行程規劃、在地餐飲景點推薦到交通接送協助，禮賓團隊讓住宿之外的時間，也被妥善照顧。" },
+];
+
+const PROMOTIONS = [
+  { id:"weekday", tag:"限時特惠 · Limited", name:"晶澤平日住二折一", desc:"主館平日連住兩晚，第二晚半價優惠，適合彈性休假的旅人。", foot:"有效期間 2026-04-01 ~ 2026-06-30", end:"2026-06-30T23:59:59", featured:true,
+    detail:"主館平日（週日至週四）連續入住兩晚，第二晚享半價。適合能彈性安排假期、想悠閒看湖的旅人。優惠不得與其他專案併用。" },
+  { id:"trio", tag:"全年方案 · All Year", name:"水陸空套票方案", desc:"遊湖船票、單車環潭、空中纜車三合一，日月潭全景體驗。", foot:"全年供應 · 數量有限",
+    detail:"一次集滿日月潭的水、陸、空：遊湖船票、環潭單車與日月潭纜車三合一，用三種視角認識同一座湖。" },
+  { id:"family", tag:"家庭推薦 · Family", name:"九族文化村套票", desc:"九族文化村門票 + 日月潭纜車單程票，家族出遊的最佳組合。", foot:"適合親子與家庭",
+    detail:"九族文化村門票搭配日月潭纜車單程票，從纜車一路玩進文化村，是家族出遊省心又盡興的組合。" },
+];
+
+const NEWS = [
+  { id:"summer", date:"2026.06.13", tag:"優惠方案", title:"夏日限定優惠",
+    excerpt:"夏季限定的湖畔住宿優惠登場，把握日月潭最舒爽的季節。詳情與適用日期請見官網或來電洽詢。",
+    body:"夏季限定的湖畔住宿優惠正式登場，把握日月潭最舒爽的季節入住晶澤。完整方案內容、適用房型與日期請見官網最新消息，或來電 049-7008188 洽詢。" },
+  { id:"parking", date:"2026.05.16", tag:"住宿資訊", title:"晶澤主館停車資訊",
+    excerpt:"主館停車相關說明與周邊收費停車場資訊，提供自行開車的旅人參考。",
+    body:"為協助自行開車的旅人安排行程，晶澤主館停車與周邊收費停車場資訊已更新，詳細位置與收費方式請洽櫃台或來電 049-7008188。" },
+  { id:"weekday", date:"2026.05.06", tag:"優惠方案", title:"晶澤平日住二折一專案（主館）",
+    excerpt:"主館平日連續入住兩晚，第二晚享半價優惠，適合彈性安排假期的旅人。",
+    body:"主館平日（週日至週五）連續入住兩晚，第二晚享半價優惠。適合能彈性安排假期、想悠閒看湖的旅人；優惠不得與其他專案併用，詳情請見官網或來電洽詢。" },
+  { id:"formosa", date:"2025.08.09", tag:"套票方案", title:"晶澤九族專案",
+    excerpt:"住宿搭配九族文化村門票與日月潭纜車，家族出遊的最佳組合。",
+    body:"住宿搭配九族文化村門票與日月潭纜車單程票，從纜車一路玩進文化村，是家族出遊省心又盡興的組合。" },
+  { id:"triple", date:"2025.08.09", tag:"套票方案", title:"晶澤水陸空專案",
+    excerpt:"遊湖船票、單車環潭、空中纜車三合一，一次飽覽日月潭的水陸空。",
+    body:"一次集滿日月潭的水、陸、空：遊湖船票、環潭單車與日月潭纜車三合一，用三種視角認識同一座湖。" },
+];
+
+const SIGHTS = [
+  { name:"伊達邵碼頭", en:"Ita Thao Pier", dist:"步行 3 分鐘", desc:"碼頭商圈與遊湖船班的起點，邵族風味小吃林立。" },
+  { name:"日月潭纜車", en:"Sun Moon Lake Ropeway", dist:"車程 10 分鐘", desc:"連接九族文化村，從空中俯瞰整面湖光山色。" },
+  { name:"向山遊客中心", en:"Xiangshan Visitor Center", dist:"車程 15 分鐘", desc:"清水模建築與環湖步道起點，攝影人最愛的取景地。" },
+  { name:"文武廟", en:"Wenwu Temple", dist:"車程 12 分鐘", desc:"北側山丘上的宏偉廟宇，居高臨下盡覽湖景。" },
+  { name:"慈恩塔", en:"Ci'en Pagoda", dist:"車程 8 分鐘", desc:"全潭最高點，登塔遠眺日月潭與群山。" },
+  { name:"九族文化村", en:"Aboriginal Culture Village", dist:"纜車直達", desc:"原住民文化園區與遊樂設施，適合親子同遊。" },
+  { name:"環潭自行車道", en:"Lakeside Bike Path", dist:"碼頭可租車", desc:"曾獲選全球最美自行車道之一，沿湖騎行最愜意。" },
+  { name:"拉魯島", en:"Lalu Island", dist:"遊湖必經", desc:"邵族的聖地，靜靜浮在湖心，遊湖船班沿途經過。" },
+];
+
+const TRANSPORT = [
+  { no:"01", title:"自行開車", desc:"國道 6 號下愛蘭交流道，接台 21 線往日月潭方向，循指標至伊達邵即達。周邊設有收費停車場，可洽櫃台協助。" },
+  { no:"02", title:"大眾運輸", desc:"搭高鐵至台中站，轉乘「台灣好行・日月潭線」客運至伊達邵站下車，步行約 3 分鐘抵達。" },
+  { no:"03", title:"遊湖船", desc:"由水社碼頭搭乘遊湖船至伊達邵碼頭，上岸後步行即達，沿途可飽覽湖心景緻。" },
+];
+
+const ADVANTAGES = [
+  { no:"01", title:"官網最低價", desc:"直訂不收 OTA 佣金，房價最優惠。" },
+  { no:"02", title:"免額外手續費", desc:"官網直訂不收任何訂房服務費。" },
+  { no:"03", title:"即時確認・直連客服", desc:"直接與飯店確認，服務最即時。" },
+];
+
+// 晶澤家族的三個品牌（平等並列）：住宿・餐飲・茶。
+const BRANDS = [
+  { key:"crystal", idx:"I", name:"日月潭晶澤", en:"The Crystal", role:"住宿 · Stay", note:"伊達邵碼頭・湖畔精品會館",
+    desc:"湖畔的精品會館。主館四房型、分館三房型，從全湖景到街景，把日月潭的光留在窗前。",
+    cta:"探索房型", internal:"rooms", img:P("1708161752350000003") },
+  { key:"yummy", idx:"II", name:"亞覓餐酒館", en:"Yummy Restaurant", role:"餐飲 · Dine", note:"伊達邵碼頭・湖畔第一排",
+    desc:"龍眼木柴燒、21 天乾式熟成，以馬告與刺蔥等部落食材，寫下日月潭的風土晚宴。",
+    cta:"造訪亞覓", href:"https://yummyrestaurant.tw/", target:"_blank", img:"https://yummyrestaurant.tw/assets/images/signature-ribeye.webp" },
+  { key:"tinycha", idx:"III", name:"小艸茶堂", en:"Tinycha", role:"茶品 · Tea", note:"台灣茶・永不折腰",
+    desc:"取一心二葉之意、守小草不折之心。台茶 18 號紅玉與 8 號阿薩姆，一盞茶湯裡的山與湖。",
+    cta:"造訪小艸", href:"https://www.tinycha.com.tw", target:"_blank", img:null, teas:["台茶 18 號 · 紅玉","台茶 8 號 · 阿薩姆","台茶 21 號 · 紅韻"] },
+];
+
+class Component extends DCLogic {
+  state = { route:"home", roomId:null, isMobile:false, menuOpen:false, scrolled:false };
+
+  componentDidMount() {
+    this._mq = window.matchMedia("(max-width: 880px)");
+    const sync = () => this.setState({ isMobile: this._mq.matches });
+    sync();
+    this._mq.addEventListener ? this._mq.addEventListener("change", sync) : this._mq.addListener(sync);
+    this._sync = sync;
+    this.initHeaderObserver();
+    this._onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop || (document.scrollingElement && document.scrollingElement.scrollTop) || 0;
+      const s = y > 18;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    document.addEventListener("scroll", this._onScroll, { passive: true, capture: true });
+  }
+  componentDidUpdate() {
+    this.initHeaderObserver();
+  }
+  initHeaderObserver() {
+    if (this._observedRoute === this.state.route) return;
+    this._observedRoute = this.state.route;
+    if (this._io) { this._io.disconnect(); this._io = null; }
+    const el = typeof document !== "undefined" ? document.getElementById("crystal-hero-sentinel") : null;
+    if (!el) { if (this.state.scrolled) this.setState({ scrolled: false }); return; }
+    try {
+      this._io = new IntersectionObserver((entries) => {
+        const s = !entries[0].isIntersecting;
+        if (s !== this.state.scrolled) this.setState({ scrolled: s });
+      }, { threshold: 0, rootMargin: "0px" });
+      this._io.observe(el);
+    } catch (e) {}
+  }
+  componentWillUnmount() {
+    if (this._mq) { this._mq.removeEventListener ? this._mq.removeEventListener("change", this._sync) : this._mq.removeListener(this._sync); }
+    if (this._io) this._io.disconnect();
+    if (this._onScroll) { window.removeEventListener("scroll", this._onScroll); document.removeEventListener("scroll", this._onScroll, true); }
+  }
+
+  go(route, roomId) {
+    this.setState({ route, roomId: roomId || null, menuOpen:false, scrolled:false });
+    if (typeof window !== "undefined") window.scrollTo({ top:0, behavior:"auto" });
+  }
+
+  renderVals() {
+    const route = this.state.route;
+    const overHero = false; // editorial: always a solid, legible header bar
+    const heroCols = this.state.isMobile ? "1fr" : "0.86fr 1.14fr";
+    const heroImgOrder = this.state.isMobile ? 1 : 2;
+    const heroTextOrder = this.state.isMobile ? 2 : 1;
+
+    const headerStyle = "position:sticky;top:0;z-index:50;transition:background .5s ease,border-color .5s ease;"
+      + (overHero
+          ? "background:transparent;border-bottom:1px solid rgba(245,248,247,0.16);"
+          : "background:rgba(245,248,247,0.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--c-border);");
+    const brandMain = overHero ? "#F5F8F7" : "var(--c-text)";
+    const brandSub = overHero ? "rgba(245,248,247,0.6)" : "var(--c-text-subtle)";
+    const phoneStyle = "font-size:13px;letter-spacing:0.04em;text-decoration:none;white-space:nowrap;transition:color .4s ease;color:" + (overHero ? "rgba(245,248,247,0.82)" : "var(--c-text-muted)") + ";";
+    const ctaStyle = "font-family:var(--font-body);font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;padding:11px 24px;cursor:pointer;border-radius:2px;white-space:nowrap;transition:all .4s ease;"
+      + (overHero
+          ? "background:transparent;border:1px solid rgba(245,248,247,0.55);color:#F5F8F7;"
+          : "background:var(--c-primary);border:1px solid var(--c-primary);color:var(--c-on-primary);");
+
+    const nav = [
+      ["rooms","房型","Rooms"], ["facilities","設施","Facilities"], ["promotions","優惠","Offers"],
+      ["sightseeing","周邊","Around"], ["transportation","交通","Access"], ["contact","聯絡","Contact"],
+    ];
+    const activeFor = (key) => route === key || (key === "rooms" && route === "room");
+    const navBase = "background:none;border:0;cursor:pointer;font-family:var(--font-body);font-size:12.5px;letter-spacing:0.13em;text-transform:uppercase;padding:8px 0;transition:color .35s ease,border-color .35s ease;";
+    const navItems = nav.map(([key,label]) => {
+      const active = activeFor(key);
+      const color = active ? (overHero ? "#F5F8F7" : "var(--c-text)") : (overHero ? "rgba(245,248,247,0.72)" : "var(--c-text-muted)");
+      const border = active ? "1px solid var(--c-accent)" : "1px solid transparent";
+      return { label, onClick: () => this.go(key), navStyle: navBase + "color:" + color + ";border-bottom:" + border + ";" };
+    });
+    const menuItems = [["home","首頁","Home"],...nav,["about","關於","About"],["news","消息","Journal"]].map(([key,label,en]) => ({ label, en, onClick: () => this.go(key) }));
+
+    const photoStyle = { width:"100%", height:"100%", objectFit:"cover", filter:"var(--photo-filter)" };
+    const zoomImg = (src, alt) => React.createElement("img", {
+      src, alt, loading:"lazy",
+      style: { ...photoStyle, transition:"transform 1.1s cubic-bezier(.22,1,.36,1)" },
+      onMouseEnter: (e) => { e.currentTarget.style.transform = "scale(1.05)"; },
+      onMouseLeave: (e) => { e.currentTarget.style.transform = "none"; },
+    });
+    const plainImg = (src, alt) => React.createElement("img", { src, alt, loading:"lazy", style: photoStyle });
+
+    const fmtPrice = (p) => p == null ? null : "NT$" + p.toLocaleString();
+    const decorate = (r) => ({
+      ...r,
+      heroUrl: r.gallery[0],
+      heroEl: zoomImg(r.gallery[0], r.name),
+      metaLine: r.size + " · " + r.bed,
+      priceLabel: "每晚 ",
+      priceValue: fmtPrice(r.price),
+      open: () => this.go("room", r.id),
+    });
+    const mainRooms = MAIN_ROOMS.map((r,i) => ({
+      ...decorate(r),
+      num: String(i + 1).padStart(2, "0"),
+      onHover: () => { const el = typeof document !== "undefined" ? document.getElementById("crystal-room-feature") : null; if (el) el.src = r.gallery[0]; },
+    }));
+    const featuredRoom = mainRooms[0];
+    const restRooms = mainRooms.slice(1);
+    const annexRooms = ANNEX_ROOMS.map(r => ({ ...r, open: () => this.go("contact") }));
+
+    const current = MAIN_ROOMS.find(r => r.id === this.state.roomId);
+    const currentRoom = current ? {
+      ...current,
+      metaLine: current.size + " · " + current.bed,
+      priceValue: fmtPrice(current.price),
+      galleryImages: current.gallery.map((g,i) => ({ src: g, label: current.name + " " + (i+1) })),
+    } : null;
+
+    const footerCols = [
+      { title:"客房與設施", links:[
+        { label:"主館房型", onClick:()=>this.go("rooms") },
+        { label:"分館房型", onClick:()=>this.go("rooms") },
+        { label:"設施服務", onClick:()=>this.go("facilities") },
+        { label:"推薦優惠", onClick:()=>this.go("promotions") },
+      ]},
+      { title:"探索日月潭", links:[
+        { label:"周邊景點", onClick:()=>this.go("sightseeing") },
+        { label:"交通指引", onClick:()=>this.go("transportation") },
+        { label:"最新消息", onClick:()=>this.go("news") },
+        { label:"關於晶澤", onClick:()=>this.go("about") },
+      ]},
+    ];
+
+    const brands = BRANDS.map(b => ({
+      ...b,
+      imgEl: b.img ? zoomImg(b.img, b.name) : null,
+      hasImg: !!b.img, noImg: !b.img,
+      teaList: b.teas || [],
+      onClick: b.internal ? (() => this.go(b.internal)) : (() => window.open(b.href, "_blank")),
+    }));
+    const glyphPanel = (glyph) => React.createElement("div", {
+      style: { position:"absolute", inset:0, background:"linear-gradient(150deg,#243530 0%,#14201f 100%)", display:"flex", alignItems:"center", justifyContent:"center" }
+    }, React.createElement("span", {
+      style: { fontFamily:"var(--font-heading)", fontWeight:300, fontSize:"clamp(3.5rem,7vw,6rem)", color:"var(--c-accent)", lineHeight:0.9 }
+    }, glyph));
+    const facilities = FACILITIES.map(f => ({ ...f, showImg: !f.noimg, mediaEl: f.img ? zoomImg(f.img, f.name) : glyphPanel(f.glyph) }));
+    // home dining: alternate image/text order
+    const homeFacilities = FACILITIES.slice(0,3).map((f,i) => ({
+      ...f,
+      mediaEl: f.img ? zoomImg(f.img, f.name) : glyphPanel(f.glyph),
+      cols: i % 2 === 0 ? "1.15fr 1fr" : "1fr 1.15fr",
+      imgOrder: i % 2 === 0 ? 0 : 2,
+      textOrder: 1,
+    }));
+    const otherPromos = PROMOTIONS.filter(p => !p.featured);
+    const bookingRooms = MAIN_ROOMS.map(r => ({
+      id:r.id, name:r.name, note: r.view.split(" · ")[0] + " · " + r.size, price:r.price,
+      status: r.status === "soldout" ? "soldout" : "bookable",
+    }));
+
+    return {
+      isHome: route==="home", isRooms: route==="rooms", isRoomDetail: route==="room",
+      isFacilities: route==="facilities", isPromotions: route==="promotions",
+      isSightseeing: route==="sightseeing", isTransport: route==="transportation",
+      isContact: route==="contact", isAbout: route==="about", isNews: route==="news",
+      isMobile: this.state.isMobile, isDesktop: !this.state.isMobile,
+      menuOpen: this.state.menuOpen, toggleMenu: () => this.setState(s=>({menuOpen:!s.menuOpen})),
+      headerStyle, brandMain, brandSub, phoneStyle, ctaStyle,
+      heroCols, heroImgOrder, heroTextOrder,
+      navItems, menuItems, footerCols,
+      goHome:()=>this.go("home"), goRooms:()=>this.go("rooms"), goFacilities:()=>this.go("facilities"),
+      goPromotions:()=>this.go("promotions"), goSightseeing:()=>this.go("sightseeing"),
+      goTransport:()=>this.go("transportation"), goContact:()=>this.go("contact"),
+      goAbout:()=>this.go("about"), goNews:()=>this.go("news"),
+      openBooking: () => window.open(BOOKING_URL,"_blank"),
+      bookingUrl: BOOKING_URL,
+      brands, mainRooms, featuredRoom, restRooms, annexRooms, currentRoom,
+      facilities, homeFacilities,
+      promotions: PROMOTIONS, otherPromos, news: NEWS, homeNews: NEWS.slice(0,4), sights: SIGHTS, transport: TRANSPORT, advantages: ADVANTAGES,
+      bookingRooms, onBookingSubmit: (b) => { try { console.log("booking submitted", b); } catch(e){} },
+    };
+  }
+}
+</script>
+</body>
+</html>

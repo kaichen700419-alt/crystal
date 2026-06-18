@@ -1,0 +1,72 @@
+/* ============================================================
+   THEME · Hoshi Onsen 星之溫泉
+   山林裡的小型精品溫泉旅館 — 日式侘寂 × 山林靜謐 × 溫潤木質感
+   (small luxury hot-spring ryokan in the mountains — wabi-sabi ×
+    forest stillness × warm timber)
+
+   Deliberately the OPPOSITE of Atelier Ling on every skinnable
+   axis, to stress-test the换膚 mechanism:
+     · cool misty grey ground   (vs. warm dough paper)
+     · ink-black, green-grey    (vs. midnight blue-black)
+     · hinoki-cypress brown     (vs. oven gold-brown)
+     · radius 4px 現代          (vs. 0px 職人感)
+     · wider tracking, more air (vs. tight editorial)
+     · JP serif + sans          (vs. Cormorant + Inter)
+     · cool, misty photo tone   (vs. warm, dim documentary)
+   Density: applied per-page as data-density="loose".
+   ============================================================ */
+
+[data-theme="hoshi-onsen"] {
+  /* ── COLOR ── */
+  /* 極淺霧灰 — cool misty grey ground (not warm) */
+  --c-bg:        #ECEEED;
+  --c-surface:   #F5F6F4;   /* 和紙米白 washi-white card */
+  --c-surface-2: #DDE1DE;   /* sunken / hover, cool */
+
+  /* 墨黑 — ink black with a green-grey cast */
+  --c-text:        #202623;
+  --c-text-muted:  #56605B;
+  --c-text-subtle: #8A938D;
+
+  /* primary — 墨黑 (calm dark, slightly green) */
+  --c-primary:       #232A26;
+  --c-primary-hover: #141916;
+  --c-on-primary:    #F5F6F4;
+
+  /* secondary — 石苔綠 moss green */
+  --c-secondary:    #6E7A63;
+  --c-on-secondary: #F5F6F4;
+
+  /* accent — 溫潤檜木棕 warm hinoki, green-leaning brown */
+  --c-accent:       #8A6A45;
+  --c-accent-hover: #6F5436;
+  --c-on-accent:    #F5F6F4;
+
+  /* lines & focus — cool, soft */
+  --c-border:        #D2D7D3;
+  --c-border-strong: #B7BEB8;
+  --c-ring:          #8A6A45;
+
+  /* status — 朱漆紅 vermilion (low saturation) for danger; cool greens */
+  --c-success:    #5B7059;  --c-success-bg: #DEE6DD;
+  --c-warning:    #9A7A3C;  --c-warning-bg: #ECE3CF;
+  --c-danger:     #9A4A3E;  --c-danger-bg:  #EBDCD7;   /* 朱漆紅 */
+  --c-info:       #4E6168;  --c-info-bg:    #DCE5E6;
+
+  /* ── FONT ── JP serif heading (fine weight) + clean sans body ── */
+  --font-heading: "Noto Serif JP", "Noto Serif TC", "Cormorant Garamond", serif;
+  --font-body:    "Noto Sans JP", "Inter", "Noto Sans TC", -apple-system, sans-serif;
+  --font-heading-scale: 1;
+
+  /* ── TRACKING ── wider, more breathing room than Atelier Ling ── */
+  --tracking-heading: 0.04em;
+  --tracking-body:    0.02em;
+  --tracking-eyebrow: 0.34em;
+
+  /* ── RADIUS ── 4px 現代 (not 0) ── */
+  --radius: 4px;
+
+  /* ── PHOTO TONE ── cool, misty, low saturation, natural light ── */
+  --photo-filter: saturate(0.78) contrast(0.98) brightness(1.03) hue-rotate(-6deg); /* @kind other */
+  --photo-bg: #B9C2BE;
+}

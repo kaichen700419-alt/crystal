@@ -1,0 +1,66 @@
+/* ============================================================
+   THEME · Atelier Ling 凌晨製作所
+   深夜手作烘焙 — 法式職人 × 深夜工作室 × 紀實感
+   (late-night handmade bakery — French artisan × midnight
+    studio × documentary feel)
+
+   This file overrides ONLY the skinnable semantic tokens inside
+   one scope. It changes nothing about the core components — drop
+   data-theme="atelier-ling" on <html> (or any wrapper) and the
+   whole mother system re-skins.
+
+   Palette:  暖白底 · 深夜藍黑 · 烤箱金棕 · 麵團米色
+   Radius:   0  (完全方正 — artisanal, no rounding)
+   Heading:  fine Cormorant serif   Body: Inter-grotesque
+   Photo:    documentary — warm, lightly desaturated, a touch dark
+   ============================================================ */
+
+[data-theme="atelier-ling"] {
+  /* ── COLOR ── */
+  /* 暖白底 — warm dough-paper ground */
+  --c-bg:        #EFE7D7;
+  --c-surface:   #F6F0E3;
+  --c-surface-2: #E2D6BE;   /* 麵團米色 dough beige */
+
+  /* text — 深夜藍黑 midnight blue-black, not pure black */
+  --c-text:        #19222F;
+  --c-text-muted:  #4C5666;
+  --c-text-subtle: #8A8475;
+
+  /* primary — 深夜藍黑 (dark buttons read midnight, not charcoal) */
+  --c-primary:       #182331;
+  --c-primary-hover: #0E1620;
+  --c-on-primary:    #EFE7D7;
+
+  /* secondary — 麵團米色 dough, for soft fills on dark */
+  --c-secondary:    #C9B68F;
+  --c-on-secondary: #182331;
+
+  /* accent — 烤箱金棕 oven gold-brown */
+  --c-accent:       #AE6E2E;
+  --c-accent-hover: #8E561F;
+  --c-on-accent:    #F6F0E3;
+
+  /* lines & focus */
+  --c-border:        #DBCDB2;
+  --c-border-strong: #C2AE89;
+  --c-ring:          #AE6E2E;
+
+  /* status — tuned warm to sit on dough paper */
+  --c-success:    #5C6B4A;  --c-success-bg: #E4E5CE;
+  --c-warning:    #97681B;  --c-warning-bg: #EFE2C4;
+  --c-danger:     #97402A;  --c-danger-bg:  #EBDBCF;
+  --c-info:       #3E4F60;  --c-info-bg:    #DCE2E4;
+
+  /* ── FONT ── */
+  --font-heading: "Cormorant Garamond", "Noto Serif TC", Georgia, serif;
+  --font-body:    "Inter", "Noto Sans TC", -apple-system, "Segoe UI", sans-serif;
+  --font-heading-scale: 1.04;
+
+  /* ── RADIUS ── 0 = 完全方正 artisanal */
+  --radius: 0px;
+
+  /* ── PHOTO TONE ── documentary: warm, lightly desaturated, dim */
+  --photo-filter: saturate(0.86) contrast(1.05) brightness(0.96) sepia(0.08); /* @kind other */
+  --photo-bg: #2A3340;
+}
