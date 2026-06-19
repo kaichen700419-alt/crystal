@@ -1,0 +1,41 @@
+{
+  "home": {
+    "heroTitle1": "光 與 水",
+    "heroTitle2": "之　間",
+    "heroIntro": "住進日月潭的光與水之間。湖畔的精品時光——從正湖景到步行可達伊達邵碼頭，先選一片風景，再選你的房。",
+    "heroImage": "https://www.thecrystal.com.tw/upload/product/1709221029140000003.jpg"
+  },
+  "contact": {
+    "phone": "049-7008188",
+    "fax": "049-2850310",
+    "email": "service@thecrystal.com.tw",
+    "addressMain": "南投縣魚池鄉日月村水沙連街 3 號",
+    "addressAnnex": "文化街 110 號"
+  },
+  "rooms": [
+    { "id": "lake", "name": "御水房", "view": "全湖景 · Full Lake View", "size": "22 坪", "bed": "1 大床 / 2 小床", "price": 13200, "status": "available", "desc": "22 坪無阻礙空間，坐臥俯仰皆與湖水為依；陽台小酌，輕風捎來明潭的呢喃，美景醉人，品味極致生活。", "image": "https://www.thecrystal.com.tw/upload/product/1708161752350000003.jpg" },
+    { "id": "moon", "name": "讚月房", "view": "正湖景 · Lake View", "size": "12 坪", "bed": "1 大床 / 2 小床", "price": 11200, "status": "available", "desc": "正對湖心的方正格局，攜手同望明月高掛、笑談雙人時光；俯仰間，置身水月美景之中。", "image": "https://www.thecrystal.com.tw/upload/product/1709221029140000003.jpg" },
+    { "id": "sun", "name": "頌日房", "view": "街景 · Town View", "size": "15 坪", "bed": "2 中床", "price": 9800, "status": "limited", "desc": "15 坪寬敞舒適，光影閃耀、青山懷抱；日月潭纜車來回穿梭，典藏古典與時尚景象。", "image": "https://www.thecrystal.com.tw/upload/product/1710091506410000003.jpg" },
+    { "id": "dawn", "name": "迎曦房", "view": "無湖景 · Garden View", "size": "10 坪", "bed": "1 大床 / 2 小床", "price": 8800, "status": "available", "desc": "內斂而熱情，在晨曦的輕撫中迎來嶄新的一天；群山環繞、日月交融，在此重返身心舒緩時光。", "image": "https://www.thecrystal.com.tw/upload/product/1709221025330000003.jpg" }
+  ],
+  "facilities": [
+    { "id": "yummy", "name": "亞覓餐酒館", "tag": "餐飲 · Dining", "long": "龍眼木的煙、熟成的時間、土地的記憶——招牌乾式熟成 21 天肋眼，佐台灣原生馬告海鹽與威士忌奶油醬。以馬告、刺蔥等部落食材，在現代技法中寫下日月潭的風土故事。", "image": "https://yummyrestaurant.tw/assets/images/hero-home.webp" },
+    { "id": "sky", "name": "星空屋", "tag": "體驗 · Under the Stars", "long": "星空為頂，湖景為伴，270 度環湖視野——日月潭唯一能在星空下用餐的私密空間。亞覓在這裡，為你留一頓與日月潭獨處的晚餐。", "image": "https://yummyrestaurant.tw/assets/images/skylight-main.webp" },
+    { "id": "bar", "name": "月光酒吧", "tag": "餐飲 · Bar", "long": "副館 1F 的放鬆酒吧，每日 12:00–23:00 營業，約可容納 15–20 位，適合晚餐後小酌一杯，與湖光一起慢下來。" },
+    { "id": "meeting", "name": "多功能會議室", "tag": "服務 · Service", "long": "第二樓層的多功能空間，可容納 16–20 位賓客，上午時段僅限入住旅客租借，並需另收費用。" },
+    { "id": "gym", "name": "健身房", "tag": "設施 · Facility", "long": "房客專屬的健身空間，配置基本有氧與重量訓練器材，讓旅途中也能維持運動習慣。" },
+    { "id": "concierge", "name": "禮賓服務", "tag": "服務 · Service", "long": "從行程規劃、在地餐飲景點推薦到交通接送協助，禮賓團隊讓住宿之外的時間，也被妥善照顧。" }
+  ],
+  "promotions": [
+    { "id": "weekday", "tag": "限時特惠 · Limited", "name": "晶澤平日住二折一", "desc": "主館平日連住兩晚，第二晚半價優惠，適合彈性休假的旅人。", "detail": "主館平日（週日至週四）連續入住兩晚，第二晚享半價。適合能彈性安排假期、想悠閒看湖的旅人。優惠不得與其他專案併用。", "foot": "有效期間 2026-04-01 ~ 2026-06-30", "featured": true },
+    { "id": "trio", "tag": "全年方案 · All Year", "name": "水陸空套票方案", "desc": "遊湖船票、單車環潭、空中纜車三合一，日月潭全景體驗。", "detail": "一次集滿日月潭的水、陸、空：遊湖船票、環潭單車與日月潭纜車三合一，用三種視角認識同一座湖。", "foot": "全年供應 · 數量有限", "featured": false },
+    { "id": "family", "tag": "家庭推薦 · Family", "name": "九族文化村套票", "desc": "九族文化村門票 + 日月潭纜車單程票，家族出遊的最佳組合。", "detail": "九族文化村門票搭配日月潭纜車單程票，從纜車一路玩進文化村，是家族出遊省心又盡興的組合。", "foot": "適合親子與家庭", "featured": false }
+  ],
+  "news": [
+    { "id": "summer", "date": "2026.06.13", "tag": "優惠方案", "title": "夏日限定優惠", "body": "夏季限定的湖畔住宿優惠正式登場，把握日月潭最舒爽的季節入住晶澤。完整方案內容、適用房型與日期請見官網最新消息，或來電 049-7008188 洽詢。" },
+    { "id": "parking", "date": "2026.05.16", "tag": "住宿資訊", "title": "晶澤主館停車資訊", "body": "為協助自行開車的旅人安排行程，晶澤主館停車與周邊收費停車場資訊已更新，詳細位置與收費方式請洽櫃台或來電 049-7008188。" },
+    { "id": "weekday-news", "date": "2026.05.06", "tag": "優惠方案", "title": "晶澤平日住二折一專案（主館）", "body": "主館平日（週日至週五）連續入住兩晚，第二晚享半價優惠。適合能彈性安排假期、想悠閒看湖的旅人；優惠不得與其他專案併用，詳情請見官網或來電洽詢。" },
+    { "id": "formosa", "date": "2025.08.09", "tag": "套票方案", "title": "晶澤九族專案", "body": "住宿搭配九族文化村門票與日月潭纜車單程票，從纜車一路玩進文化村，是家族出遊省心又盡興的組合。" },
+    { "id": "triple", "date": "2025.08.09", "tag": "套票方案", "title": "晶澤水陸空專案", "body": "一次集滿日月潭的水、陸、空：遊湖船票、環潭單車與日月潭纜車三合一，用三種視角認識同一座湖。" }
+  ]
+}

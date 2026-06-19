@@ -205,8 +205,8 @@
             <span style="font-size:10px;letter-spacing:0.36em;text-transform:uppercase;color:var(--c-accent)">壹 — Sun Moon Lake</span>
             <span style="height:1px;width:clamp(28px,6vw,80px);background:var(--c-border-strong);transform-origin:left;animation:crystalLineGrow 1.1s var(--ease-out) .5s both"></span>
           </div>
-          <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.9rem,1.2rem+6.4vw,6.6rem);line-height:0.96;letter-spacing:0.02em;margin:0;color:var(--c-text);animation:crystalFadeUp 1s var(--ease-out) .2s both">光 與 水<br><span style="font-style:italic;font-weight:400;color:var(--c-accent)">之　間</span></h1>
-          <p style="font-size:clamp(1rem,0.9rem+0.4vw,1.18rem);font-weight:300;line-height:1.85;max-width:32ch;color:var(--c-text-muted);margin:clamp(28px,4vw,42px) 0 0;animation:crystalFadeUp 1s var(--ease-out) .32s both">住進日月潭的光與水之間。湖畔的精品時光——從正湖景到步行可達伊達邵碼頭，先選一片風景，再選你的房。</p>
+          <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.9rem,1.2rem+6.4vw,6.6rem);line-height:0.96;letter-spacing:0.02em;margin:0;color:var(--c-text);animation:crystalFadeUp 1s var(--ease-out) .2s both">{{ heroTitle1 }}<br><span style="font-style:italic;font-weight:400;color:var(--c-accent)">{{ heroTitle2 }}</span></h1>
+          <p style="font-size:clamp(1rem,0.9rem+0.4vw,1.18rem);font-weight:300;line-height:1.85;max-width:32ch;color:var(--c-text-muted);margin:clamp(28px,4vw,42px) 0 0;animation:crystalFadeUp 1s var(--ease-out) .32s both">{{ heroIntro }}</p>
           <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(34px,4vw,48px);animation:crystalFadeUp 1s var(--ease-out) .44s both">
             <button onClick="{{ openBooking }}" style="background:var(--c-accent);color:var(--c-on-accent);border:0;font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:16px 34px;cursor:pointer;transition:opacity .3s" style-hover="opacity:0.85">立即訂房 · Reserve</button>
             <button onClick="{{ goRooms }}" style="background:none;color:var(--c-text);border:1px solid var(--c-border-strong);font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:16px 34px;cursor:pointer;transition:border-color .3s" style-hover="border-color:var(--c-text)">探索房型</button>
@@ -215,7 +215,7 @@
         <!-- image panel -->
         <div style="position:relative;overflow:hidden;min-height:46vh;background:var(--photo-bg);order:{{ heroImgOrder }}">
           <div id="crystal-hero-sentinel" aria-hidden="true" style="position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none"></div>
-          <img src="https://www.thecrystal.com.tw/upload/product/1709221029140000003.jpg" alt="日月潭晶澤湖景客房" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:var(--photo-filter);animation:crystalImgReveal 1.5s var(--ease-out) both,crystalKen 13s var(--ease-out) both">
+          {{ heroImgEl }}
           <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(13,22,23,0.28),transparent 42%)"></div>
           <div aria-hidden="true" style="position:absolute;right:clamp(16px,1.6vw,26px);bottom:clamp(20px,3vw,38px);writing-mode:vertical-rl;font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:rgba(245,248,247,0.82)">23.86°N 120.91°E · 伊達邵碼頭</div>
         </div>
@@ -587,9 +587,9 @@
       <section style="max-width:1360px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,5vw,72px)">
         <div style="background:#14201F;color:#F5F8F7;padding:clamp(40px,5vw,72px);margin-bottom:clamp(24px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(32px,5vw,64px);align-items:center;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 20%">
           <div>
-            <div style="display:inline-block;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-accent);border:1px solid rgba(154,118,56,0.5);padding:6px 14px;margin-bottom:26px;white-space:nowrap">限時特惠 · Limited</div>
-            <h2 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2rem,1.3rem+2vw,3rem);line-height:1.1;margin:0 0 18px;color:#F5F8F7">晶澤平日<span style="font-style:italic">住二折一</span></h2>
-            <p style="color:rgba(245,248,247,0.74);font-size:15px;font-weight:300;line-height:1.85;margin:0 0 30px;max-width:42ch">主館平日（週日至週四）連續入住兩晚，第二晚享半價。適合能彈性安排假期、想悠閒看湖的旅人。優惠不得與其他專案併用。</p>
+            <div style="display:inline-block;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-accent);border:1px solid rgba(154,118,56,0.5);padding:6px 14px;margin-bottom:26px;white-space:nowrap">{{ featuredTag }}</div>
+            <h2 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2rem,1.3rem+2vw,3rem);line-height:1.1;margin:0 0 18px;color:#F5F8F7">{{ featuredName }}</h2>
+            <p style="color:rgba(245,248,247,0.74);font-size:15px;font-weight:300;line-height:1.85;margin:0 0 30px;max-width:42ch">{{ featuredDetail }}</p>
             <button onClick="{{ openBooking }}" style="background:var(--c-accent);color:var(--c-on-accent);border:0;font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:15px 30px;cursor:pointer;transition:opacity .3s" style-hover="opacity:0.85">立即預訂此方案</button>
           </div>
           <div style="text-align:center">
@@ -692,9 +692,10 @@
             <div style="border:1px solid var(--c-border);padding:clamp(28px,3vw,38px)">
               <div style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:22px">聯絡資訊</div>
               <div style="display:flex;flex-direction:column;gap:20px">
-                <div><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">電話訂房・客服</div><a href="tel:+886497008188" style="font-family:var(--font-heading);font-size:1.6rem;color:var(--c-text);text-decoration:none">049-7008188</a></div>
-                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">傳真</div><div style="font-size:15px;color:var(--c-text)">049-2850310</div></div>
-                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">地址</div><div style="font-size:15px;color:var(--c-text);line-height:1.6">南投縣魚池鄉日月村水沙連街 3 號（主館）<br>文化街 110 號（分館）</div></div>
+                <div><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">電話訂房・客服</div><a href="tel:+886497008188" style="font-family:var(--font-heading);font-size:1.6rem;color:var(--c-text);text-decoration:none">{{ contactPhone }}</a></div>
+                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">傳真</div><div style="font-size:15px;color:var(--c-text)">{{ contactFax }}</div></div>
+                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">電子信箱</div><a href="mailto:{{ contactEmail }}" style="font-size:15px;color:var(--c-text);text-decoration:none" style-hover="color:var(--c-accent)">{{ contactEmail }}</a></div>
+                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">地址</div><div style="font-size:15px;color:var(--c-text);line-height:1.6">{{ contactAddrMain }}（主館）<br>{{ contactAddrAnnex }}（分館）</div></div>
               </div>
             </div>
             <div style="background:#14201F;color:#F5F8F7;padding:clamp(28px,3vw,38px)">
@@ -942,7 +943,7 @@ const BRANDS = [
 ];
 
 class Component extends DCLogic {
-  state = { route: (typeof window !== "undefined" && window.__CRYSTAL_ROUTE__) || "home", roomId:null, isMobile:false, menuOpen:false, scrolled:false };
+  state = { route: (typeof window !== "undefined" && window.__CRYSTAL_ROUTE__) || "home", roomId:null, isMobile:false, menuOpen:false, scrolled:false, cms:null };
 
   static ROUTE_PATH = { home:"index.html", rooms:"rooms.html", facilities:"facilities.html", promotions:"offers.html", sightseeing:"around.html", transportation:"access.html", contact:"contact.html", about:"about.html", news:"journal.html" };
   static ROUTE_TITLE = {
@@ -991,6 +992,13 @@ class Component extends DCLogic {
         this.setState({ route: r, menuOpen:false, scrolled:false });
       };
       window.addEventListener("popstate", this._onPop);
+      // CMS content — load content.json (Sveltia CMS writes this). Falls back to built-in defaults.
+      try {
+        fetch("content.json", { cache: "no-cache" })
+          .then(function(r){ return r.ok ? r.json() : null; })
+          .then((data) => { if (data) this.setState({ cms: data }); })
+          .catch(function(){});
+      } catch (e) {}
     }
     this._mq = window.matchMedia("(max-width: 880px)");
     const sync = () => this.setState({ isMobile: this._mq.matches });
@@ -1040,6 +1048,31 @@ class Component extends DCLogic {
 
   renderVals() {
     const route = this.state.route;
+    // ---- CMS content (content.json) merged over built-in defaults ----
+    const cms = this.state.cms || {};
+    const mergeById = (defaults, edits) => {
+      if (!Array.isArray(edits)) return defaults;
+      return defaults.map(d => {
+        const e = edits.find(x => x && x.id === d.id);
+        return e ? Object.assign({}, d, e) : d;
+      });
+    };
+    const cmsHome = cms.home || {};
+    const cmsContact = cms.contact || {};
+    const ROOMS = mergeById(MAIN_ROOMS, cms.rooms);
+    const FACS = mergeById(FACILITIES, cms.facilities);
+    const PROMOS = (Array.isArray(cms.promotions) && cms.promotions.length) ? cms.promotions : PROMOTIONS;
+    const NEWS_LIST = (Array.isArray(cms.news) && cms.news.length) ? cms.news : NEWS;
+    const heroTitle1 = cmsHome.heroTitle1 || "光 與 水";
+    const heroTitle2 = cmsHome.heroTitle2 || "之　間";
+    const heroIntro = cmsHome.heroIntro || "住進日月潭的光與水之間。湖畔的精品時光——從正湖景到步行可達伊達邵碼頭，先選一片風景，再選你的房。";
+    const heroImage = cmsHome.heroImage || "https://www.thecrystal.com.tw/upload/product/1709221029140000003.jpg";
+    const heroImgEl = React.createElement("img", { src: heroImage, alt: "日月潭晶澤湖景客房", style: { position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", filter:"var(--photo-filter)", animation:"crystalImgReveal 1.5s var(--ease-out) both, crystalKen 13s var(--ease-out) both" } });
+    const contactPhone = cmsContact.phone || "049-7008188";
+    const contactFax = cmsContact.fax || "049-2850310";
+    const contactEmail = cmsContact.email || "service@thecrystal.com.tw";
+    const contactAddrMain = cmsContact.addressMain || "南投縣魚池鄉日月村水沙連街 3 號";
+    const contactAddrAnnex = cmsContact.addressAnnex || "文化街 110 號";
     const overHero = false; // editorial: always a solid, legible header bar
     const heroCols = this.state.isMobile ? "1fr" : "0.86fr 1.14fr";
     const heroImgOrder = this.state.isMobile ? 1 : 2;
@@ -1083,23 +1116,23 @@ class Component extends DCLogic {
     const fmtPrice = (p) => p == null ? null : "NT$" + p.toLocaleString();
     const decorate = (r) => ({
       ...r,
-      heroUrl: r.gallery[0],
-      heroEl: zoomImg(r.gallery[0], r.name),
+      heroUrl: r.image || r.gallery[0],
+      heroEl: zoomImg(r.image || r.gallery[0], r.name),
       metaLine: r.size + " · " + r.bed,
       priceLabel: "每晚 ",
       priceValue: fmtPrice(r.price),
       open: () => this.go("room", r.id),
     });
-    const mainRooms = MAIN_ROOMS.map((r,i) => ({
+    const mainRooms = ROOMS.map((r,i) => ({
       ...decorate(r),
       num: String(i + 1).padStart(2, "0"),
-      onHover: () => { const el = typeof document !== "undefined" ? document.getElementById("crystal-room-feature") : null; if (el) el.src = r.gallery[0]; },
+      onHover: () => { const el = typeof document !== "undefined" ? document.getElementById("crystal-room-feature") : null; if (el) el.src = (r.image || r.gallery[0]); },
     }));
     const featuredRoom = mainRooms[0];
     const restRooms = mainRooms.slice(1);
     const annexRooms = ANNEX_ROOMS.map(r => ({ ...r, open: () => this.go("contact") }));
 
-    const current = MAIN_ROOMS.find(r => r.id === this.state.roomId);
+    const current = ROOMS.find(r => r.id === this.state.roomId);
     const currentRoom = current ? {
       ...current,
       metaLine: current.size + " · " + current.bed,
@@ -1134,17 +1167,18 @@ class Component extends DCLogic {
     }, React.createElement("span", {
       style: { fontFamily:"var(--font-heading)", fontWeight:300, fontSize:"clamp(3.5rem,7vw,6rem)", color:"var(--c-accent)", lineHeight:0.9 }
     }, glyph));
-    const facilities = FACILITIES.map(f => ({ ...f, showImg: !f.noimg, mediaEl: f.img ? zoomImg(f.img, f.name) : glyphPanel(f.glyph) }));
+    const facilities = FACS.map(f => ({ ...f, showImg: !f.noimg, mediaEl: f.img ? zoomImg(f.img, f.name) : glyphPanel(f.glyph) }));
     // home dining: alternate image/text order
-    const homeFacilities = FACILITIES.slice(0,3).map((f,i) => ({
+    const homeFacilities = FACS.slice(0,3).map((f,i) => ({
       ...f,
       mediaEl: f.img ? zoomImg(f.img, f.name) : glyphPanel(f.glyph),
       cols: i % 2 === 0 ? "1.15fr 1fr" : "1fr 1.15fr",
       imgOrder: i % 2 === 0 ? 0 : 2,
       textOrder: 1,
     }));
-    const otherPromos = PROMOTIONS.filter(p => !p.featured);
-    const bookingRooms = MAIN_ROOMS.map(r => ({
+    const otherPromos = PROMOS.filter(p => !p.featured);
+    const featuredPromo = PROMOS.find(p => p.featured) || PROMOS[0] || {};
+    const bookingRooms = ROOMS.map(r => ({
       id:r.id, name:r.name, note: r.view.split(" · ")[0] + " · " + r.size, price:r.price,
       status: r.status === "soldout" ? "soldout" : "bookable",
     }));
@@ -1167,7 +1201,10 @@ class Component extends DCLogic {
       bookingUrl: BOOKING_URL,
       brands, mainRooms, featuredRoom, restRooms, annexRooms, currentRoom,
       facilities, homeFacilities,
-      promotions: PROMOTIONS, otherPromos, news: NEWS, homeNews: NEWS.slice(0,4), sights: SIGHTS, transport: TRANSPORT, advantages: ADVANTAGES,
+      promotions: PROMOS, otherPromos, news: NEWS_LIST, homeNews: NEWS_LIST.slice(0,4), sights: SIGHTS, transport: TRANSPORT, advantages: ADVANTAGES,
+      featuredTag: featuredPromo.tag || "限時特惠 · Limited", featuredName: featuredPromo.name || "晶澤平日住二折一", featuredDetail: featuredPromo.detail || featuredPromo.desc || "",
+      heroTitle1, heroTitle2, heroIntro, heroImage, heroImgEl,
+      contactPhone, contactFax, contactEmail, contactAddrMain, contactAddrAnnex,
       bookingRooms, onBookingSubmit: (b) => { try { console.log("booking submitted", b); } catch(e){} },
     };
   }
