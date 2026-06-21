@@ -1,0 +1,92 @@
+# ============================================================
+#  晶澤 The Crystal — Sveltia CMS 後台設定
+#  店主在  網址/admin/  登入後可編輯的欄位都定義在這裡。
+#  與 Decap CMS 設定語法相容。
+# ============================================================
+
+backend:
+  name: github
+  repo: kaichen700419-alt/crystal      # ← GitHub 帳號/repo（若 repo 改名，這裡要同步改）
+  branch: main
+  # base_url: https://你的-worker.workers.dev   # ← 設定 OAuth 中繼後，取消註解並填入（見交接說明第三步）
+
+# 後台上傳的照片存放位置
+media_folder: "images"
+public_folder: "/images"
+
+locale: "zh_Hant"
+
+collections:
+  - name: content
+    label: 網站內容
+    label_singular: 內容
+    delete: false
+    files:
+      # ---------------- 首頁主視覺 ----------------
+      - name: home
+        label: 首頁主視覺
+        file: content.json
+        fields:
+          - name: home
+            label: 首頁
+            widget: object
+            fields:
+              - { name: heroTitle1, label: 主標題（第一行）, widget: string }
+              - { name: heroTitle2, label: 主標題（第二行）, widget: string }
+              - { name: heroIntro, label: 主視覺介紹文字, widget: text }
+              - { name: heroImage, label: 主視覺照片, widget: image, required: false }
+          - name: contact
+            label: 聯絡資訊
+            widget: object
+            fields:
+              - { name: phone, label: 電話, widget: string }
+              - { name: fax, label: 傳真, widget: string, required: false }
+              - { name: email, label: 電子信箱, widget: string, required: false }
+              - { name: addressMain, label: 主館地址, widget: string }
+              - { name: addressAnnex, label: 分館地址, widget: string, required: false }
+          - name: rooms
+            label: 房型
+            widget: list
+            label_singular: 房型
+            fields:
+              - { name: id, label: 代號（請勿更動）, widget: string }
+              - { name: name, label: 房型名稱, widget: string }
+              - { name: view, label: 景觀標籤, widget: string }
+              - { name: size, label: 坪數, widget: string }
+              - { name: bed, label: 床型, widget: string }
+              - { name: price, label: 每晚房價（數字）, widget: number, value_type: int }
+              - { name: status, label: 狀態, widget: select, options: [ { label: 可預約, value: available }, { label: 僅剩少量, value: limited }, { label: 已售完, value: soldout } ] }
+              - { name: desc, label: 房型介紹, widget: text }
+              - { name: image, label: 房型照片, widget: image, required: false }
+          - name: facilities
+            label: 設施服務
+            widget: list
+            label_singular: 設施
+            fields:
+              - { name: id, label: 代號（請勿更動）, widget: string }
+              - { name: name, label: 名稱, widget: string }
+              - { name: tag, label: 分類標籤, widget: string }
+              - { name: long, label: 介紹文字, widget: text }
+              - { name: image, label: 照片（留空則顯示文字面板）, widget: image, required: false }
+          - name: promotions
+            label: 推薦優惠
+            widget: list
+            label_singular: 優惠
+            fields:
+              - { name: id, label: 代號（請勿更動）, widget: string }
+              - { name: tag, label: 標籤, widget: string }
+              - { name: name, label: 優惠名稱, widget: string }
+              - { name: desc, label: 簡短說明, widget: text }
+              - { name: detail, label: 完整說明, widget: text }
+              - { name: foot, label: 備註（有效期間等）, widget: string, required: false }
+              - { name: featured, label: 設為主打優惠, widget: boolean, default: false }
+          - name: news
+            label: 最新消息
+            widget: list
+            label_singular: 消息
+            fields:
+              - { name: id, label: 代號（請勿更動）, widget: string }
+              - { name: date, label: 日期（如 2026.06.13）, widget: string }
+              - { name: tag, label: 分類, widget: string }
+              - { name: title, label: 標題, widget: string }
+              - { name: body, label: 內文, widget: text }
