@@ -15,4 +15,7 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+# LLM 友善說明檔（飯店定位、NAP、7 房型房價、訂房連結、三品牌關係）
+# https://kaichen700419-alt.github.io/crystal/llms.txt
+
 Sitemap: https://kaichen700419-alt.github.io/crystal/sitemap.xml

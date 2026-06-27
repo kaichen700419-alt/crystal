@@ -5,6 +5,15 @@
 <script>window.__CRYSTAL_ROUTE__='promotions';</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- ============ 字體與外部網域預連線（效能） ============ -->
+<!-- 晶澤實際只用 4 字族：Cormorant Garamond／Hanken Grotesk（西文）＋ Noto Serif TC／Noto Sans TC（中文）。
+     已砍他牌字族（Inter／Noto Sans JP／Noto Serif JP），改用 <link> 直連取代 fonts.css 的 @import。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.thecrystal.com.tw">
+<link rel="preconnect" href="https://www.tinycha.com.tw"><!-- 小艸茶堂品牌照來源（茶園日落，三品牌平等） -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap">
+
 <!-- ============ SEO ============ -->
 <title>推薦優惠 Offers｜日月潭晶澤・湖畔住客禮遇</title>
 <meta name="description" content="日月潭晶澤優惠：平日住二折一、水陸空套票（遊湖船・單車・纜車）、九族文化村套票。官網直訂享最優惠房價。">
@@ -33,94 +42,86 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Resort",
-  "@id": "https://kaichen700419-alt.github.io/crystal/#hotel",
-  "name": "日月潭晶澤 The Crystal",
-  "alternateName": "The Crystal Sun Moon Lake",
-  "description": "日月潭伊達邵碼頭湖畔的精品度假會館，提供主館全湖景客房與分館實用房型，步行可達伊達邵碼頭。",
-  "url": "https://kaichen700419-alt.github.io/crystal/",
-  "telephone": "+886-49-7008188",
-  "faxNumber": "+886-49-2850310",
-  "priceRange": "NT$8,800–NT$13,200",
-  "currenciesAccepted": "TWD",
-  "image": "https://www.thecrystal.com.tw/upload/product/1708161752350000003.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "日月村水沙連街3號",
-    "addressLocality": "魚池鄉",
-    "addressRegion": "南投縣",
-    "addressCountry": "TW"
+  "@type": "WebPage",
+  "@id": "https://kaichen700419-alt.github.io/crystal/offers.html#webpage",
+  "url": "https://kaichen700419-alt.github.io/crystal/offers.html",
+  "name": "推薦優惠 Offers｜日月潭晶澤",
+  "description": "日月潭晶澤住客禮遇：平日住二折一、水陸空套票、九族文化村套票。官網直訂最優惠、免訂房服務費。",
+  "inLanguage": "zh-TW",
+  "isPartOf": {
+    "@id": "https://kaichen700419-alt.github.io/crystal/#website"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 23.8616,
-    "longitude": 120.9105
+  "about": {
+    "@id": "https://kaichen700419-alt.github.io/crystal/#hotel"
   },
-  "checkinTime": "15:00",
-  "checkoutTime": "11:00",
-  "petsAllowed": false,
-  "amenityFeature": [
-    { "@type": "LocationFeatureSpecification", "name": "全湖景客房", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "免費光纖無線網路", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "湖景餐酒館", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "星空觀景台", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "健身房", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "停車場", "value": true }
-  ],
-  "containsPlace": [
-    { "@type": "Restaurant", "name": "亞覓餐酒館 Yummy Restaurant", "servesCuisine": "現代料理・乾式熟成牛排", "url": "https://yummyrestaurant.tw/" }
-  ],
-  "subOrganization": [
-    { "@type": "Organization", "name": "亞覓餐酒館 Yummy Restaurant", "url": "https://yummyrestaurant.tw/" },
-    { "@type": "Organization", "name": "小艸茶堂 Tinycha", "url": "https://www.tinycha.com.tw" }
-  ],
-  "nearbyAttractions": "伊達邵碼頭、日月潭纜車、向山遊客中心、文武廟、慈恩塔、九族文化村"
+  "mainEntity": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "TWD",
+    "lowPrice": "8800",
+    "highPrice": "13200",
+    "offerCount": "3",
+    "availability": "https://schema.org/InStock",
+    "url": "https://kaichen700419-alt.github.io/crystal/offers.html",
+    "offeredBy": {
+      "@id": "https://kaichen700419-alt.github.io/crystal/#hotel"
+    }
+  }
 }
 </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "inLanguage": "zh-TW",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "日月潭晶澤在哪裡？",
-      "acceptedAnswer": { "@type": "Answer", "text": "日月潭晶澤位於南投縣魚池鄉日月村水沙連街3號，步行約3分鐘即可抵達伊達邵碼頭。" }
+      "name": "平日住二折一專案怎麼算？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "主館平日（週日至週四）連續入住兩晚，第二晚享半價優惠。有效期間 2026-04-01 ~ 2026-06-30，優惠不得與其他專案併用。"
+      }
     },
     {
       "@type": "Question",
-      "name": "日月潭晶澤有湖景房嗎？",
-      "acceptedAnswer": { "@type": "Answer", "text": "有。主館提供御水房（全湖景）、讚月房（正湖景）等湖景客房；分館為步行可達碼頭的實用房型。" }
+      "name": "有哪些套票方案？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "水陸空套票（遊湖船票、環潭單車、日月潭纜車三合一，全年供應、數量有限）與九族文化村套票（九族門票＋日月潭纜車單程票，適合親子家庭）。"
+      }
     },
     {
       "@type": "Question",
-      "name": "如何訂房最優惠？",
-      "acceptedAnswer": { "@type": "Answer", "text": "透過官網線上直訂享最優惠房價、不收訂房服務費，並可即時確認。訂房專線 049-7008188。" }
+      "name": "優惠可以併用嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "平日住二折一優惠不得與其他專案併用；各專案適用條件與日期請見官網或來電 049-7008188 洽詢。"
+      }
     },
     {
       "@type": "Question",
-      "name": "入住與退房時間？",
-      "acceptedAnswer": { "@type": "Answer", "text": "入住時間為下午 15:00，退房時間為上午 11:00。" }
+      "name": "怎麼訂享優惠最划算？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "透過官網線上直訂享最優惠房價、不收訂房服務費並即時確認；專案名額有限，建議提前預訂。"
+      }
     }
   ]
 }
 </script>
 
-<script src="./support.js"></script>
+<script defer src="./support.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://kaichen700419-alt.github.io/crystal/"},{"@type":"ListItem","position":2,"name":"推薦優惠 Offers","item":"https://kaichen700419-alt.github.io/crystal/offers.html"}]}</script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="scale.css">
 <link rel="stylesheet" href="theme-core.css">
 <link rel="stylesheet" href="density.css">
 <link rel="stylesheet" href="base.css">
-<link rel="stylesheet" href="atelier-ling.css">
-<link rel="stylesheet" href="hoshi-onsen.css">
 <link rel="stylesheet" href="crystal-theme.css">
-<script src="ds-bundle.js"></script>
+<script defer src="ds-bundle.js"></script>
 <style>
   body { margin: 0; }
   @keyframes crystalKen { from { transform: scale(1.09); } to { transform: scale(1); } }
@@ -226,20 +227,37 @@
         <div style="max-width:1360px;margin:0 auto;padding:clamp(20px,2vw,26px) clamp(20px,5vw,72px);display:flex;flex-wrap:wrap;align-items:flex-end;gap:clamp(16px,3vw,44px)">
           <div style="font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--c-accent);align-self:center;white-space:nowrap">查詢空房<br>Check Availability</div>
           <div style="display:flex;flex-direction:column;gap:7px;flex:1;min-width:120px">
-            <label style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,248,247,0.55)">入住 Check-in</label>
-            <input type="date" style="border:0;border-bottom:1px solid rgba(245,248,247,0.3);background:transparent;font-family:var(--font-body);font-size:15px;color:#F5F8F7;padding:4px 0;outline:none;color-scheme:dark">
+            <label for="crystal-checkin" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,248,247,0.55)">入住 Check-in</label>
+            <input id="crystal-checkin" type="date" style="border:0;border-bottom:1px solid rgba(245,248,247,0.3);background:transparent;font-family:var(--font-body);font-size:15px;color:#F5F8F7;padding:4px 0;outline:none;color-scheme:dark">
           </div>
           <div style="display:flex;flex-direction:column;gap:7px;flex:1;min-width:120px">
-            <label style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,248,247,0.55)">退房 Check-out</label>
-            <input type="date" style="border:0;border-bottom:1px solid rgba(245,248,247,0.3);background:transparent;font-family:var(--font-body);font-size:15px;color:#F5F8F7;padding:4px 0;outline:none;color-scheme:dark">
+            <label for="crystal-checkout" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,248,247,0.55)">退房 Check-out</label>
+            <input id="crystal-checkout" type="date" style="border:0;border-bottom:1px solid rgba(245,248,247,0.3);background:transparent;font-family:var(--font-body);font-size:15px;color:#F5F8F7;padding:4px 0;outline:none;color-scheme:dark">
           </div>
           <div style="display:flex;flex-direction:column;gap:7px;flex:0.7;min-width:96px">
-            <label style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,248,247,0.55)">人數 Guests</label>
-            <select style="border:0;border-bottom:1px solid rgba(245,248,247,0.3);background:transparent;font-family:var(--font-body);font-size:15px;color:#F5F8F7;padding:4px 0;outline:none">
-              <option style="color:#14201F">2 位</option><option style="color:#14201F">1 位</option><option style="color:#14201F">3 位</option><option style="color:#14201F">4 位</option>
+            <label for="crystal-guests" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,248,247,0.55)">人數 Guests</label>
+            <select id="crystal-guests" style="border:0;border-bottom:1px solid rgba(245,248,247,0.3);background:transparent;font-family:var(--font-body);font-size:15px;color:#F5F8F7;padding:4px 0;outline:none">
+              <option value="2" style="color:#14201F">2 位</option><option value="1" style="color:#14201F">1 位</option><option value="3" style="color:#14201F">3 位</option><option value="4" style="color:#14201F">4 位</option>
             </select>
           </div>
           <button onClick="{{ openBooking }}" style="background:var(--c-accent);color:var(--c-on-accent);border:0;font-family:var(--font-body);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding:14px 34px;cursor:pointer;transition:opacity .3s;white-space:nowrap" style-hover="opacity:0.85">查詢</button>
+        </div>
+      </section>
+
+      <!-- 任務 1 · GOOGLE 評分信任帶（首頁）+ 任務 2/3 訂房信任點 -->
+      <!-- aggregateRating：★4.1／5、797 則評論；【調查值待業主用 Google 商家後台校正】，並對應首頁 schema 的 aggregateRating（批次 4）。 -->
+      <section style="background:var(--c-surface);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border)">
+        <div style="max-width:1360px;margin:0 auto;padding:clamp(28px,4vw,46px) clamp(20px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(24px,4vw,56px);align-items:center;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 30%">
+          <a href="{{ googleReviewUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:18px;text-decoration:none;color:inherit">
+            <div style="font-family:var(--font-heading);font-weight:400;font-size:clamp(2.6rem,2rem+2vw,3.6rem);line-height:1;color:var(--c-accent)">{{ googleRating }}</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <div style="font-size:1.05rem;letter-spacing:0.12em;color:var(--c-accent);line-height:1">{{ googleStars }}<span style="opacity:0.4">{{ googleStarHalf }}</span></div>
+              <div style="font-size:12px;color:var(--c-text-muted);letter-spacing:0.02em">Google 評分 · {{ googleReviews }} 則評論</div>
+              <div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--c-text-subtle)">在 Google 上查看 →</div>
+            </div>
+          </a>
+          <div style="display:flex;align-items:center;gap:11px;font-size:13.5px;color:var(--c-text-muted);letter-spacing:0.02em"><span style="color:var(--c-accent);font-size:1.05rem;flex:none">✓</span>{{ cancelPolicy }}</div>
+          <div style="display:flex;align-items:center;gap:11px;font-size:13.5px;color:var(--c-text-muted);letter-spacing:0.02em"><span style="color:var(--c-accent);font-size:1.05rem;flex:none">✓</span>官網直訂・{{ priceIncludes }}</div>
         </div>
       </section>
 
@@ -322,12 +340,14 @@
                   <div style="flex:1;min-width:0">
                     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap">
                       <h3 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(1.6rem,1.1rem+1.4vw,2.5rem);margin:0;letter-spacing:0.02em;line-height:1.05">{{ r.name }}</h3>
-                      <span style="font-family:var(--font-heading);font-size:1.2rem;color:var(--c-text);white-space:nowrap">{{ r.priceValue }}</span>
+                      <span style="font-family:var(--font-heading);font-size:1.2rem;color:var(--c-text);white-space:nowrap">{{ r.priceValue }} 起</span>
                     </div>
                     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:8px">
                       <span style="font-size:12px;letter-spacing:0.06em;color:var(--c-text-muted)">{{ r.view }} · {{ r.metaLine }}</span>
                       <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-accent);white-space:nowrap">查看 →</span>
                     </div>
+                    <!-- 任務 3：含早・免服務費副標 -->
+                    <div style="font-size:11px;letter-spacing:0.02em;color:var(--c-text-subtle);margin-top:6px">{{ r.priceIncludes }}</div>
                   </div>
                 </button>
               </sc-for>
@@ -406,7 +426,8 @@
             <button onClick="{{ goNews }}" style="background:none;border:0;border-bottom:1px solid var(--c-accent);cursor:pointer;color:var(--c-text);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:0 0 6px;white-space:nowrap" style-hover="color:var(--c-accent)">所有消息</button>
           </div>
           <sc-for list="{{ homeNews }}" as="n" hint-placeholder-count="3">
-            <button onClick="{{ goNews }}" style="width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--c-border);cursor:pointer;padding:28px 0;display:flex;align-items:baseline;gap:clamp(16px,3vw,40px);animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 12%" style-hover="opacity:0.65">
+            <button onClick="{{ goNews }}" style="width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--c-border);cursor:pointer;padding:20px 0;display:flex;align-items:center;gap:clamp(16px,3vw,32px);animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 12%" style-hover="opacity:0.65">
+              <div style="position:relative;width:clamp(76px,9vw,104px);aspect-ratio:4/3;overflow:hidden;background:var(--photo-bg);flex:none">{{ n.thumbEl }}</div>
               <span style="font-size:12px;letter-spacing:0.04em;color:var(--c-text-subtle);font-variant-numeric:tabular-nums;white-space:nowrap;min-width:84px">{{ n.date }}</span>
               <h3 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(1.15rem,1rem+0.6vw,1.5rem);line-height:1.35;margin:0;flex:1;letter-spacing:0.01em">{{ n.title }}</h3>
               <span style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-accent);white-space:nowrap">{{ n.tag }}</span>
@@ -448,6 +469,18 @@
           <div style="font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--c-accent);margin-bottom:26px">客房 · Rooms &amp; Suites</div>
           <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.3rem,1.4rem+3.4vw,4.4rem);line-height:1.02;letter-spacing:0.01em;margin:0 0 24px">先選一片<span style="font-style:italic">風景</span>，再選你的房</h1>
           <p style="max-width:50ch;color:var(--c-text-muted);font-size:clamp(1rem,0.92rem+0.3vw,1.18rem);font-weight:300;line-height:1.85;margin:0">主館四房型，從全湖景到街景；分館三房型，步行可達碼頭、實用而溫馨。每一間都把日月潭的光，留在床畔與窗前。</p>
+          <!-- 任務 1 · Google 評分卡（房型頁）+ 訂房信任點；【調查值待業主以 Google 商家後台校正】 -->
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,3vw,38px);margin-top:clamp(30px,4vw,44px);padding-top:clamp(24px,3vw,32px);border-top:1px solid var(--c-border)">
+            <a href="{{ googleReviewUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:13px;text-decoration:none;color:inherit">
+              <span style="font-family:var(--font-heading);font-weight:400;font-size:2rem;line-height:1;color:var(--c-accent)">{{ googleRating }}</span>
+              <span style="display:flex;flex-direction:column;gap:3px">
+                <span style="font-size:0.92rem;letter-spacing:0.1em;color:var(--c-accent);line-height:1">{{ googleStars }}<span style="opacity:0.4">{{ googleStarHalf }}</span></span>
+                <span style="font-size:11.5px;color:var(--c-text-muted)">Google · {{ googleReviews }} 則評論</span>
+              </span>
+            </a>
+            <span style="display:flex;align-items:center;gap:9px;font-size:13px;color:var(--c-text-muted)"><span style="color:var(--c-accent);flex:none">✓</span>{{ cancelPolicy }}</span>
+            <span style="display:flex;align-items:center;gap:9px;font-size:13px;color:var(--c-text-muted)"><span style="color:var(--c-accent);flex:none">✓</span>{{ priceIncludes }}</span>
+          </div>
         </div>
       </section>
 
@@ -459,16 +492,30 @@
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:clamp(20px,2.6vw,40px)">
           <sc-for list="{{ mainRooms }}" as="r" hint-placeholder-count="4">
             <button onClick="{{ r.open }}" style="text-align:left;background:none;border:0;cursor:pointer;padding:0;display:flex;flex-direction:column;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 16%">
-              <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--photo-bg);margin-bottom:20px">
+              <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--photo-bg);margin-bottom:18px">
                 {{ r.heroEl }}
                 <div style="position:absolute;top:14px;left:14px"><x-import component-from-global-scope="SuiDesignSystem_840c19.StatusBadge" status="{{ r.status }}" hint-size="auto,24px"></x-import></div>
+                <!-- 任務 8：湖景房稀缺標（湖畔第一排・僅 X 間） -->
+                <sc-if value="{{ r.hasScarcity }}"><div style="position:absolute;top:14px;right:14px;background:var(--c-accent);color:var(--c-on-accent);font-size:10px;letter-spacing:0.06em;padding:5px 10px;line-height:1;font-weight:500">{{ r.scarcity }}</div></sc-if>
               </div>
-              <div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:10px">{{ r.view }}</div>
+              <!-- 任務 8：一眼賣點列（景觀等級徽章 + 坪數 + 關鍵配備） -->
+              <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px">
+                <span style="font-size:10.5px;letter-spacing:0.04em;padding:4px 9px;border:1px solid {{ r.viewBadgeColor }};color:{{ r.viewBadgeColor }};line-height:1;border-radius:2px">{{ r.viewLabel }}</span>
+                <span style="font-size:10.5px;letter-spacing:0.04em;padding:4px 9px;border:1px solid var(--c-border-strong);color:var(--c-text-muted);line-height:1;border-radius:2px">{{ r.size }}</span>
+                <sc-for list="{{ r.sellFeats }}" as="sf" hint-placeholder-count="2">
+                  <span style="font-size:10.5px;letter-spacing:0.02em;display:inline-flex;align-items:center;gap:5px;color:var(--c-text-muted);line-height:1"><span style="width:4px;height:4px;background:var(--c-accent);border-radius:50%;flex:none"></span>{{ sf }}</span>
+                </sc-for>
+              </div>
               <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
                 <h3 style="font-family:var(--font-heading);font-weight:500;font-size:1.55rem;margin:0;letter-spacing:0.02em">{{ r.name }}</h3>
-                <span style="font-family:var(--font-heading);font-size:1.15rem;color:var(--c-accent)">{{ r.priceValue }}</span>
+                <span style="font-family:var(--font-heading);font-size:1.15rem;color:var(--c-accent);white-space:nowrap">{{ r.priceValue }} 起</span>
               </div>
-              <div style="font-size:13px;color:var(--c-text-muted);margin-top:8px;padding-top:14px;border-top:1px solid var(--c-border)">{{ r.metaLine }}</div>
+              <!-- 任務 3：價格透明副標（含早・免服務費） -->
+              <div style="font-size:11.5px;color:var(--c-text-subtle);margin-top:5px;letter-spacing:0.02em">每晚・{{ r.priceIncludes }}</div>
+              <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--c-text-muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--c-border)">
+                <!-- 任務 2：取消政策一行 -->
+                <span style="color:var(--c-accent);flex:none">✓</span>{{ r.cancelPolicy }}
+              </div>
             </button>
           </sc-for>
         </div>
@@ -482,9 +529,9 @@
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:clamp(20px,2.6vw,40px)">
           <sc-for list="{{ annexRooms }}" as="r" hint-placeholder-count="3">
             <div style="display:flex;flex-direction:column;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 14%">
-              <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(150deg,#cdd8d4,#a9b4af);margin-bottom:20px;display:flex;align-items:flex-end;padding:20px">
-                <span style="font-family:var(--font-heading);font-weight:300;font-size:2.6rem;color:rgba(31,46,46,0.2);line-height:1">{{ r.name }}</span>
-                <div style="position:absolute;top:14px;left:14px"><x-import component-from-global-scope="SuiDesignSystem_840c19.StatusBadge" status="{{ r.status }}" hint-size="auto,24px"></x-import></div>
+              <div style="position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--photo-bg);margin-bottom:20px">
+                {{ r.mediaEl }}
+                <div style="position:absolute;top:14px;left:14px;z-index:1"><x-import component-from-global-scope="SuiDesignSystem_840c19.StatusBadge" status="{{ r.status }}" hint-size="auto,24px"></x-import></div>
               </div>
               <div style="font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:10px">{{ r.view }}</div>
               <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
@@ -496,6 +543,8 @@
                 <span>{{ r.meta }}</span>
                 <button onClick="{{ r.open }}" style="background:none;border:0;cursor:pointer;font-size:12px;color:var(--c-accent);white-space:nowrap;padding:0;letter-spacing:0.06em">洽詢 →</button>
               </div>
+              <!-- 任務 2：取消政策一行 -->
+              <div style="display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--c-text-subtle);margin-top:9px"><span style="color:var(--c-accent);flex:none">✓</span>{{ r.cancelPolicy }}</div>
             </div>
           </sc-for>
         </div>
@@ -512,9 +561,11 @@
           <x-import component-from-global-scope="SuiDesignSystem_840c19.Gallery" images="{{ currentRoom.galleryImages }}" ratio="4 / 3" hint-size="100%,460px"></x-import>
         </div>
         <div style="position:sticky;top:108px">
-          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:20px">
             <x-import component-from-global-scope="SuiDesignSystem_840c19.StatusBadge" status="{{ currentRoom.status }}" hint-size="auto,24px"></x-import>
             <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-text-subtle)">{{ currentRoom.view }}</span>
+            <!-- 任務 8：湖景房稀缺標 -->
+            <sc-if value="{{ currentRoom.hasScarcity }}"><span style="font-size:11px;letter-spacing:0.04em;background:var(--c-accent);color:var(--c-on-accent);padding:4px 11px;line-height:1.2;font-weight:500">{{ currentRoom.scarcity }}</span></sc-if>
           </div>
           <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:22px">
             <h1 style="font-family:var(--font-heading);font-weight:300;font-size:clamp(2.4rem,1.6rem+2.4vw,3.6rem);line-height:1;margin:0">{{ currentRoom.name }}</h1>
@@ -524,7 +575,7 @@
           <div style="display:flex;gap:36px;padding:24px 0;border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);margin-bottom:30px">
             <div><div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:9px">坪數</div><div style="font-family:var(--font-heading);font-size:1.55rem;font-weight:400">{{ currentRoom.size }}</div></div>
             <div><div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:9px">床型</div><div style="font-family:var(--font-heading);font-size:1.55rem;font-weight:400">{{ currentRoom.bed }}</div></div>
-            <div><div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:9px">每晚</div><div style="font-family:var(--font-heading);font-size:1.55rem;font-weight:400;color:var(--c-accent)">{{ currentRoom.priceValue }}</div></div>
+            <div><div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:9px">每晚起</div><div style="font-family:var(--font-heading);font-size:1.55rem;font-weight:400;color:var(--c-accent)">{{ currentRoom.priceValue }}</div><!-- 任務 3：含早・免服務費 --><div style="font-size:11px;letter-spacing:0.02em;color:var(--c-text-subtle);margin-top:6px">{{ currentRoom.priceIncludes }}</div></div>
           </div>
           <div style="margin-bottom:34px">
             <div style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:16px">房型特色</div>
@@ -538,6 +589,8 @@
             <button onClick="{{ openBooking }}" style="background:var(--c-accent);color:var(--c-on-accent);border:0;font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:16px 32px;cursor:pointer;transition:opacity .3s" style-hover="opacity:0.85">立即訂房 · Reserve</button>
             <button onClick="{{ goContact }}" style="background:none;color:var(--c-text);border:1px solid var(--c-border-strong);font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:16px 32px;cursor:pointer;transition:all .3s" style-hover="border-color:var(--c-text)">聯絡客服</button>
           </div>
+          <!-- 任務 2：訂房按鈕附近的取消政策 -->
+          <div style="display:flex;align-items:center;gap:9px;font-size:13px;color:var(--c-text-muted);margin-top:18px"><span style="color:var(--c-accent);flex:none">✓</span>{{ currentRoom.cancelPolicy }}</div>
         </div>
       </div>
     </div>
@@ -593,8 +646,9 @@
             <button onClick="{{ openBooking }}" style="background:var(--c-accent);color:var(--c-on-accent);border:0;font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:15px 30px;cursor:pointer;transition:opacity .3s" style-hover="opacity:0.85">立即預訂此方案</button>
           </div>
           <div style="text-align:center">
-            <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(245,248,247,0.55);margin-bottom:18px">優惠倒數 · 至 2026-06-30</div>
-            <div style="display:inline-block;padding:20px 28px;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.04)">
+            <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(245,248,247,0.7);margin-bottom:18px">優惠倒數 · 至 2026-06-30</div>
+            <!-- 深色卡片上覆寫 token：倒數「數字」改亮實色(#F5F8F7)並放大；「天/時/分/秒」標籤才降灰。修正原本深底配深字導致數字隱形、對比做反的問題。 -->
+            <div style="display:inline-block;padding:20px 28px;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.04);--c-text:#F5F8F7;--c-text-subtle:rgba(245,248,247,0.6);--c-border-strong:rgba(245,248,247,0.4);--text-h2:clamp(2.1rem,1.6rem+2vw,3rem)">
               <x-import component-from-global-scope="SuiDesignSystem_840c19.Countdown" to="2026-06-30T23:59:59" hint-size="auto,56px"></x-import>
             </div>
           </div>
@@ -624,14 +678,15 @@
         </div>
       </section>
       <section style="max-width:1360px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,72px) clamp(80px,10vw,130px)">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(24px,2.6vw,40px)">
           <sc-for list="{{ sights }}" as="s" hint-placeholder-count="8">
-            <article style="padding:clamp(28px,2.6vw,38px) clamp(20px,2vw,32px);border-top:1px solid var(--c-border-strong);display:flex;flex-direction:column;min-height:210px;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 12%">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:auto">
+            <article style="display:flex;flex-direction:column;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 12%">
+              <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--photo-bg);margin-bottom:20px">{{ s.mediaEl }}</div>
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
                 <span style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-text-subtle)">{{ s.en }}</span>
                 <span style="font-size:11px;letter-spacing:0.04em;color:var(--c-accent);white-space:nowrap">{{ s.dist }}</span>
               </div>
-              <h3 style="font-family:var(--font-heading);font-weight:500;font-size:1.5rem;margin:24px 0 12px;letter-spacing:0.02em">{{ s.name }}</h3>
+              <h3 style="font-family:var(--font-heading);font-weight:500;font-size:1.5rem;margin:14px 0 12px;letter-spacing:0.02em">{{ s.name }}</h3>
               <p style="color:var(--c-text-muted);font-size:14px;font-weight:300;line-height:1.75;margin:0">{{ s.desc }}</p>
             </article>
           </sc-for>
@@ -685,17 +740,35 @@
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(40px,5vw,72px);align-items:start">
           <div style="animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 14%">
             <div style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:10px">查詢空房 · Check Availability</div>
-            <h2 style="font-family:var(--font-heading);font-weight:300;font-size:2rem;margin:0 0 26px">選擇日期與房型</h2>
+            <h2 style="font-family:var(--font-heading);font-weight:300;font-size:2rem;margin:0 0 14px">選擇日期與房型</h2>
+            <!-- 任務 5：空房詢問表單說明（送出方式）+ 任務 2：取消政策 -->
+            <p style="font-size:13.5px;color:var(--c-text-muted);font-weight:300;line-height:1.7;margin:0 0 12px;max-width:46ch">填寫入住日期、房型與聯絡方式，我們將盡快回覆空房與房價。</p>
+            <div style="display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--c-text-subtle);margin:0 0 24px"><span style="color:var(--c-accent);flex:none">✓</span>{{ cancelPolicy }}</div>
             <x-import component-from-global-scope="SuiDesignSystem_840c19.BookingForm" rooms="{{ bookingRooms }}" max-guests="{{ 4 }}" on-submit="{{ onBookingSubmit }}" hint-size="100%,620px"></x-import>
+            <!-- 送出方式：先以 mailto 寄到櫃台信箱（見 onBookingSubmit）；【待接後端 API 後改直接送出】。 -->
+            <p style="font-size:11.5px;color:var(--c-text-subtle);font-weight:300;line-height:1.6;margin:14px 0 0">送出後將開啟您的郵件程式，把詢問寄至 {{ contactEmail }}；亦可直接來電 {{ contactPhone }} 或加 LINE 即時詢問。</p>
           </div>
           <div style="display:flex;flex-direction:column;gap:28px;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 14%">
+            <!-- 任務 4：LINE 官方帳號區塊（contact 頁）；【LINE 連結為 placeholder，待業主提供正式官方帳號 ID】 -->
+            <a href="{{ lineUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:18px;background:#06C755;color:#fff;padding:clamp(22px,2.6vw,30px) clamp(24px,3vw,32px);text-decoration:none;transition:opacity .3s" style-hover="opacity:0.9">
+              <span aria-hidden="true" style="flex:none;width:46px;height:46px;border-radius:11px;background:rgba(255,255,255,0.16);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:1rem;letter-spacing:0.02em">LINE</span>
+              <span style="display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:1.05rem;font-weight:600;letter-spacing:0.02em">加 LINE 即時詢問空房</span>
+                <span style="font-size:12.5px;opacity:0.92;font-weight:300">即時詢問空房・專人回覆</span>
+              </span>
+            </a>
             <div style="border:1px solid var(--c-border);padding:clamp(28px,3vw,38px)">
               <div style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--c-text-subtle);margin-bottom:22px">聯絡資訊</div>
               <div style="display:flex;flex-direction:column;gap:20px">
-                <div><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">電話訂房・客服</div><a href="tel:+886497008188" style="font-family:var(--font-heading);font-size:1.6rem;color:var(--c-text);text-decoration:none">{{ contactPhone }}</a></div>
+                <!-- 任務 1：Google 評分徽章（contact）；【調查值待業主用 Google 商家後台校正】 -->
+                <a href="{{ googleReviewUrl }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:13px;text-decoration:none;color:inherit">
+                  <span style="font-family:var(--font-heading);font-weight:400;font-size:1.7rem;line-height:1;color:var(--c-accent)">{{ googleRating }}</span>
+                  <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:0.9rem;letter-spacing:0.1em;color:var(--c-accent);line-height:1">{{ googleStars }}<span style="opacity:0.4">{{ googleStarHalf }}</span></span><span style="font-size:11.5px;color:var(--c-text-muted)">Google 4.1★ · {{ googleReviews }} 則評論</span></span>
+                </a>
+                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">電話訂房・客服</div><a href="{{ contactTelHref }}" style="font-family:var(--font-heading);font-size:1.6rem;color:var(--c-text);text-decoration:none">{{ contactPhone }}</a></div>
                 <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">傳真</div><div style="font-size:15px;color:var(--c-text)">{{ contactFax }}</div></div>
-                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">電子信箱</div><a href="mailto:{{ contactEmail }}" style="font-size:15px;color:var(--c-text);text-decoration:none" style-hover="color:var(--c-accent)">{{ contactEmail }}</a></div>
-                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">地址</div><div style="font-size:15px;color:var(--c-text);line-height:1.6">{{ contactAddrMain }}（主館）<br>{{ contactAddrAnnex }}（分館）</div></div>
+                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">電子信箱</div><a href="{{ contactMailHref }}" style="font-size:15px;color:var(--c-text);text-decoration:none" style-hover="color:var(--c-accent)">{{ contactEmail }}</a></div>
+                <div style="border-top:1px solid var(--c-border);padding-top:20px"><div style="font-size:12px;color:var(--c-text-subtle);margin-bottom:6px">地址</div><a href="{{ contactMapHref }}" target="_blank" rel="noopener" style="font-size:15px;color:var(--c-text);line-height:1.6;text-decoration:none;display:block" style-hover="color:var(--c-accent)">{{ contactAddrMain }}（主館）<br>{{ contactAddrAnnex }}（分館）</a></div>
               </div>
             </div>
             <div style="background:#14201F;color:#F5F8F7;padding:clamp(28px,3vw,38px)">
@@ -760,13 +833,16 @@
       </section>
       <section style="max-width:920px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,5vw,72px) clamp(80px,10vw,130px)">
         <sc-for list="{{ news }}" as="n" hint-placeholder-count="5">
-          <article style="padding:clamp(32px,4vw,48px) 0;border-bottom:1px solid var(--c-border);animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 12%">
-            <div style="display:flex;gap:16px;align-items:center;margin-bottom:18px">
-              <span style="font-size:13px;letter-spacing:0.04em;color:var(--c-text-subtle);font-variant-numeric:tabular-nums">{{ n.date }}</span>
-              <span style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-accent)">{{ n.tag }}</span>
+          <article style="padding:clamp(32px,4vw,48px) 0;border-bottom:1px solid var(--c-border);display:grid;grid-template-columns:minmax(180px,260px) 1fr;gap:clamp(24px,4vw,48px);align-items:start;animation:crystalReveal both;animation-timeline:view();animation-range:entry 0% cover 12%">
+            <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--photo-bg)">{{ n.thumbEl }}</div>
+            <div>
+              <div style="display:flex;gap:16px;align-items:center;margin-bottom:18px">
+                <span style="font-size:13px;letter-spacing:0.04em;color:var(--c-text-subtle);font-variant-numeric:tabular-nums">{{ n.date }}</span>
+                <span style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-accent)">{{ n.tag }}</span>
+              </div>
+              <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(1.4rem,1.1rem+1vw,2rem);line-height:1.3;margin:0 0 16px;letter-spacing:0.01em">{{ n.title }}</h2>
+              <p style="color:var(--c-text-muted);font-size:15px;font-weight:300;line-height:1.85;margin:0;max-width:62ch">{{ n.body }}</p>
             </div>
-            <h2 style="font-family:var(--font-heading);font-weight:500;font-size:clamp(1.4rem,1.1rem+1vw,2rem);line-height:1.3;margin:0 0 16px;letter-spacing:0.01em">{{ n.title }}</h2>
-            <p style="color:var(--c-text-muted);font-size:15px;font-weight:300;line-height:1.85;margin:0;max-width:62ch">{{ n.body }}</p>
           </article>
         </sc-for>
       </section>
@@ -806,9 +882,14 @@
       <div>
         <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(245,248,247,0.4);margin-bottom:20px">聯絡</div>
         <div style="display:flex;flex-direction:column;gap:13px;font-size:14px;font-weight:300;line-height:1.6">
-          <a href="tel:+886497008188" style="color:rgba(245,248,247,0.66);text-decoration:none" style-hover="color:#F5F8F7">049-7008188</a>
-          <span style="color:rgba(245,248,247,0.66)">傳真 049-2850310</span>
-          <span style="color:rgba(245,248,247,0.66)">南投縣魚池鄉日月村<br>水沙連街 3 號（主館）</span>
+          <a href="{{ contactTelHref }}" style="color:rgba(245,248,247,0.66);text-decoration:none" style-hover="color:#F5F8F7">{{ contactPhone }}</a>
+          <a href="{{ contactMailHref }}" style="color:rgba(245,248,247,0.66);text-decoration:none" style-hover="color:#F5F8F7">{{ contactEmail }}</a>
+          <!-- 任務 4：LINE 入口（footer）；【placeholder 待業主提供正式 ID】 -->
+          <a href="{{ lineUrl }}" target="_blank" rel="noopener" style="color:rgba(245,248,247,0.66);text-decoration:none" style-hover="color:#F5F8F7">LINE 線上詢問</a>
+          <span style="color:rgba(245,248,247,0.66)">傳真 {{ contactFax }}</span>
+          <a href="{{ contactMapHref }}" target="_blank" rel="noopener" style="color:rgba(245,248,247,0.66);text-decoration:none" style-hover="color:#F5F8F7">南投縣魚池鄉日月村<br>水沙連街 3 號（主館）</a>
+          <!-- 任務 1：Google 4.1★ 徽章（footer）；【調查值待業主用 Google 商家後台校正】 -->
+          <a href="{{ googleReviewUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:5px;color:rgba(245,248,247,0.66);text-decoration:none" style-hover="color:#F5F8F7"><span style="color:var(--c-accent)">★</span>Google {{ googleRating }} · {{ googleReviews }} 則評論</a>
         </div>
       </div>
     </div>
@@ -818,14 +899,46 @@
     </div>
   </footer>
 
+  <!-- 任務 4：全站 floating LINE 按鈕（右下角）；【LINE 連結為 placeholder，待業主提供正式官方帳號 ID】 -->
+  <a href="{{ lineUrl }}" target="_blank" rel="noopener" aria-label="加 LINE 即時詢問空房" style="position:fixed;right:clamp(16px,2.4vw,28px);bottom:{{ lineFabBottom }};z-index:70;display:flex;align-items:center;gap:10px;background:#06C755;color:#fff;padding:13px 18px 13px 15px;border-radius:999px;text-decoration:none;box-shadow:0 6px 22px rgba(6,199,85,0.34);transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-2px);box-shadow:0 9px 26px rgba(6,199,85,0.44)">
+    <span aria-hidden="true" style="flex:none;width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:11px;letter-spacing:0.02em;line-height:1">LI</span>
+    <span style="font-size:13px;font-weight:600;letter-spacing:0.02em;white-space:nowrap">LINE 詢問空房</span>
+  </a>
+
+  <!-- 任務 6：行動版（<768px）底部 sticky 訂房 bar；點擊＝帶 hero 選的日期開訂房引擎（沿用 openBooking）。桌機不顯示。 -->
+  <sc-if value="{{ isMobile }}">
+    <div style="position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(20,32,31,0.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid rgba(245,248,247,0.12);padding:10px clamp(14px,4vw,20px) calc(10px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:14px">
+      <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0">
+        <span style="font-size:14px;color:#F5F8F7;font-weight:500;letter-spacing:0.02em">官網最低價</span>
+        <span style="font-size:11px;color:rgba(245,248,247,0.6);letter-spacing:0.02em">{{ priceIncludes }}</span>
+      </div>
+      <button onClick="{{ openBooking }}" style="flex:none;background:var(--c-accent);color:var(--c-on-accent);border:0;font-family:var(--font-body);font-size:12.5px;letter-spacing:0.12em;text-transform:uppercase;padding:13px 24px;cursor:pointer;border-radius:2px;white-space:nowrap">查看空房</button>
+    </div>
+  </sc-if>
+
 </div>
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 const SITE = "https://www.thecrystal.com.tw/";
 const P = (f) => SITE + "upload/product/" + f + ".jpg";
+const P4 = (f) => SITE + "upload/product4/" + f + ".jpg";   // 分館房型主圖（room3.php）
 const G = (h) => SITE + "includes/timthumb.php?src=upload/product_pic/" + h + ".jpg&w=600&h=401&zc=1";
+const IMG = (p) => SITE + p;   // 永久網址下的靜態圖（img/service、img/food、img/about、img/g* 等）
 const BOOKING_URL = "https://res.windsurfercrs.com/ibe/index.aspx?propertyID=16608&utm_source=official_website&utm_medium=referral&utm_campaign=direct_booking";
+
+// ============ 批次 3 · 轉換信任常數（文案皆可後台覆蓋） ============
+// LINE 官方帳號連結 — 先放 placeholder；【待業主提供正式 LINE 官方帳號 ID 後替換】。
+const LINE_URL = "https://line.me/R/ti/p/@thecrystal";
+// Google 商家評分 — 靜態置入；【調查值待業主用 Google 商家後台校正：評分與評論數請以後台實際數字為準】，並對應首頁 aggregateRating schema（批次 4）。
+const GOOGLE_RATING = "4.1";
+const GOOGLE_REVIEWS = "797";
+// Google 商家「在 Google 上查看評論」連結 — 先用地圖搜尋；【待業主提供 Google 商家 place_id 專屬評論連結後替換】。
+const GOOGLE_REVIEW_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("日月潭晶澤 The Crystal");
+// 取消政策一行文案（房卡 / 訂房按鈕旁）— 可後台改。
+const CANCEL_POLICY = "彈性取消・入住前 7 天免費取消";
+// 價格透明副標（房價旁明示含早與免服務費）— 可後台改。
+const PRICE_INCLUDES = "含雙人早餐・免訂房服務費";
 
 const MAIN_ROOMS = [
   { id:"lake", name:"御水房", en:"Lake", view:"全湖景 · Full Lake View", size:"22 坪", bed:"1 大床 / 2 小床", price:13200, status:"available",
@@ -847,9 +960,9 @@ const MAIN_ROOMS = [
 ];
 
 const ANNEX_ROOMS = [
-  { id:"annex-a", name:"晶緻二人房", en:"Bright Double Room", view:"分館 · 文化街", meta:"適合 2 人 · 1 大床", note:"分館精巧雙人房，鄰近伊達邵商圈，實用而溫馨。", status:"available" },
-  { id:"annex-b", name:"和澤四人房", en:"Luster Quad Room", view:"分館 · 寬敞實用", meta:"適合 4 人 · 2 床", note:"寬敞四人房，家庭與三五好友出遊的好選擇。", status:"available" },
-  { id:"annex-c", name:"耀亮四人房", en:"Shine Quad Room", view:"分館 · 明亮舒適", meta:"適合 4 人 · 2 床", note:"明亮舒適的四人房，空間方正好運用。", status:"limited" },
+  { id:"annex-a", name:"晶緻二人房", en:"Bright Double Room", view:"分館 · 文化街", meta:"適合 2 人 · 1 大床", note:"分館精巧雙人房，鄰近伊達邵商圈，實用而溫馨。", status:"available", img:P4("2512311149060000003") },
+  { id:"annex-b", name:"和澤四人房", en:"Luster Quad Room", view:"分館 · 寬敞實用", meta:"適合 4 人 · 2 床", note:"寬敞四人房，家庭與三五好友出遊的好選擇。", status:"available", img:P4("2512311411340000003") },
+  { id:"annex-c", name:"耀亮四人房", en:"Shine Quad Room", view:"分館 · 明亮舒適", meta:"適合 4 人 · 2 床", note:"明亮舒適的四人房，空間方正好運用。", status:"limited", img:P4("2512311135500000003") },
 ];
 
 const FACILITIES = [
@@ -861,19 +974,19 @@ const FACILITIES = [
     short:"星空為頂、湖景為伴，270 度環湖視野的私密用餐空間。",
     meta:["270° 環湖視野","星空下用餐","日月潭唯一","建議提前預約"],
     long:"星空為頂，湖景為伴，270 度環湖視野——日月潭唯一能在星空下用餐的私密空間。亞覓在這裡，為你留一頓與日月潭獨處的晚餐。" },
-  { id:"bar", name:"月光酒吧", en:"Moonlight Bar", tag:"餐飲 · Bar", noimg:true, glyph:"酒",
+  { id:"bar", name:"月光酒吧", en:"Moonlight Bar", tag:"餐飲 · Bar", img:IMG("img/food/img_d.jpg"),
     short:"副館 1F 的放鬆酒吧，入夜後與湖光一起慢下來。",
     meta:["副館 1F","每日 12:00–23:00","可容 15–20 位","10% 服務費另計"],
     long:"副館 1F 的放鬆酒吧，每日 12:00–23:00 營業，約可容納 15–20 位，適合晚餐後小酌一杯，與湖光一起慢下來。" },
-  { id:"meeting", name:"多功能會議室", en:"Meeting Room", tag:"服務 · Service", noimg:true, glyph:"會",
+  { id:"meeting", name:"多功能會議室", en:"Meeting Room", tag:"服務 · Service", img:IMG("img/service/img.jpg"),
     short:"可容 16–20 位的多功能空間，需提前預約。",
     meta:["主館 2F","可容 16–20 位","需提前預約","上午時段限住客租借（另收費）"],
     long:"第二樓層的多功能空間，可容納 16–20 位賓客，上午時段僅限入住旅客租借，並需另收費用。" },
-  { id:"gym", name:"健身房", en:"Fitness", tag:"設施 · Facility", noimg:true, glyph:"健",
+  { id:"gym", name:"健身房", en:"Fitness", tag:"設施 · Facility", img:IMG("img/about/img2.jpg"),
     short:"房客專屬健身空間，旅途中也能保持節奏。",
     meta:["主館","房客專屬","基本有氧與重訓器材"],
     long:"房客專屬的健身空間，配置基本有氧與重量訓練器材，讓旅途中也能維持運動習慣。" },
-  { id:"concierge", name:"禮賓服務", en:"Concierge", tag:"服務 · Service", noimg:true, glyph:"禮",
+  { id:"concierge", name:"禮賓服務", en:"Concierge", tag:"服務 · Service", img:IMG("img/service/img4.jpg"),
     short:"行程安排、在地推薦與接送協助，讓住宿之外的時間也被照顧。",
     meta:["行程規劃建議","在地餐飲與景點推薦","接送與交通協助"],
     long:"從行程規劃、在地餐飲景點推薦到交通接送協助，禮賓團隊讓住宿之外的時間，也被妥善照顧。" },
@@ -888,33 +1001,36 @@ const PROMOTIONS = [
     detail:"九族文化村門票搭配日月潭纜車單程票，從纜車一路玩進文化村，是家族出遊省心又盡興的組合。" },
 ];
 
+// thumb：每則消息的縮圖，取自 thecrystal.com.tw 永久網址、依主題對應的房型／湖景照。
 const NEWS = [
-  { id:"summer", date:"2026.06.13", tag:"優惠方案", title:"夏日限定優惠",
+  { id:"summer", date:"2026.06.13", tag:"優惠方案", title:"夏日限定優惠", thumb:IMG("img/service/img2.jpg"),
     excerpt:"夏季限定的湖畔住宿優惠登場，把握日月潭最舒爽的季節。詳情與適用日期請見官網或來電洽詢。",
     body:"夏季限定的湖畔住宿優惠正式登場，把握日月潭最舒爽的季節入住晶澤。完整方案內容、適用房型與日期請見官網最新消息，或來電 049-7008188 洽詢。" },
-  { id:"parking", date:"2026.05.16", tag:"住宿資訊", title:"晶澤主館停車資訊",
+  { id:"parking", date:"2026.05.16", tag:"住宿資訊", title:"晶澤主館停車資訊", thumb:IMG("img/about/img.jpg"),
     excerpt:"主館停車相關說明與周邊收費停車場資訊，提供自行開車的旅人參考。",
     body:"為協助自行開車的旅人安排行程，晶澤主館停車與周邊收費停車場資訊已更新，詳細位置與收費方式請洽櫃台或來電 049-7008188。" },
-  { id:"weekday", date:"2026.05.06", tag:"優惠方案", title:"晶澤平日住二折一專案（主館）",
+  { id:"weekday-news", date:"2026.05.06", tag:"優惠方案", title:"晶澤平日住二折一專案（主館）", thumb:P("1708161752350000003"),
     excerpt:"主館平日連續入住兩晚，第二晚享半價優惠，適合彈性安排假期的旅人。",
     body:"主館平日（週日至週五）連續入住兩晚，第二晚享半價優惠。適合能彈性安排假期、想悠閒看湖的旅人；優惠不得與其他專案併用，詳情請見官網或來電洽詢。" },
-  { id:"formosa", date:"2025.08.09", tag:"套票方案", title:"晶澤九族專案",
+  { id:"formosa", date:"2025.08.09", tag:"套票方案", title:"晶澤九族專案", thumb:IMG("img/g2.jpg"),
     excerpt:"住宿搭配九族文化村門票與日月潭纜車，家族出遊的最佳組合。",
     body:"住宿搭配九族文化村門票與日月潭纜車單程票，從纜車一路玩進文化村，是家族出遊省心又盡興的組合。" },
-  { id:"triple", date:"2025.08.09", tag:"套票方案", title:"晶澤水陸空專案",
+  { id:"triple", date:"2025.08.09", tag:"套票方案", title:"晶澤水陸空專案", thumb:IMG("img/g1.jpg"),
     excerpt:"遊湖船票、單車環潭、空中纜車三合一，一次飽覽日月潭的水陸空。",
     body:"一次集滿日月潭的水、陸、空：遊湖船票、環潭單車與日月潭纜車三合一，用三種視角認識同一座湖。" },
 ];
 
+// img：取自 thecrystal.com.tw 永久網址的真實日月潭景照。
+// 纜車、自行車道、碼頭為實景對應；其餘以代表性湖景呈現（imgGeneric:true 標記非該地標實照，建議業主補實景）。
 const SIGHTS = [
-  { name:"伊達邵碼頭", en:"Ita Thao Pier", dist:"步行 3 分鐘", desc:"碼頭商圈與遊湖船班的起點，邵族風味小吃林立。" },
-  { name:"日月潭纜車", en:"Sun Moon Lake Ropeway", dist:"車程 10 分鐘", desc:"連接九族文化村，從空中俯瞰整面湖光山色。" },
-  { name:"向山遊客中心", en:"Xiangshan Visitor Center", dist:"車程 15 分鐘", desc:"清水模建築與環湖步道起點，攝影人最愛的取景地。" },
-  { name:"文武廟", en:"Wenwu Temple", dist:"車程 12 分鐘", desc:"北側山丘上的宏偉廟宇，居高臨下盡覽湖景。" },
-  { name:"慈恩塔", en:"Ci'en Pagoda", dist:"車程 8 分鐘", desc:"全潭最高點，登塔遠眺日月潭與群山。" },
-  { name:"九族文化村", en:"Aboriginal Culture Village", dist:"纜車直達", desc:"原住民文化園區與遊樂設施，適合親子同遊。" },
-  { name:"環潭自行車道", en:"Lakeside Bike Path", dist:"碼頭可租車", desc:"曾獲選全球最美自行車道之一，沿湖騎行最愜意。" },
-  { name:"拉魯島", en:"Lalu Island", dist:"遊湖必經", desc:"邵族的聖地，靜靜浮在湖心，遊湖船班沿途經過。" },
+  { name:"伊達邵碼頭", en:"Ita Thao Pier", dist:"步行 3 分鐘", desc:"碼頭商圈與遊湖船班的起點，邵族風味小吃林立。", img:IMG("img/info/a1.jpg") },
+  { name:"日月潭纜車", en:"Sun Moon Lake Ropeway", dist:"車程 10 分鐘", desc:"連接九族文化村，從空中俯瞰整面湖光山色。", img:IMG("img/g2.jpg") },
+  { name:"向山遊客中心", en:"Xiangshan Visitor Center", dist:"車程 15 分鐘", desc:"清水模建築與環湖步道起點，攝影人最愛的取景地。", img:IMG("img/info/a3.jpg") },
+  { name:"文武廟", en:"Wenwu Temple", dist:"車程 12 分鐘", desc:"北側山丘上的宏偉廟宇，居高臨下盡覽湖景。", img:IMG("img/about/img3.jpg"), imgGeneric:true },
+  { name:"慈恩塔", en:"Ci'en Pagoda", dist:"車程 8 分鐘", desc:"全潭最高點，登塔遠眺日月潭與群山。", img:IMG("img/service/img2.jpg"), imgGeneric:true },
+  { name:"九族文化村", en:"Aboriginal Culture Village", dist:"纜車直達", desc:"原住民文化園區與遊樂設施，適合親子同遊。", img:IMG("img/about/pic2.jpg"), imgGeneric:true },
+  { name:"環潭自行車道", en:"Lakeside Bike Path", dist:"碼頭可租車", desc:"曾獲選全球最美自行車道之一，沿湖騎行最愜意。", img:IMG("img/g3.jpg") },
+  { name:"拉魯島", en:"Lalu Island", dist:"遊湖必經", desc:"邵族的聖地，靜靜浮在湖心，遊湖船班沿途經過。", img:IMG("img/g1.jpg"), imgGeneric:true },
 ];
 
 const TRANSPORT = [
@@ -939,7 +1055,9 @@ const BRANDS = [
     cta:"造訪亞覓", href:"https://yummyrestaurant.tw/", target:"_blank", img:"https://yummyrestaurant.tw/assets/images/signature-ribeye.webp" },
   { key:"tinycha", idx:"III", name:"小艸茶堂", en:"Tinycha", role:"茶品 · Tea", note:"台灣茶・永不折腰",
     desc:"取一心二葉之意、守小草不折之心。台茶 18 號紅玉與 8 號阿薩姆，一盞茶湯裡的山與湖。",
-    cta:"造訪小艸", href:"https://www.tinycha.com.tw", target:"_blank", img:null, teas:["台茶 18 號 · 紅玉","台茶 8 號 · 阿薩姆","台茶 21 號 · 紅韻"] },
+    // 補圖（三品牌平等鐵律）：小艸魚池鄉茶園日落照，取自小艸官方網域 tinycha.com.tw（品牌自家永久照，已驗證可下載）。
+    // thecrystal.com.tw / yummyrestaurant.tw 皆無茶照，故採小艸官方圖；與晶澤湖景、亞覓料理視覺等重。
+    cta:"造訪小艸", href:"https://www.tinycha.com.tw", target:"_blank", img:"https://www.tinycha.com.tw/upload/adv/2111120929530000001.jpg", teas:["台茶 18 號 · 紅玉","台茶 8 號 · 阿薩姆","台茶 21 號 · 紅韻"] },
 ];
 
 class Component extends DCLogic {
@@ -1062,7 +1180,10 @@ class Component extends DCLogic {
     const ROOMS = mergeById(MAIN_ROOMS, cms.rooms);
     const FACS = mergeById(FACILITIES, cms.facilities);
     const PROMOS = (Array.isArray(cms.promotions) && cms.promotions.length) ? cms.promotions : PROMOTIONS;
-    const NEWS_LIST = (Array.isArray(cms.news) && cms.news.length) ? cms.news : NEWS;
+    // 消息：CMS 整個陣列取代，但以 id 從程式預設回填縮圖 thumb（content.json 尚無 thumb 欄位時仍有圖）。
+    const NEWS_LIST = (Array.isArray(cms.news) && cms.news.length)
+      ? cms.news.map(n => { const d = NEWS.find(x => x.id === n.id); return (d && d.thumb && !n.thumb) ? Object.assign({}, n, { thumb: d.thumb }) : n; })
+      : NEWS;
     const heroTitle1 = cmsHome.heroTitle1 || "光 與 水";
     const heroTitle2 = cmsHome.heroTitle2 || "之　間";
     const heroIntro = cmsHome.heroIntro || "住進日月潭的光與水之間。湖畔的精品時光——從正湖景到步行可達伊達邵碼頭，先選一片風景，再選你的房。";
@@ -1073,6 +1194,12 @@ class Component extends DCLogic {
     const contactEmail = cmsContact.email || "service@thecrystal.com.tw";
     const contactAddrMain = cmsContact.addressMain || "南投縣魚池鄉日月村水沙連街 3 號";
     const contactAddrAnnex = cmsContact.addressAnnex || "文化街 110 號";
+    // 衍生可點連結（修 footer/contact 的 mailto 模板洞；電話、地址也改成可點）
+    const telHref = (raw) => "tel:" + (() => { const d = String(raw).replace(/[^\d]/g, ""); return d.startsWith("0") ? "+886" + d.slice(1) : d; })();
+    const mapHref = (q) => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+    const contactMailHref = "mailto:" + contactEmail;
+    const contactTelHref = telHref(contactPhone);
+    const contactMapHref = mapHref(contactAddrMain);
     const overHero = false; // editorial: always a solid, legible header bar
     const heroCols = this.state.isMobile ? "1fr" : "0.86fr 1.14fr";
     const heroImgOrder = this.state.isMobile ? 1 : 2;
@@ -1113,16 +1240,48 @@ class Component extends DCLogic {
     });
     const plainImg = (src, alt) => React.createElement("img", { src, alt, loading:"lazy", style: photoStyle });
 
-    const fmtPrice = (p) => p == null ? null : "NT$" + p.toLocaleString();
-    const decorate = (r) => ({
-      ...r,
-      heroUrl: r.image || r.gallery[0],
-      heroEl: zoomImg(r.image || r.gallery[0], r.name),
-      metaLine: r.size + " · " + r.bed,
-      priceLabel: "每晚 ",
-      priceValue: fmtPrice(r.price),
-      open: () => this.go("room", r.id),
-    });
+    const fmtPrice = (p) => p == null ? null : "NT$" + Number(p).toLocaleString("en-US");
+
+    // ---- 批次 3 · 房型賣點列：景觀等級徽章 + 稀缺 + 關鍵配備（從既有 view/size/feats 衍生，不新增資料欄位） ----
+    // 由 r.view（「全湖景 · Full Lake View」等）判定景觀等級；湖景房（全/正湖景）加稀缺標示。
+    const viewTierOf = (view) => {
+      const v = String(view || "");
+      if (v.indexOf("全湖景") >= 0) return { tier:"lake-full", label:"全湖景", lakefront:true };
+      if (v.indexOf("正湖景") >= 0) return { tier:"lake", label:"正湖景", lakefront:true };
+      if (v.indexOf("街景") >= 0) return { tier:"town", label:"街景", lakefront:false };
+      return { tier:"garden", label:"庭園景", lakefront:false };
+    };
+    // 湖景房稀缺間數【待業主校正真實間數】：全湖景最稀有，正湖景次之。
+    const SCARCITY_COUNT = { lake: 4, moon: 6 };
+    // 從 feats 挑 1–2 個「最有感」的關鍵配備當賣點 icon（依優先序）。
+    const KEY_FEAT_ORDER = ["按摩浴缸","Dyson","免治馬桶","保險箱","Mini Bar","液晶電視"];
+    const pickSellFeats = (feats) => {
+      const fs = Array.isArray(feats) ? feats : [];
+      const out = [];
+      KEY_FEAT_ORDER.forEach(k => { if (out.length < 2) { const hit = fs.find(f => f.indexOf(k) >= 0); if (hit) out.push(hit); } });
+      return out;
+    };
+    const decorate = (r) => {
+      const vt = viewTierOf(r.view);
+      const sellFeats = pickSellFeats(r.feats);
+      const scarce = vt.lakefront ? (SCARCITY_COUNT[r.id] || 5) : null;
+      return {
+        ...r,
+        heroUrl: r.image || r.gallery[0],
+        heroEl: zoomImg(r.image || r.gallery[0], r.name),
+        metaLine: r.size + " · " + r.bed,
+        priceLabel: "每晚 ",
+        priceValue: fmtPrice(r.price),
+        priceIncludes: PRICE_INCLUDES,            // 任務 3：含早・免服務費
+        cancelPolicy: CANCEL_POLICY,              // 任務 2：彈性取消
+        // 任務 8：一眼賣點列
+        viewTier: vt.tier, viewLabel: vt.label, isLakefront: vt.lakefront,
+        viewBadgeColor: vt.tier === "lake-full" ? "var(--c-accent)" : (vt.tier === "lake" ? "var(--c-accent)" : "var(--c-text-subtle)"),
+        sellFeats, hasSellFeats: sellFeats.length > 0,
+        scarcity: scarce ? ("湖畔第一排・僅 " + scarce + " 間") : null, hasScarcity: !!scarce,
+        open: () => this.go("room", r.id),
+      };
+    };
     const mainRooms = ROOMS.map((r,i) => ({
       ...decorate(r),
       num: String(i + 1).padStart(2, "0"),
@@ -1130,13 +1289,19 @@ class Component extends DCLogic {
     }));
     const featuredRoom = mainRooms[0];
     const restRooms = mainRooms.slice(1);
-    const annexRooms = ANNEX_ROOMS.map(r => ({ ...r, open: () => this.go("contact") }));
+    const annexRooms = ANNEX_ROOMS.map(r => ({ ...r, mediaEl: r.img ? zoomImg(r.img, r.name) : null, cancelPolicy: CANCEL_POLICY, open: () => this.go("contact") }));
 
     const current = ROOMS.find(r => r.id === this.state.roomId);
+    const curVt = current ? viewTierOf(current.view) : null;
+    const curScarce = current && curVt && curVt.lakefront ? (SCARCITY_COUNT[current.id] || 5) : null;
     const currentRoom = current ? {
       ...current,
       metaLine: current.size + " · " + current.bed,
       priceValue: fmtPrice(current.price),
+      priceIncludes: PRICE_INCLUDES,
+      cancelPolicy: CANCEL_POLICY,
+      viewLabel: curVt.label, viewTier: curVt.tier, isLakefront: curVt.lakefront,
+      scarcity: curScarce ? ("湖畔第一排・僅 " + curScarce + " 間") : null, hasScarcity: !!curScarce,
       galleryImages: current.gallery.map((g,i) => ({ src: g, label: current.name + " " + (i+1) })),
     } : null;
 
@@ -1176,6 +1341,10 @@ class Component extends DCLogic {
       imgOrder: i % 2 === 0 ? 0 : 2,
       textOrder: 1,
     }));
+    // 周邊景點：每景配一張代表照（thecrystal.com.tw 永久網址），元素渲染避免字面字串。
+    const sights = SIGHTS.map(s => ({ ...s, mediaEl: s.img ? zoomImg(s.img, s.name) : null }));
+    // 最新消息：每則配縮圖（用 zoomImg 元素渲染，與房型/設施/景點一致）。
+    const newsList = NEWS_LIST.map(n => ({ ...n, thumbEl: n.thumb ? zoomImg(n.thumb, n.title) : null }));
     const otherPromos = PROMOS.filter(p => !p.featured);
     const featuredPromo = PROMOS.find(p => p.featured) || PROMOS[0] || {};
     const bookingRooms = ROOMS.map(r => ({
@@ -1197,18 +1366,165 @@ class Component extends DCLogic {
       goPromotions:()=>this.go("promotions"), goSightseeing:()=>this.go("sightseeing"),
       goTransport:()=>this.go("transportation"), goContact:()=>this.go("contact"),
       goAbout:()=>this.go("about"), goNews:()=>this.go("news"),
-      openBooking: () => window.open(BOOKING_URL,"_blank"),
+      openBooking: () => {
+        // 統一訂房入口：把首頁 hero 搜尋列（入住/退房/人數）的值，帶進 Windsurfer CRS 訂房網址。
+        // 保留既有 propertyID 與 UTM；欄位不存在或為空時就略過該參數。
+        let url = BOOKING_URL;
+        try {
+          if (typeof document !== "undefined") {
+            const u = new URL(BOOKING_URL);
+            const ci = document.getElementById("crystal-checkin");
+            const co = document.getElementById("crystal-checkout");
+            const gs = document.getElementById("crystal-guests");
+            if (ci && ci.value) u.searchParams.set("checkin", ci.value);   // YYYY-MM-DD
+            if (co && co.value) u.searchParams.set("checkout", co.value);  // YYYY-MM-DD
+            if (gs && gs.value) u.searchParams.set("adults", gs.value);    // 人數
+            url = u.toString();
+          }
+        } catch (e) { url = BOOKING_URL; }
+        window.open(url, "_blank");
+      },
       bookingUrl: BOOKING_URL,
       brands, mainRooms, featuredRoom, restRooms, annexRooms, currentRoom,
       facilities, homeFacilities,
-      promotions: PROMOS, otherPromos, news: NEWS_LIST, homeNews: NEWS_LIST.slice(0,4), sights: SIGHTS, transport: TRANSPORT, advantages: ADVANTAGES,
+      promotions: PROMOS, otherPromos, news: newsList, homeNews: newsList.slice(0,4), sights, transport: TRANSPORT, advantages: ADVANTAGES,
       featuredTag: featuredPromo.tag || "限時特惠 · Limited", featuredName: featuredPromo.name || "晶澤平日住二折一", featuredDetail: featuredPromo.detail || featuredPromo.desc || "",
       heroTitle1, heroTitle2, heroIntro, heroImage, heroImgEl,
       contactPhone, contactFax, contactEmail, contactAddrMain, contactAddrAnnex,
-      bookingRooms, onBookingSubmit: (b) => { try { console.log("booking submitted", b); } catch(e){} },
+      contactMailHref, contactTelHref, contactMapHref,
+      // ---- 批次 3 · 轉換信任 ----
+      lineUrl: LINE_URL,                                    // 任務 4：LINE 官方帳號
+      lineFabBottom: this.state.isMobile ? "84px" : "26px", // 行動版上移避開 sticky 訂房 bar
+      googleRating: GOOGLE_RATING, googleReviews: GOOGLE_REVIEWS, googleReviewUrl: GOOGLE_REVIEW_URL,  // 任務 1：Google 評分
+      googleStars: "★★★★", googleStarHalf: "★",            // 評分星（4.1≈4 顆半），純視覺
+      cancelPolicy: CANCEL_POLICY, priceIncludes: PRICE_INCLUDES,  // 任務 2/3：取消政策・含早副標（首頁/全站共用）
+      bookingRooms,
+      onBookingSubmit: (b) => {
+        // 任務 5：聯絡頁空房詢問 —— 先以 mailto 寄到櫃台信箱；【待接後端 API 後改為直接送出表單】。
+        try {
+          const f = b || {};
+          const lines = [
+            "【官網空房詢問】",
+            "入住日期：" + (f.checkin || f.checkIn || ""),
+            "退房日期：" + (f.checkout || f.checkOut || ""),
+            "房型：" + (f.room || f.roomName || ""),
+            "人數：" + (f.guests || f.adults || ""),
+            "姓名：" + (f.name || ""),
+            "電話：" + (f.phone || f.tel || ""),
+            "Email：" + (f.email || ""),
+            "需求：" + (f.message || f.note || f.remark || ""),
+          ];
+          const subject = encodeURIComponent("官網空房詢問 — " + (f.name || "訪客"));
+          const body = encodeURIComponent(lines.join("\n"));
+          if (typeof window !== "undefined") window.location.href = "mailto:" + contactEmail + "?subject=" + subject + "&body=" + body;
+        } catch (e) { try { console.log("booking submitted", b); } catch(_){} }
+      },
     };
   }
 }
 </script>
+<!-- ============ 預渲染正文 fallback（給不跑 JS 的 AI 爬蟲：GPTBot/PerplexityBot/ClaudeBot）============ -->
+<noscript>
+<div id="crystal-seo-fallback" style="max-width:60em;margin:0 auto;padding:2em;font-family:sans-serif;line-height:1.7">
+<section><h2>日月潭晶澤 The Crystal</h2>
+<p>日月潭伊達邵碼頭湖畔的精品度假會館，位於南投縣魚池鄉日月村水沙連街3號，步行約3分鐘可達伊達邵碼頭。訂房專線 049-7008188，電子郵件 service@thecrystal.com.tw。入住 15:00、退房 11:00。官網直訂享最優惠房價、不收訂房服務費。Google 評價約 4.1 顆星（797 則）。</p></section>
+<section><h2>主館客房</h2><ul>
+<li>御水房（全湖景 · Full Lake View）｜22 坪｜1 大床 / 2 小床｜每晚 NT$13,200｜供應中｜設備：全湖景觀、可加人 +NT$1,500、按摩浴缸、Dyson 吹風機、43 吋液晶電視、免費光纖上網</li>
+<li>讚月房（正湖景 · Lake View）｜12 坪｜1 大床 / 2 小床｜每晚 NT$11,200｜供應中｜設備：正面湖景、按摩浴缸、43 吋液晶電視、TOTO 免治馬桶、Mini Bar 茶飲、免費光纖上網</li>
+<li>頌日房（街景 · Town View）｜15 坪｜2 中床｜每晚 NT$9,800｜名額有限｜設備：寬敞 15 坪、可加人 +NT$1,500、保險箱、43 吋液晶電視、Mini Bar 冰箱、免費光纖上網</li>
+<li>迎曦房（無湖景 · Garden View）｜10 坪｜1 大床 / 2 小床｜每晚 NT$8,800｜供應中｜設備：精巧 10 坪、限住兩位、按摩浴缸、43 吋液晶電視、Mini Bar 茶飲、免費光纖上網</li>
+</ul></section>
+<section><h2>分館客房</h2><ul>
+<li>晶緻二人房（分館 · 文化街）｜適合 2 人 · 1 大床｜供應中｜分館精巧雙人房，鄰近伊達邵商圈，實用而溫馨。（房價請洽櫃台）</li>
+<li>和澤四人房（分館 · 寬敞實用）｜適合 4 人 · 2 床｜供應中｜寬敞四人房，家庭與三五好友出遊的好選擇。（房價請洽櫃台）</li>
+<li>耀亮四人房（分館 · 明亮舒適）｜適合 4 人 · 2 床｜名額有限｜明亮舒適的四人房，空間方正好運用。（房價請洽櫃台）</li>
+</ul></section>
+<section><h2>設施與服務</h2><ul>
+<li>亞覓餐酒館：伊達邵碼頭湖畔第一排，龍眼木柴燒、21 天乾式熟成的湖景餐酒。</li>
+<li>星空屋：星空為頂、湖景為伴，270 度環湖視野的私密用餐空間。</li>
+<li>月光酒吧：副館 1F 的放鬆酒吧，每日 12:00–23:00，入夜後與湖光一起慢下來。</li>
+<li>多功能會議室：主館 2F 可容 16–20 位的多功能空間，需提前預約。</li>
+<li>健身房：房客專屬健身空間，配置基本有氧與重訓器材。</li>
+<li>禮賓服務：行程安排、在地推薦與接送協助，讓住宿之外的時間也被照顧。</li>
+</ul></section>
+<section><h2>推薦優惠</h2><ul>
+<li>晶澤平日住二折一：主館平日（週日至週四）連續入住兩晚，第二晚享半價。優惠不得與其他專案併用。（有效期間 2026-04-01 ~ 2026-06-30）</li>
+<li>水陸空套票方案：遊湖船票、環潭單車與日月潭纜車三合一，用三種視角認識同一座湖。（全年供應 · 數量有限）</li>
+<li>九族文化村套票：九族文化村門票搭配日月潭纜車單程票，從纜車一路玩進文化村。（適合親子與家庭）</li>
+</ul></section>
+<section><h2>最新消息</h2><ul>
+<li>2026.06.13｜夏日限定優惠：夏季限定的湖畔住宿優惠正式登場，把握日月潭最舒爽的季節入住晶澤。完整方案內容、適用房型與日期請見官網最新消息，或來電 049-7008188 洽詢。</li>
+<li>2026.05.16｜晶澤主館停車資訊：為協助自行開車的旅人安排行程，晶澤主館停車與周邊收費停車場資訊已更新，詳細位置與收費方式請洽櫃台或來電 049-7008188。</li>
+<li>2026.05.06｜晶澤平日住二折一專案（主館）：主館平日（週日至週五）連續入住兩晚，第二晚享半價優惠。適合能彈性安排假期、想悠閒看湖的旅人；優惠不得與其他專案併用，詳情請見官網或來電洽詢。</li>
+<li>2025.08.09｜晶澤九族專案：住宿搭配九族文化村門票與日月潭纜車單程票，從纜車一路玩進文化村，是家族出遊省心又盡興的組合。</li>
+<li>2025.08.09｜晶澤水陸空專案：一次集滿日月潭的水、陸、空：遊湖船票、環潭單車與日月潭纜車三合一，用三種視角認識同一座湖。</li>
+</ul></section>
+<section><h2>周邊景點</h2><ul>
+<li>伊達邵碼頭（步行 3 分鐘）：碼頭商圈與遊湖船班的起點，邵族風味小吃林立。</li>
+<li>日月潭纜車（車程 10 分鐘）：連接九族文化村，從空中俯瞰整面湖光山色。</li>
+<li>向山遊客中心（車程 15 分鐘）：清水模建築與環湖步道起點，攝影人最愛的取景地。</li>
+<li>文武廟（車程 12 分鐘）：北側山丘上的宏偉廟宇，居高臨下盡覽湖景。</li>
+<li>慈恩塔（車程 8 分鐘）：全潭最高點，登塔遠眺日月潭與群山。</li>
+<li>九族文化村（纜車直達）：原住民文化園區與遊樂設施，適合親子同遊。</li>
+<li>環潭自行車道（碼頭可租車）：曾獲選全球最美自行車道之一，沿湖騎行最愜意。</li>
+<li>拉魯島（遊湖必經）：邵族的聖地，靜靜浮在湖心，遊湖船班沿途經過。</li>
+</ul></section>
+<section><h2>晶澤家族</h2><ul>
+<li>日月潭晶澤 The Crystal（住宿）：伊達邵碼頭湖畔精品會館。</li>
+<li>亞覓餐酒館 Yummy Restaurant（餐飲）：龍眼木柴燒、21 天乾式熟成，https://yummyrestaurant.tw/ 。</li>
+<li>小艸茶堂 Tinycha（茶品）：台茶 18 號紅玉與 8 號阿薩姆，https://www.tinycha.com.tw 。</li>
+</ul></section>
+</div>
+</noscript>
+<div id="crystal-seo-text" hidden aria-hidden="true">
+<section><h2>日月潭晶澤 The Crystal</h2>
+<p>日月潭伊達邵碼頭湖畔的精品度假會館，位於南投縣魚池鄉日月村水沙連街3號，步行約3分鐘可達伊達邵碼頭。訂房專線 049-7008188，電子郵件 service@thecrystal.com.tw。入住 15:00、退房 11:00。官網直訂享最優惠房價、不收訂房服務費。Google 評價約 4.1 顆星（797 則）。</p></section>
+<section><h2>主館客房</h2><ul>
+<li>御水房（全湖景 · Full Lake View）｜22 坪｜1 大床 / 2 小床｜每晚 NT$13,200｜供應中｜設備：全湖景觀、可加人 +NT$1,500、按摩浴缸、Dyson 吹風機、43 吋液晶電視、免費光纖上網</li>
+<li>讚月房（正湖景 · Lake View）｜12 坪｜1 大床 / 2 小床｜每晚 NT$11,200｜供應中｜設備：正面湖景、按摩浴缸、43 吋液晶電視、TOTO 免治馬桶、Mini Bar 茶飲、免費光纖上網</li>
+<li>頌日房（街景 · Town View）｜15 坪｜2 中床｜每晚 NT$9,800｜名額有限｜設備：寬敞 15 坪、可加人 +NT$1,500、保險箱、43 吋液晶電視、Mini Bar 冰箱、免費光纖上網</li>
+<li>迎曦房（無湖景 · Garden View）｜10 坪｜1 大床 / 2 小床｜每晚 NT$8,800｜供應中｜設備：精巧 10 坪、限住兩位、按摩浴缸、43 吋液晶電視、Mini Bar 茶飲、免費光纖上網</li>
+</ul></section>
+<section><h2>分館客房</h2><ul>
+<li>晶緻二人房（分館 · 文化街）｜適合 2 人 · 1 大床｜供應中｜分館精巧雙人房，鄰近伊達邵商圈，實用而溫馨。（房價請洽櫃台）</li>
+<li>和澤四人房（分館 · 寬敞實用）｜適合 4 人 · 2 床｜供應中｜寬敞四人房，家庭與三五好友出遊的好選擇。（房價請洽櫃台）</li>
+<li>耀亮四人房（分館 · 明亮舒適）｜適合 4 人 · 2 床｜名額有限｜明亮舒適的四人房，空間方正好運用。（房價請洽櫃台）</li>
+</ul></section>
+<section><h2>設施與服務</h2><ul>
+<li>亞覓餐酒館：伊達邵碼頭湖畔第一排，龍眼木柴燒、21 天乾式熟成的湖景餐酒。</li>
+<li>星空屋：星空為頂、湖景為伴，270 度環湖視野的私密用餐空間。</li>
+<li>月光酒吧：副館 1F 的放鬆酒吧，每日 12:00–23:00，入夜後與湖光一起慢下來。</li>
+<li>多功能會議室：主館 2F 可容 16–20 位的多功能空間，需提前預約。</li>
+<li>健身房：房客專屬健身空間，配置基本有氧與重訓器材。</li>
+<li>禮賓服務：行程安排、在地推薦與接送協助，讓住宿之外的時間也被照顧。</li>
+</ul></section>
+<section><h2>推薦優惠</h2><ul>
+<li>晶澤平日住二折一：主館平日（週日至週四）連續入住兩晚，第二晚享半價。優惠不得與其他專案併用。（有效期間 2026-04-01 ~ 2026-06-30）</li>
+<li>水陸空套票方案：遊湖船票、環潭單車與日月潭纜車三合一，用三種視角認識同一座湖。（全年供應 · 數量有限）</li>
+<li>九族文化村套票：九族文化村門票搭配日月潭纜車單程票，從纜車一路玩進文化村。（適合親子與家庭）</li>
+</ul></section>
+<section><h2>最新消息</h2><ul>
+<li>2026.06.13｜夏日限定優惠：夏季限定的湖畔住宿優惠正式登場，把握日月潭最舒爽的季節入住晶澤。完整方案內容、適用房型與日期請見官網最新消息，或來電 049-7008188 洽詢。</li>
+<li>2026.05.16｜晶澤主館停車資訊：為協助自行開車的旅人安排行程，晶澤主館停車與周邊收費停車場資訊已更新，詳細位置與收費方式請洽櫃台或來電 049-7008188。</li>
+<li>2026.05.06｜晶澤平日住二折一專案（主館）：主館平日（週日至週五）連續入住兩晚，第二晚享半價優惠。適合能彈性安排假期、想悠閒看湖的旅人；優惠不得與其他專案併用，詳情請見官網或來電洽詢。</li>
+<li>2025.08.09｜晶澤九族專案：住宿搭配九族文化村門票與日月潭纜車單程票，從纜車一路玩進文化村，是家族出遊省心又盡興的組合。</li>
+<li>2025.08.09｜晶澤水陸空專案：一次集滿日月潭的水、陸、空：遊湖船票、環潭單車與日月潭纜車三合一，用三種視角認識同一座湖。</li>
+</ul></section>
+<section><h2>周邊景點</h2><ul>
+<li>伊達邵碼頭（步行 3 分鐘）：碼頭商圈與遊湖船班的起點，邵族風味小吃林立。</li>
+<li>日月潭纜車（車程 10 分鐘）：連接九族文化村，從空中俯瞰整面湖光山色。</li>
+<li>向山遊客中心（車程 15 分鐘）：清水模建築與環湖步道起點，攝影人最愛的取景地。</li>
+<li>文武廟（車程 12 分鐘）：北側山丘上的宏偉廟宇，居高臨下盡覽湖景。</li>
+<li>慈恩塔（車程 8 分鐘）：全潭最高點，登塔遠眺日月潭與群山。</li>
+<li>九族文化村（纜車直達）：原住民文化園區與遊樂設施，適合親子同遊。</li>
+<li>環潭自行車道（碼頭可租車）：曾獲選全球最美自行車道之一，沿湖騎行最愜意。</li>
+<li>拉魯島（遊湖必經）：邵族的聖地，靜靜浮在湖心，遊湖船班沿途經過。</li>
+</ul></section>
+<section><h2>晶澤家族</h2><ul>
+<li>日月潭晶澤 The Crystal（住宿）：伊達邵碼頭湖畔精品會館。</li>
+<li>亞覓餐酒館 Yummy Restaurant（餐飲）：龍眼木柴燒、21 天乾式熟成，https://yummyrestaurant.tw/ 。</li>
+<li>小艸茶堂 Tinycha（茶品）：台茶 18 號紅玉與 8 號阿薩姆，https://www.tinycha.com.tw 。</li>
+</ul></section>
+</div>
 </body>
 </html>

@@ -19,8 +19,8 @@
 
   /* 深湖墨 — deep lake ink, blue-green-black */
   --c-text:        #1B2A2C;
-  --c-text-muted:  #4E605D;
-  --c-text-subtle: #84938E;
+  --c-text-muted:  #3F4F4C;     /* 加深，對 #F5F8F7 約 8.3:1（WCAG AA） */
+  --c-text-subtle: #5E6E69;     /* 加深，對 #F5F8F7 約 4.55:1（WCAG AA） */
 
   /* primary — 深松墨 deep pine ink (buttons read near-black) */
   --c-primary:       #1F2E2E;
@@ -31,15 +31,17 @@
   --c-secondary:    #5A6F6A;
   --c-on-secondary: #F5F8F7;
 
-  /* accent — 微光金銅 lamplight brass (warm; sparing) */
-  --c-accent:       #9A7638;
-  --c-accent-hover: #7E5F2C;
-  --c-on-accent:    #F8F5EE;
+  /* accent — 微光金銅 lamplight brass (warm; sparing)
+     批次5: 將文字用金銅加深以達 WCAG AA 4.5:1；裝飾用大字保留原色 */
+  --c-accent:         #6B5021;   /* 文字用金銅（對 #F5F8F7 約 5.4:1 AA） */
+  --c-accent-hover:   #4F3A14;   /* hover 更深（約 8.1:1 AAA） */
+  --c-accent-display: #9A7638;   /* 裝飾大字／徽章用，仍可用原微光金銅 */
+  --c-on-accent:      #F8F5EE;
 
-  /* lines & focus — cool, soft */
+  /* lines & focus — cool, soft；focus ring 用較深金銅加強可辨識 */
   --c-border:        #CDD7D4;
   --c-border-strong: #B1BDB8;
-  --c-ring:          #9A7638;
+  --c-ring:          #6B5021;
 
   /* status — cohesive cool greens + brass warning + lake-stone danger */
   --c-success:    #4F6B57;  --c-success-bg: #DDE7DD;
@@ -64,3 +66,92 @@
   --photo-filter: saturate(0.96) contrast(1.03) brightness(1.01); /* @kind other */
   --photo-bg: #C3CFCB;
 }
+
+/* ============================================================
+   批次 5 ｜行動版 RWD + 無障礙 a11y 補強
+   ------------------------------------------------------------
+   - footer 行動版三欄改單欄、防折行
+   - 觸控目標 ≥44×44px（WCAG 2.5.5）
+   - 鍵盤焦點框加深加粗（WCAG 2.4.7）
+   - 行動版 section 垂直節奏縮短（砍巨量空白）
+   ============================================================ */
+
+/* —— 1. 鍵盤焦點：所有互動元素以較深金銅 + 2px 實線 + 2px offset，
+        在湖光白底達 5:1+ 對比 —— */
+[data-theme="crystal"] a:focus-visible,
+[data-theme="crystal"] button:focus-visible,
+[data-theme="crystal"] [role="button"]:focus-visible,
+[data-theme="crystal"] input:focus-visible,
+[data-theme="crystal"] select:focus-visible,
+[data-theme="crystal"] textarea:focus-visible {
+  outline: 2px solid var(--c-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+/* —— 2. 觸控目標：行動版 + 觸控環境下 主要互動 ≥44×44px —— */
+@media (max-width: 768px), (pointer: coarse) {
+  /* 主要按鈕：CTA / 提交 / 分頁 / 漢堡 — 強制 ≥44 */
+  [data-theme="crystal"] button,
+  [data-theme="crystal"] [role="button"],
+  [data-theme="crystal"] input[type="button"],
+  [data-theme="crystal"] input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  /* 內文 a 不強制（避免 footer 視覺被撐散），但可點區用 padding 擴大 */
+  [data-theme="crystal"] header a[href],
+  [data-theme="crystal"] nav a[href] {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* —— 3. 行動版（&lt;768px）通用調整 —— */
+@media (max-width: 768px) {
+
+  /* 3a. footer 三欄 → 單欄（覆寫 inline grid-template-columns） */
+  [data-theme="crystal"] footer > div[style*="grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* footer 第一欄（品牌簡介）跨欄解除（已是單欄不需 1/-1） */
+  [data-theme="crystal"] footer > div[style*="grid"] > div[style*="grid-column"] {
+    grid-column: auto !important;
+  }
+
+  /* 連結不折行（電話、地址、選單連結） */
+  [data-theme="crystal"] footer a,
+  [data-theme="crystal"] footer li,
+  [data-theme="crystal"] footer span[style*="white-space"] {
+    white-space: nowrap;
+  }
+  /* 地址段落允許正常換行 */
+  [data-theme="crystal"] footer p {
+    white-space: normal;
+  }
+
+  /* 3b. section 垂直間距縮短，砍巨量空白
+        覆寫常見 clamp(64px, 8vw, 100px+) 的上下 padding */
+  [data-theme="crystal"] main section,
+  [data-theme="crystal"] main > div > section {
+    padding-top: clamp(40px, 7vw, 64px) !important;
+    padding-bottom: clamp(40px, 7vw, 64px) !important;
+  }
+}
+
+/* —— 4. 對比加強：半透明白字最低不透明度 0.72（從 0.45/0.55 提升） —— */
+[data-theme="crystal"] [style*="rgba(245,248,247,0.45)"] {
+  color: rgba(245, 248, 247, 0.78) !important;
+}
+[data-theme="crystal"] [style*="rgba(245,248,247,0.55)"] {
+  color: rgba(245, 248, 247, 0.82) !important;
+}
+[data-theme="crystal"] [style*="rgba(245,248,247,0.66)"] {
+  color: rgba(245, 248, 247, 0.88) !important;
+}
+
